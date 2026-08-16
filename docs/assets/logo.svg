@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Gestor de Jornadas</title>
+  <desc id="descricao">Relógio com um símbolo de confirmação</desc>
+  <rect width="512" height="512" rx="104" fill="#17608a"/>
+  <circle cx="246" cy="244" r="126" fill="none" stroke="#fff" stroke-width="30"/>
+  <path d="M246 164v91l70 43" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="square" stroke-linejoin="round"/>
+  <circle cx="378" cy="374" r="76" fill="#2ca56c" stroke="#fff" stroke-width="16"/>
+  <path d="m337 375 29 29 54-66" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>
