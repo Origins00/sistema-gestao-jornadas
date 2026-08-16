@@ -1,0 +1,471 @@
+/*
+ * Componentes reutilizáveis do Gestor de Jornadas.
+ */
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.formulario {
+
+    display: grid;
+    gap: 21px;
+
+}
+
+
+.campo-formulario {
+
+    display: grid;
+    gap: 9px;
+
+}
+
+
+.campo-formulario label {
+
+    color: var(--cor-texto);
+
+    font-size: 0.82rem;
+    font-weight: 750;
+
+}
+
+
+.campo-com-icone {
+
+    position: relative;
+
+}
+
+
+.campo-com-icone__icone {
+
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+
+    width: 31px;
+    height: 31px;
+
+    border-radius: 9px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.63rem;
+    font-weight: 850;
+
+    background: var(--cor-creme-200);
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+
+}
+
+
+.campo-formulario input {
+
+    width: 100%;
+    min-height: 57px;
+
+    padding:
+        0
+        16px
+        0
+        57px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.19);
+
+    border-radius: 12px;
+
+    color: var(--cor-texto);
+
+    outline: none;
+
+    background:
+        rgba(255, 253, 248, 0.78);
+
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background-color 180ms ease,
+        transform 180ms ease;
+
+}
+
+
+.campo-formulario input::placeholder {
+
+    color: #a19991;
+
+}
+
+
+.campo-formulario input:hover {
+
+    border-color:
+        rgba(107, 68, 35, 0.3);
+
+}
+
+
+.campo-formulario input:focus {
+
+    border-color: var(--cor-azul-600);
+
+    background: var(--cor-branco);
+
+    box-shadow:
+        0 0 0 4px rgba(128, 84, 46, 0.1);
+
+}
+
+
+.campo-formulario input.input-invalido {
+
+    border-color: var(--cor-erro);
+
+    box-shadow:
+        0 0 0 4px rgba(180, 35, 24, 0.09);
+
+}
+
+
+.texto-ajuda {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.7rem;
+    line-height: 1.4;
+
+}
+
+
+/* =========================================================
+   SENHA
+   ========================================================= */
+
+.campo-senha {
+
+    position: relative;
+
+}
+
+
+.campo-senha input {
+
+    padding-right: 91px;
+
+}
+
+
+.botao-mostrar-senha {
+
+    position: absolute;
+    top: 50%;
+    right: 10px;
+
+    padding: 8px 9px;
+
+    border-radius: 8px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.69rem;
+    font-weight: 800;
+
+    background: transparent;
+
+    transform: translateY(-50%);
+
+}
+
+
+.botao-mostrar-senha:hover {
+
+    background: var(--cor-creme-200);
+
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.botao {
+
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 57px;
+    padding: 0 22px;
+
+    border-radius: 12px;
+
+    font-weight: 800;
+
+    transition:
+        transform 160ms ease,
+        box-shadow 160ms ease,
+        opacity 160ms ease,
+        filter 160ms ease;
+
+}
+
+
+.botao:hover:not(:disabled) {
+
+    transform: translateY(-2px);
+
+}
+
+
+.botao:active:not(:disabled) {
+
+    transform: translateY(0);
+
+}
+
+
+.botao:disabled {
+
+    cursor: not-allowed;
+    opacity: 0.68;
+
+}
+
+
+.botao-principal {
+
+    color: var(--cor-branco);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cor-azul-800),
+            var(--cor-azul-600)
+        );
+
+    box-shadow:
+        0 14px 30px rgba(107, 68, 35, 0.24);
+
+}
+
+
+.botao-principal:hover:not(:disabled) {
+
+    filter: brightness(1.06);
+
+    box-shadow:
+        0 17px 35px rgba(107, 68, 35, 0.28);
+
+}
+
+
+.botao-secundario {
+
+    color: var(--cor-azul-700);
+
+    background: var(--cor-creme-200);
+
+}
+
+
+/* =========================================================
+   CARREGAMENTO
+   ========================================================= */
+
+.botao__carregamento {
+
+    display: none;
+
+    width: 18px;
+    height: 18px;
+
+    border:
+        2px solid rgba(255, 255, 255, 0.4);
+
+    border-top-color: var(--cor-branco);
+    border-radius: 50%;
+
+    animation:
+        girar-carregamento
+        700ms
+        linear
+        infinite;
+
+}
+
+
+.botao.carregando .botao__carregamento {
+
+    display: block;
+
+}
+
+
+.botao.carregando .botao__texto {
+
+    opacity: 0.78;
+
+}
+
+
+@keyframes girar-carregamento {
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   MENSAGENS
+   ========================================================= */
+
+.mensagem-formulario {
+
+    display: none;
+
+    padding: 13px 14px;
+
+    border-radius: 11px;
+
+    font-size: 0.8rem;
+    line-height: 1.45;
+
+}
+
+
+.mensagem-formulario.visivel {
+
+    display: block;
+
+}
+
+
+.mensagem-formulario.erro {
+
+    border:
+        1px solid rgba(180, 35, 24, 0.17);
+
+    color: var(--cor-erro);
+
+    background: var(--cor-erro-fundo);
+
+}
+
+
+.mensagem-formulario.sucesso {
+
+    border:
+        1px solid rgba(37, 112, 68, 0.17);
+
+    color: var(--cor-sucesso);
+
+    background: var(--cor-sucesso-fundo);
+
+}
+
+/* =========================================================
+   ÍCONES SVG OFFLINE
+   ========================================================= */
+
+/*
+ * Classe usada em todos os ícones locais do sistema.
+ *
+ * A cor vem automaticamente do elemento pai por meio
+ * de currentColor.
+ */
+.icone-sistema {
+
+    display: block;
+
+    flex: 0 0 auto;
+
+    width: 1em;
+    height: 1em;
+
+    overflow: visible;
+
+    color: inherit;
+
+    fill: currentColor;
+
+    pointer-events: none;
+
+}
+
+
+/* Ícones dos campos da tela de login */
+
+.icone-sistema--campo-login {
+
+    width: 1rem;
+    height: 1rem;
+
+}
+
+
+/* Ícones dos botões */
+
+.icone-sistema--botao {
+
+    width: 1rem;
+    height: 1rem;
+
+}
+
+
+/* Ícones do menu inferior */
+
+.icone-sistema--menu {
+
+    width: 1.08rem;
+    height: 1.08rem;
+
+}
+
+
+/* Ícones menores usados em etiquetas */
+
+.icone-sistema--etiqueta {
+
+    width: 0.78rem;
+    height: 0.78rem;
+
+}
+
+
+/* Ícones dos cartões de resumo */
+
+.icone-sistema--resumo {
+
+    width: 1.08rem;
+    height: 1.08rem;
+
+}
+
+
+/* Ícones de mensagens e estados vazios */
+
+.icone-sistema--estado {
+
+    width: 1.25rem;
+    height: 1.25rem;
+
+}

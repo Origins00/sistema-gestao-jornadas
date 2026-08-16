@@ -1,0 +1,2525 @@
+/*
+ * Tela de histórico do Gestor de Jornadas.
+ * Criada com prioridade para uso em celulares.
+ */
+
+
+/* =========================================================
+   PÁGINA
+   ========================================================= */
+
+.pagina-historico {
+
+    overflow-x: hidden;
+
+}
+
+
+.conteudo-historico {
+
+    display: grid;
+    gap: 22px;
+
+}
+
+
+.icone-sistema {
+
+    width: 1em;
+    height: 1em;
+
+    flex: 0 0 auto;
+
+    fill: currentColor;
+
+}
+
+
+/* =========================================================
+   CABEÇALHO DA PÁGINA
+   ========================================================= */
+
+.cabecalho-pagina-historico {
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+
+}
+
+
+.cabecalho-pagina-historico h1 {
+
+    font-size:
+        clamp(1.85rem, 5vw, 3rem);
+
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+
+}
+
+
+.cabecalho-pagina-historico > div > p:last-child {
+
+    max-width: 680px;
+    margin-top: 10px;
+
+    color: var(--cor-texto-secundario);
+
+    line-height: 1.55;
+
+}
+
+
+/* =========================================================
+   CABEÇALHOS DAS SEÇÕES
+   ========================================================= */
+
+.cabecalho-secao-historico {
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.cabecalho-secao-historico > div {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+}
+
+
+.icone-titulo-secao-historico {
+
+    display: inline-grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 auto;
+
+    border-radius: 13px;
+
+    color: var(--cor-azul-700);
+
+    background: var(--cor-creme-200);
+
+}
+
+
+.cabecalho-secao-historico h2 {
+
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+
+}
+
+
+.cabecalho-secao-historico p {
+
+    margin-top: 6px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.8rem;
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CALENDÁRIO
+   ========================================================= */
+
+.cartao-calendario-historico {
+
+    overflow: hidden;
+
+    padding: 0;
+
+}
+
+
+.cabecalho-calendario-historico {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+
+    padding: 24px;
+
+    border-bottom:
+        1px solid rgba(107, 68, 35, 0.1);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf4 0%,
+            #f5eadf 100%
+        );
+
+}
+
+
+.etiqueta-calendario-historico,
+.etiqueta-dia-selecionado {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 10px;
+
+    color: var(--cor-verde-600);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+}
+
+
+.cabecalho-calendario-historico h2 {
+
+    color: var(--cor-azul-800);
+
+    font-size:
+        clamp(1.35rem, 4vw, 1.85rem);
+
+    letter-spacing: -0.03em;
+
+}
+
+
+.cabecalho-calendario-historico p {
+
+    max-width: 650px;
+    margin-top: 7px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.8rem;
+    line-height: 1.5;
+
+}
+
+
+.controles-calendario-historico {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    flex: 0 0 auto;
+
+}
+
+
+.botao-controle-calendario,
+.botao-hoje-calendario {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 42px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.18);
+
+    border-radius: 12px;
+
+    color: var(--cor-azul-700);
+
+    background: var(--cor-branco);
+
+    transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background-color 160ms ease;
+
+}
+
+
+.botao-controle-calendario {
+
+    width: 42px;
+
+}
+
+
+.botao-hoje-calendario {
+
+    padding: 0 14px;
+
+    font-size: 0.76rem;
+    font-weight: 800;
+
+}
+
+
+.botao-controle-calendario:hover,
+.botao-hoje-calendario:hover {
+
+    border-color: var(--cor-azul-600);
+
+    background: var(--cor-creme-100);
+
+    transform: translateY(-1px);
+
+}
+
+
+.area-calendario-historico {
+
+    position: relative;
+
+    padding: 22px 24px 18px;
+
+}
+
+
+.dias-semana-calendario,
+.grade-dias-calendario {
+
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+
+}
+
+
+.dias-semana-calendario {
+
+    margin-bottom: 8px;
+
+}
+
+
+.dias-semana-calendario span {
+
+    padding: 6px 2px;
+
+    color: var(--cor-texto-secundario);
+
+    text-align: center;
+
+    font-size: 0.67rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+}
+
+
+.dia-calendario-vazio {
+
+    min-height: 76px;
+
+}
+
+
+.botao-dia-calendario.fora-mes {
+
+    opacity: 0.42;
+
+    color: var(--cor-texto-secundario);
+
+    background: #f8f4ed;
+
+}
+
+
+.botao-dia-calendario.fora-mes:hover {
+
+    opacity: 0.72;
+
+    border-color: rgba(107, 68, 35, 0.3);
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.botao-dia-calendario {
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 8px;
+
+    min-width: 0;
+    min-height: 76px;
+    padding: 9px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.12);
+
+    border-radius: 14px;
+
+    color: var(--cor-texto);
+
+    text-align: left;
+
+    background: var(--cor-creme-50);
+
+    transition:
+        border-color 160ms ease,
+        transform 160ms ease,
+        box-shadow 160ms ease,
+        background-color 160ms ease;
+
+}
+
+
+.botao-dia-calendario:hover {
+
+    border-color: rgba(107, 68, 35, 0.38);
+
+    background: var(--cor-branco);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(63, 41, 25, 0.08);
+
+}
+
+
+.botao-dia-calendario.hoje {
+
+    border-color: var(--cor-verde-500);
+
+    box-shadow:
+        inset 0 0 0 2px var(--cor-verde-500);
+
+}
+
+
+.botao-dia-calendario.feriado {
+
+    border-color: #c66b1c;
+
+    box-shadow:
+        inset 0 0 0 1px #c66b1c;
+
+}
+
+
+.botao-dia-calendario.hoje.feriado:not(.selecionado) {
+
+    border-color: #c66b1c;
+
+    box-shadow:
+        inset 0 0 0 1px #c66b1c,
+        0 0 0 3px rgba(58, 118, 75, 0.15);
+
+}
+
+
+.botao-dia-calendario.selecionado {
+
+    border-color: var(--cor-azul-700);
+
+    color: var(--cor-branco);
+
+    background: var(--cor-azul-700);
+
+    box-shadow:
+        0 9px 22px rgba(83, 52, 28, 0.22);
+
+}
+
+
+.botao-dia-calendario.selecionado.hoje {
+
+    border-color: var(--cor-verde-500);
+
+    box-shadow:
+        inset 0 0 0 2px var(--cor-verde-500),
+        0 9px 22px rgba(83, 52, 28, 0.22);
+
+}
+
+
+.botao-dia-calendario.selecionado.feriado {
+
+    border-color: #e08a3b;
+
+    box-shadow:
+        inset 0 0 0 2px #e08a3b,
+        0 9px 22px rgba(83, 52, 28, 0.22);
+
+}
+
+
+.botao-dia-calendario.final-semana:not(.selecionado) {
+
+    background: #faf6f1;
+
+}
+
+
+.numero-dia-calendario {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 10px;
+
+    font-size: 0.83rem;
+    font-weight: 850;
+
+}
+
+
+.botao-dia-calendario.hoje:not(.selecionado)
+.numero-dia-calendario {
+
+    color: var(--cor-verde-700);
+
+    background: var(--cor-sucesso-fundo);
+
+}
+
+
+.rotulo-hoje-calendario {
+
+    position: absolute;
+    top: 7px;
+    right: 7px;
+
+    color: var(--cor-verde-700);
+
+    font-size: 0.55rem;
+    font-weight: 850;
+
+    text-transform: uppercase;
+
+}
+
+
+.botao-dia-calendario.selecionado
+.rotulo-hoje-calendario {
+
+    color: #d8f0df;
+
+}
+
+
+.marcadores-dia-calendario {
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    min-height: 11px;
+
+}
+
+
+.marcador-dia-calendario,
+.marcador-legenda {
+
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    flex: 0 0 auto;
+
+    border-radius: 50%;
+
+}
+
+
+.marcador-dia-calendario.jornada,
+.marcador-legenda.jornada {
+
+    background: var(--cor-verde-600);
+
+}
+
+
+.marcador-dia-calendario.feriado {
+
+    display: none;
+
+}
+
+
+.marcador-legenda.feriado {
+
+    width: 11px;
+    height: 11px;
+
+    border: 2px solid #c66b1c;
+    border-radius: 4px;
+
+    background: transparent;
+
+}
+
+
+.marcador-dia-calendario.aniversario,
+.marcador-legenda.aniversario {
+
+    background: #8b5fc0;
+
+}
+
+
+.marcador-dia-calendario.alteracao,
+.marcador-legenda.alteracao {
+
+    background: #c23c3c;
+
+}
+
+
+.marcador-dia-calendario.incompleta,
+.marcador-legenda.incompleta {
+
+    background: #d89614;
+
+}
+
+
+.botao-dia-calendario.selecionado
+.marcador-dia-calendario {
+
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.7);
+
+}
+
+
+.carregamento-calendario-historico {
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border-radius: 0 0 18px 18px;
+
+    color: var(--cor-texto-secundario);
+
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(4px);
+
+}
+
+
+.legenda-calendario-historico {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px 16px;
+
+    padding: 14px 24px 18px;
+
+    border-top:
+        1px solid rgba(107, 68, 35, 0.08);
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.68rem;
+
+}
+
+
+.item-legenda-calendario {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+}
+
+
+/* =========================================================
+   DIA SELECIONADO
+   ========================================================= */
+
+.cartao-dia-selecionado {
+
+    padding: 24px;
+
+}
+
+
+.cabecalho-dia-selecionado {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.cabecalho-dia-selecionado h2 {
+
+    font-size:
+        clamp(1.2rem, 3vw, 1.55rem);
+
+    letter-spacing: -0.025em;
+
+}
+
+
+.cabecalho-dia-selecionado p {
+
+    margin-top: 6px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.8rem;
+    line-height: 1.5;
+
+}
+
+
+.botao-detalhes-dia {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    flex: 0 0 auto;
+
+}
+
+
+.estado-dia-selecionado {
+
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+
+    padding: 26px 18px;
+
+    color: var(--cor-texto-secundario);
+
+    text-align: center;
+
+}
+
+
+.conteudo-dia-selecionado {
+
+    display: grid;
+    gap: 16px;
+
+}
+
+
+.grade-resumo-dia-selecionado {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+}
+
+
+.resumo-dia-selecionado {
+
+    display: grid;
+    gap: 5px;
+
+    padding: 14px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.1);
+
+    border-radius: 13px;
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.resumo-dia-selecionado span {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.66rem;
+
+}
+
+
+.resumo-dia-selecionado strong {
+
+    font-size: 0.9rem;
+
+}
+
+
+.lista-eventos-dia-selecionado {
+
+    display: grid;
+    gap: 9px;
+
+}
+
+
+.evento-dia-selecionado {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+
+    padding: 13px;
+
+    border-radius: 13px;
+
+}
+
+
+.evento-dia-selecionado.feriado {
+
+    color: #7d4515;
+
+    background: #fff0df;
+
+}
+
+
+.evento-dia-selecionado.aniversario {
+
+    color: #694397;
+
+    background: #f2eafb;
+
+}
+
+
+.evento-dia-selecionado.alteracao {
+
+    color: #8e2d2d;
+
+    background: #fbe7e7;
+
+}
+
+
+.evento-dia-selecionado .icone-sistema {
+
+    margin-top: 2px;
+
+    font-size: 1.05rem;
+
+}
+
+
+.evento-dia-selecionado strong,
+.evento-dia-selecionado span {
+
+    display: block;
+
+}
+
+
+.evento-dia-selecionado span {
+
+    margin-top: 4px;
+
+    font-size: 0.74rem;
+    line-height: 1.45;
+
+}
+
+
+.estado-sem-jornada-dia {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    padding: 16px;
+
+    border:
+        1px dashed rgba(107, 68, 35, 0.22);
+
+    border-radius: 14px;
+
+    color: var(--cor-texto-secundario);
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.estado-sem-jornada-dia .icone-sistema {
+
+    margin-top: 2px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 1.15rem;
+
+}
+
+
+.estado-sem-jornada-dia strong {
+
+    display: block;
+
+    color: var(--cor-texto);
+
+}
+
+
+.estado-sem-jornada-dia p {
+
+    margin-top: 5px;
+
+    font-size: 0.76rem;
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+.cartao-filtros {
+
+    padding: 24px;
+
+}
+
+
+.filtros-rapidos {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.botao-periodo {
+
+    min-height: 42px;
+    padding: 0 16px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.16);
+
+    border-radius: 999px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.78rem;
+    font-weight: 750;
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.botao-periodo.ativo {
+
+    border-color: var(--cor-azul-600);
+
+    color: var(--cor-branco);
+
+    background: var(--cor-azul-700);
+
+}
+
+
+.campos-periodo {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(160px, 1fr)
+        minmax(160px, 1fr)
+        auto;
+
+    align-items: end;
+    gap: 14px;
+
+}
+
+
+.campo-periodo {
+
+    display: grid;
+    gap: 8px;
+
+}
+
+
+.campo-periodo label {
+
+    font-size: 0.78rem;
+    font-weight: 750;
+
+}
+
+
+.campo-data-com-icone {
+
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    align-items: center;
+    gap: 8px;
+
+    min-height: 50px;
+    padding: 0 13px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.2);
+
+    border-radius: 11px;
+
+    color: var(--cor-azul-700);
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.campo-data-com-icone:focus-within {
+
+    border-color: var(--cor-azul-600);
+
+    background: var(--cor-branco);
+
+    box-shadow:
+        0 0 0 4px rgba(128, 84, 46, 0.1);
+
+}
+
+
+.campo-periodo input {
+
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+
+    border: 0;
+
+    color: var(--cor-texto);
+
+    outline: none;
+
+    background: transparent;
+
+}
+
+
+.botao-consultar {
+
+    min-width: 128px;
+
+}
+
+
+/* =========================================================
+   RESUMO DO PERÍODO
+   ========================================================= */
+
+.grade-resumo-historico {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+
+}
+
+
+.cartao-resumo-historico {
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    min-width: 0;
+    padding: 20px;
+
+    border: var(--borda-padrao);
+    border-radius: 18px;
+
+    background: var(--cor-branco);
+
+    box-shadow:
+        0 12px 28px rgba(63, 41, 25, 0.07);
+
+}
+
+
+.cartao-resumo-historico__icone {
+
+    display: inline-grid;
+    place-items: center;
+
+    width: 46px;
+    height: 46px;
+
+    flex: 0 0 auto;
+
+    border-radius: 15px;
+
+    color: var(--cor-azul-700);
+
+    background: var(--cor-creme-200);
+
+}
+
+
+.cartao-resumo-historico__icone.positivo {
+
+    color: var(--cor-sucesso);
+
+    background: var(--cor-sucesso-fundo);
+
+}
+
+
+.cartao-resumo-historico__icone.saldo {
+
+    color: #8a4b10;
+
+    background: #fff0db;
+
+}
+
+
+.cartao-resumo-historico > div {
+
+    display: grid;
+    gap: 5px;
+
+    min-width: 0;
+
+}
+
+
+.cartao-resumo-historico__nome {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.73rem;
+    font-weight: 700;
+
+}
+
+
+.cartao-resumo-historico__valor {
+
+    overflow: hidden;
+
+    color: var(--cor-azul-700);
+
+    font-size:
+        clamp(1.25rem, 3vw, 1.75rem);
+
+    line-height: 1.1;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+
+.cartao-resumo-historico__descricao {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.68rem;
+
+}
+
+
+/* =========================================================
+   LISTA DE JORNADAS
+   ========================================================= */
+
+.secao-lista-jornadas {
+
+    padding: 24px;
+
+}
+
+
+.lista-jornadas {
+
+    display: grid;
+    gap: 12px;
+
+}
+
+
+.cartao-dia-historico {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(150px, 1.1fr)
+        repeat(3, minmax(90px, 0.65fr))
+        auto;
+
+    align-items: center;
+    gap: 16px;
+
+    width: 100%;
+    padding: 17px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.12);
+
+    border-radius: 15px;
+
+    color: var(--cor-texto);
+
+    text-align: left;
+
+    background: var(--cor-creme-50);
+
+    transition:
+        border-color 170ms ease,
+        transform 170ms ease,
+        box-shadow 170ms ease;
+
+}
+
+
+.cartao-dia-historico:hover {
+
+    border-color: rgba(107, 68, 35, 0.3);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 25px rgba(63, 41, 25, 0.08);
+
+}
+
+
+.dia-historico__cabecalho {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+}
+
+
+.dia-historico__icone {
+
+    display: inline-grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 auto;
+
+    border-radius: 12px;
+
+    color: var(--cor-azul-700);
+
+    background: var(--cor-creme-200);
+
+}
+
+
+.dia-historico__data {
+
+    display: block;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+
+}
+
+
+.dia-historico__atividade {
+
+    display: block;
+
+    max-width: 260px;
+    margin-top: 5px;
+
+    overflow: hidden;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.72rem;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+
+.dado-dia-historico {
+
+    display: grid;
+    gap: 4px;
+
+}
+
+
+.dado-dia-historico__nome {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.65rem;
+    font-weight: 650;
+
+}
+
+
+.dado-dia-historico__valor {
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+}
+
+
+.situacao-dia {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    min-height: 31px;
+    padding: 0 10px;
+
+    border-radius: 999px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.66rem;
+    font-weight: 800;
+
+    background: var(--cor-creme-200);
+
+}
+
+
+.situacao-dia.concluida {
+
+    color: var(--cor-sucesso);
+
+    background: var(--cor-sucesso-fundo);
+
+}
+
+
+.situacao-dia.especial {
+
+    color: #8a4b10;
+
+    background: #fff0db;
+
+}
+
+
+.area-ver-mais-jornadas {
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 18px;
+
+}
+
+
+.botao-ver-mais-jornadas {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 44px;
+    padding: 0 18px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.18);
+
+    border-radius: 999px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.76rem;
+    font-weight: 800;
+
+    background: var(--cor-branco);
+
+}
+
+
+.botao-ver-mais-jornadas:hover {
+
+    background: var(--cor-creme-100);
+
+}
+
+
+/* =========================================================
+   ESTADOS
+   ========================================================= */
+
+.estado-lista-historico {
+
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+
+    padding: 44px 20px;
+
+    text-align: center;
+
+    color: var(--cor-texto-secundario);
+
+}
+
+
+.estado-lista-historico strong {
+
+    color: var(--cor-texto);
+
+}
+
+
+.estado-lista-historico p {
+
+    max-width: 360px;
+
+    font-size: 0.78rem;
+    line-height: 1.5;
+
+}
+
+
+.estado-lista-historico__icone {
+
+    display: grid;
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 15px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 1.2rem;
+
+    background: var(--cor-creme-200);
+
+}
+
+
+.carregamento-historico {
+
+    width: 28px;
+    height: 28px;
+
+    border:
+        3px solid var(--cor-creme-200);
+
+    border-top-color: var(--cor-azul-700);
+    border-radius: 50%;
+
+    animation:
+        girar-carregamento 700ms linear infinite;
+
+}
+
+
+/* =========================================================
+   PAINEL DE DETALHES
+   ========================================================= */
+
+.fundo-detalhes {
+
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+
+    display: grid;
+    place-items: center;
+
+    padding: 20px;
+
+    background: rgba(43, 36, 31, 0.54);
+
+    backdrop-filter: blur(5px);
+
+}
+
+
+.painel-detalhes,
+.painel-criacao-jornada,
+.painel-edicao-horario {
+
+    width: min(100%, 700px);
+    max-height: min(88vh, 820px);
+
+    overflow-y: auto;
+
+    border-radius: 24px;
+
+    background: var(--cor-branco);
+
+    box-shadow:
+        0 24px 70px rgba(43, 36, 31, 0.28);
+
+}
+
+
+.painel-edicao-horario {
+
+    width: min(100%, 500px);
+
+}
+
+
+.painel-criacao-jornada {
+
+    width: min(100%, 650px);
+
+}
+
+
+.cabecalho-detalhes {
+
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+
+    padding: 22px;
+
+    border-bottom:
+        1px solid rgba(107, 68, 35, 0.1);
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    backdrop-filter: blur(12px);
+
+}
+
+
+.cabecalho-detalhes__etiqueta {
+
+    color: var(--cor-verde-600);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+}
+
+
+.cabecalho-detalhes h2 {
+
+    margin-top: 6px;
+
+    font-size: 1.3rem;
+
+}
+
+
+.botao-fechar-detalhes {
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    color: var(--cor-texto);
+
+    background: var(--cor-creme-100);
+
+}
+
+
+.conteudo-detalhes {
+
+    display: grid;
+    gap: 20px;
+
+    padding: 22px;
+
+}
+
+
+.grade-horarios-detalhes {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+}
+
+
+.horario-detalhe {
+
+    display: grid;
+    gap: 8px;
+
+    padding: 14px;
+
+    border-radius: 13px;
+
+    text-align: center;
+
+    background: var(--cor-creme-100);
+
+}
+
+
+.horario-detalhe span {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.66rem;
+
+}
+
+
+.horario-detalhe strong {
+
+    font-size: 0.9rem;
+
+}
+
+
+.botao-editar-horario {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    min-height: 34px;
+    padding: 0 9px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.16);
+
+    border-radius: 9px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.66rem;
+    font-weight: 800;
+
+    background: var(--cor-branco);
+
+}
+
+
+.botao-editar-horario:hover {
+
+    background: var(--cor-creme-200);
+
+}
+
+
+.grade-informacoes-detalhes {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+
+}
+
+
+.informacao-detalhe {
+
+    padding: 14px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.1);
+
+    border-radius: 13px;
+
+}
+
+
+.informacao-detalhe span {
+
+    display: block;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.67rem;
+
+}
+
+
+.informacao-detalhe strong {
+
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 0.88rem;
+
+}
+
+
+.bloco-eventos-detalhes {
+
+    display: grid;
+    gap: 9px;
+
+}
+
+
+/* =========================================================
+   CRIAÇÃO DE JORNADA PASSADA
+   ========================================================= */
+
+.acao-criar-jornada-passada {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 100%;
+    min-height: 48px;
+    margin-top: 16px;
+    padding: 0 18px;
+
+    border-radius: 13px;
+
+    color: var(--cor-branco);
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    background: var(--cor-azul-700);
+
+    box-shadow:
+        0 10px 24px rgba(107, 68, 35, 0.18);
+
+}
+
+
+.acao-criar-jornada-passada:hover {
+
+    background: var(--cor-azul-800);
+
+}
+
+
+.conteudo-criacao-jornada {
+
+    display: grid;
+    gap: 18px;
+
+    padding: 22px;
+
+}
+
+
+.data-criacao-jornada {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    padding: 15px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.12);
+
+    border-radius: 13px;
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.data-criacao-jornada span {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.76rem;
+
+}
+
+
+.data-criacao-jornada strong {
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.95rem;
+
+}
+
+
+.grupo-tipo-trabalho-historico {
+
+    display: grid;
+    gap: 10px;
+
+    min-width: 0;
+    padding: 0;
+
+    border: 0;
+
+}
+
+
+.grupo-tipo-trabalho-historico legend,
+.grade-horarios-criacao label > span,
+.campo-atividade-criacao > span {
+
+    color: var(--cor-texto);
+
+    font-size: 0.76rem;
+    font-weight: 800;
+
+}
+
+
+.opcoes-tipo-trabalho-historico {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+}
+
+
+.opcoes-tipo-trabalho-historico label {
+
+    position: relative;
+
+}
+
+
+.opcoes-tipo-trabalho-historico input {
+
+    position: absolute;
+
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+
+.opcoes-tipo-trabalho-historico span {
+
+    display: grid;
+    place-items: center;
+
+    min-height: 48px;
+    padding: 0 12px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.16);
+
+    border-radius: 12px;
+
+    color: var(--cor-texto);
+
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-align: center;
+
+    background: var(--cor-branco);
+
+    cursor: pointer;
+
+}
+
+
+.opcoes-tipo-trabalho-historico input:checked + span {
+
+    border-color: var(--cor-azul-600);
+
+    color: var(--cor-azul-800);
+
+    background: var(--cor-creme-100);
+
+    box-shadow:
+        0 0 0 3px rgba(128, 84, 46, 0.08);
+
+}
+
+
+.grade-horarios-criacao {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+}
+
+
+.grade-horarios-criacao label,
+.campo-atividade-criacao {
+
+    display: grid;
+    gap: 8px;
+
+}
+
+
+.grade-horarios-criacao input,
+.campo-atividade-criacao input {
+
+    width: 100%;
+    min-height: 50px;
+    padding: 0 13px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.2);
+
+    border-radius: 11px;
+
+    color: var(--cor-texto);
+
+    outline: none;
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.grade-horarios-criacao input {
+
+    font-size: 1.05rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.06em;
+
+}
+
+
+.grade-horarios-criacao input::placeholder {
+
+    color: rgba(107, 68, 35, 0.48);
+
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.1em;
+
+    opacity: 1;
+
+}
+
+
+.grade-horarios-criacao input:focus,
+.campo-atividade-criacao input:focus {
+
+    border-color: var(--cor-azul-600);
+
+    background: var(--cor-branco);
+
+    box-shadow:
+        0 0 0 4px rgba(128, 84, 46, 0.1);
+
+}
+
+
+/* =========================================================
+   EDIÇÃO DE HORÁRIO
+   ========================================================= */
+
+.conteudo-edicao-horario {
+
+    display: grid;
+    gap: 18px;
+
+    padding: 22px;
+
+}
+
+
+.aviso-edicao-horario {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    padding: 14px;
+
+    border-radius: 13px;
+
+    color: #71400f;
+
+    background: #fff0db;
+
+}
+
+
+.aviso-edicao-horario .icone-sistema {
+
+    margin-top: 2px;
+
+    flex: 0 0 auto;
+
+}
+
+
+.aviso-edicao-horario p {
+
+    font-size: 0.76rem;
+    line-height: 1.5;
+
+}
+
+
+.resumo-registro-edicao {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    padding: 15px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.12);
+
+    border-radius: 13px;
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.resumo-registro-edicao span {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.76rem;
+
+}
+
+
+.resumo-registro-edicao strong {
+
+    color: var(--cor-azul-700);
+
+    font-size: 1.15rem;
+
+}
+
+
+.campo-edicao-horario {
+
+    display: grid;
+    gap: 8px;
+
+}
+
+
+.campo-edicao-horario label {
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+}
+
+
+.campo-edicao-horario input {
+
+    width: 100%;
+    min-height: 50px;
+    padding: 0 13px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.2);
+
+    border-radius: 11px;
+
+    color: var(--cor-texto);
+
+    font-size: 1.05rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.06em;
+
+    outline: none;
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.campo-edicao-horario input:focus {
+
+    border-color: var(--cor-azul-600);
+
+    background: var(--cor-branco);
+
+    box-shadow:
+        0 0 0 4px rgba(128, 84, 46, 0.1);
+
+}
+
+
+.rodape-edicao-horario {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    padding: 16px 22px 22px;
+
+    border-top:
+        1px solid rgba(107, 68, 35, 0.1);
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+    .grade-resumo-historico {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .cartao-dia-historico {
+
+        grid-template-columns:
+            minmax(150px, 1fr)
+            repeat(2, minmax(80px, 0.55fr))
+            auto;
+
+    }
+
+
+    .cartao-dia-historico
+    .dado-dia-historico:nth-of-type(3) {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 720px) {
+
+    .conteudo-historico {
+
+        gap: 16px;
+
+    }
+
+
+    .cabecalho-pagina-historico {
+
+        display: grid;
+        align-items: start;
+
+    }
+
+
+    .cabecalho-calendario-historico,
+    .cabecalho-dia-selecionado {
+
+        align-items: flex-start;
+
+    }
+
+
+    .cabecalho-calendario-historico {
+
+        flex-direction: column;
+
+    }
+
+
+    .controles-calendario-historico {
+
+        width: 100%;
+
+    }
+
+
+    .botao-hoje-calendario {
+
+        flex: 1;
+
+    }
+
+
+    .area-calendario-historico {
+
+        padding: 16px 12px 14px;
+
+    }
+
+
+    .dias-semana-calendario,
+    .grade-dias-calendario {
+
+        gap: 5px;
+
+    }
+
+
+    .botao-dia-calendario,
+    .dia-calendario-vazio {
+
+        min-height: 62px;
+
+    }
+
+
+    .botao-dia-calendario {
+
+        padding: 6px;
+
+        border-radius: 11px;
+
+    }
+
+
+    .numero-dia-calendario {
+
+        width: 26px;
+        height: 26px;
+
+        font-size: 0.75rem;
+
+    }
+
+
+    .rotulo-hoje-calendario {
+
+        display: none;
+
+    }
+
+
+    .legenda-calendario-historico {
+
+        padding-right: 16px;
+        padding-left: 16px;
+
+    }
+
+
+    .cartao-dia-selecionado,
+    .cartao-filtros,
+    .secao-lista-jornadas {
+
+        padding: 18px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .cabecalho-dia-selecionado {
+
+        display: grid;
+
+    }
+
+
+    .botao-detalhes-dia {
+
+        width: 100%;
+        justify-content: center;
+
+    }
+
+
+    .grade-resumo-dia-selecionado {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .filtros-rapidos {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+
+    }
+
+
+    .botao-periodo {
+
+        min-width: 0;
+        padding: 0 8px;
+
+        font-size: 0.7rem;
+
+    }
+
+
+    .campos-periodo {
+
+        grid-template-columns: 1fr;
+        gap: 12px;
+
+    }
+
+
+    .botao-consultar {
+
+        width: 100%;
+
+    }
+
+
+    .grade-resumo-historico {
+
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+
+    }
+
+
+    .cartao-resumo-historico {
+
+        padding: 15px;
+
+        border-radius: 15px;
+
+    }
+
+
+    .cartao-resumo-historico__icone {
+
+        width: 40px;
+        height: 40px;
+
+    }
+
+
+    .cartao-dia-historico {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+
+        gap: 12px;
+
+        padding: 15px;
+
+    }
+
+
+    .cartao-dia-historico
+    .dado-dia-historico {
+
+        display: none;
+
+    }
+
+
+    .dia-historico__atividade {
+
+        max-width: calc(100vw - 205px);
+
+    }
+
+
+    .fundo-detalhes {
+
+        align-items: end;
+
+        padding: 0;
+
+    }
+
+
+    .painel-detalhes,
+    .painel-criacao-jornada,
+    .painel-edicao-horario {
+
+        width: 100%;
+        max-height: 90vh;
+
+        border-radius:
+            24px
+            24px
+            0
+            0;
+
+        padding-bottom:
+            env(safe-area-inset-bottom);
+
+    }
+
+
+    .grade-horarios-detalhes {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .grade-informacoes-detalhes {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .grade-horarios-criacao {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .cabecalho-calendario-historico {
+
+        padding: 18px;
+
+    }
+
+
+    .dias-semana-calendario span {
+
+        font-size: 0.58rem;
+
+    }
+
+
+    .botao-dia-calendario,
+    .dia-calendario-vazio {
+
+        min-height: 55px;
+
+    }
+
+
+    .botao-dia-calendario {
+
+        gap: 4px;
+        padding: 5px;
+
+    }
+
+
+    .numero-dia-calendario {
+
+        width: 24px;
+        height: 24px;
+
+        font-size: 0.7rem;
+
+    }
+
+
+    .marcadores-dia-calendario {
+
+        gap: 3px;
+
+    }
+
+
+    .marcador-dia-calendario {
+
+        width: 6px;
+        height: 6px;
+
+    }
+
+
+    .filtros-rapidos,
+    .grade-resumo-historico,
+    .grade-resumo-dia-selecionado,
+    .grade-horarios-criacao,
+    .opcoes-tipo-trabalho-historico,
+    .rodape-edicao-horario {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .cartao-resumo-historico {
+
+        min-height: 86px;
+
+    }
+
+
+    .dia-historico__icone {
+
+        display: none;
+
+    }
+
+
+    .dia-historico__atividade {
+
+        max-width: calc(100vw - 150px);
+
+    }
+
+}

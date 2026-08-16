@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#6b4423">
+
+    <title>Gestor de Jornadas - Notificações</title>
+
+    <link rel="icon" type="image/png" href="../imagens/logo-gestor-jornadas.svg">
+
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/componentes.css">
+    <link rel="stylesheet" href="../css/responsivo.css">
+    <link rel="stylesheet" href="../css/tela-hoje.css?v=20260801-3">
+    <link rel="stylesheet" href="../css/administracao.css">
+    <link rel="stylesheet" href="../css/notificacoes.css">
+    <link rel="stylesheet" href="../css/navegacao.css?v=20260801-2">
+
+    <meta
+        name="description"
+        content="Controle de jornadas e administração da Empresa Demonstração."
+    >
+    <meta name="application-name" content="Gestor de Jornadas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Jornadas">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link
+        rel="apple-touch-icon"
+        href="../imagens/pwa/icone-192.png"
+    >
+
+    <script src="../js/pwa.js" defer></script>
+
+</head>
+
+<body class="pagina-aplicacao pagina-notificacoes">
+
+    <header class="cabecalho-aplicacao">
+
+        <div class="cabecalho-aplicacao__conteudo">
+
+            <div class="marca-aplicacao">
+
+                <div class="marca-aplicacao__icone marca-aplicacao__icone--logo">
+
+                    <img
+                        src="../imagens/logo-gestor-jornadas.svg"
+                        alt="Logo da Empresa Demonstração"
+                        class="marca-aplicacao__logo"
+                    >
+
+                </div>
+
+                <div>
+
+                    <span class="marca-aplicacao__nome">
+                        Gestor de Jornadas
+                    </span>
+
+                    <span class="marca-aplicacao__descricao">
+                        Empresa Demonstração
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="usuario-cabecalho">
+
+                <div class="usuario-cabecalho__informacoes">
+
+                    <span id="nome-usuario-cabecalho" class="usuario-cabecalho__nome">
+                        Carregando...
+                    </span>
+
+                    <span id="tipo-usuario-cabecalho" class="usuario-cabecalho__tipo">
+                        Administrador
+                    </span>
+
+                </div>
+
+                <div id="avatar-usuario" class="usuario-cabecalho__avatar">
+                    --
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="conteudo-aplicacao conteudo-notificacoes">
+
+        <section class="cabecalho-pagina-notificacoes">
+
+            <div>
+
+                <p class="apresentacao-dia__saudacao">
+                    Área administrativa
+                </p>
+
+                <h1>
+                    Notificações
+                </h1>
+
+                <p>
+                    Acompanhe acontecimentos que precisam da atenção
+                    da administração.
+                </p>
+
+            </div>
+
+            <span id="indicador-conexao" class="indicador-conexao">
+                Sistema conectado
+            </span>
+
+        </section>
+
+
+        <nav class="navegacao-area-administrativa">
+
+            <a href="administracao.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#people-fill"></use>
+                </svg>
+
+                Funcionários
+            </a>
+
+            <a href="solicitacoes.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#person-plus-fill"></use>
+                </svg>
+
+                Solicitações
+            </a>
+
+            <a href="alteracoes.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#clock-history"></use>
+                </svg>
+
+                Alterações
+            </a>
+
+            <a href="status-hoje.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#clipboard-data-fill"></use>
+                </svg>
+
+                Status de hoje
+            </a>
+
+            <a href="feriados.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#calendar-event-fill"></use>
+                </svg>
+
+                Feriados
+            </a>
+
+        </nav>
+
+
+        <section class="grade-resumo-notificacoes" aria-label="Resumo das notificações">
+
+            <article class="cartao-resumo-notificacao">
+
+                <span class="cartao-resumo-notificacao__icone total">
+
+                    <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#bell-fill"></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span>Total</span>
+                    <strong id="quantidade-total">0</strong>
+
+                </div>
+
+            </article>
+
+            <article class="cartao-resumo-notificacao">
+
+                <span class="cartao-resumo-notificacao__icone pendente">
+
+                    <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#exclamation-circle-fill"></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span>Pendentes</span>
+                    <strong id="quantidade-pendentes">0</strong>
+
+                </div>
+
+            </article>
+
+            <article class="cartao-resumo-notificacao">
+
+                <span class="cartao-resumo-notificacao__icone revisada">
+
+                    <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#check-circle-fill"></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span>Revisadas</span>
+                    <strong id="quantidade-revisadas">0</strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <section class="cartao-aplicacao painel-notificacoes">
+
+            <header class="barra-notificacoes">
+
+                <div class="filtros-notificacoes" role="group" aria-label="Filtrar notificações">
+
+                    <button
+                        type="button"
+                        class="filtro-notificacao ativo"
+                        data-filtro-notificacao="PENDENTES"
+                        aria-pressed="true"
+                    >
+                        Pendentes
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filtro-notificacao"
+                        data-filtro-notificacao="REVISADAS"
+                        aria-pressed="false"
+                    >
+                        Revisadas
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filtro-notificacao"
+                        data-filtro-notificacao="TODAS"
+                        aria-pressed="false"
+                    >
+                        Todas
+                    </button>
+
+                </div>
+
+                <div class="acoes-notificacoes">
+
+                    <button
+                        type="button"
+                        id="botao-revisar-todas"
+                        class="botao-secundario-notificacao"
+                        hidden
+                    >
+                        Revisar todas
+                    </button>
+
+                    <button
+                        type="button"
+                        id="botao-atualizar-notificacoes"
+                        class="botao-atualizar-notificacoes"
+                        aria-label="Atualizar notificações"
+                    >
+
+                        <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                            <use href="../icones/bootstrap-icons.svg#arrow-clockwise"></use>
+                        </svg>
+
+                        Atualizar
+
+                    </button>
+
+                </div>
+
+            </header>
+
+            <p id="descricao-resultados" class="descricao-resultados-notificacoes">
+                Consultando notificações...
+            </p>
+
+            <div
+                id="lista-notificacoes"
+                class="lista-notificacoes"
+                aria-live="polite"
+                aria-busy="true"
+            >
+
+                <div class="estado-notificacoes">
+
+                    <span class="carregamento-administracao" aria-hidden="true"></span>
+
+                    <p>Carregando notificações...</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div
+        id="mensagem-flutuante"
+        class="mensagem-flutuante"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <nav class="navegacao-principal" aria-label="Navegação principal">
+
+        <div class="navegacao-principal__conteudo">
+
+            <a href="inicio.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#house-door-fill"></use>
+                    </svg>
+                </span>
+
+                <span class="item-navegacao__texto">Hoje</span>
+
+            </a>
+
+            <a href="historico.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#calendar3"></use>
+                    </svg>
+                </span>
+
+                <span class="item-navegacao__texto">Histórico</span>
+
+            </a>
+
+            <a href="perfil.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#person-fill"></use>
+                    </svg>
+                </span>
+
+                <span class="item-navegacao__texto">Perfil</span>
+
+            </a>
+
+            <a
+                href="administracao.html"
+                class="item-navegacao ativo"
+                aria-current="page"
+            >
+
+                <span class="item-navegacao__icone">
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#gear-fill"></use>
+                    </svg>
+                </span>
+
+                <span class="item-navegacao__texto">Administração</span>
+
+            </a>
+
+            <button type="button" id="botao-sair" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#box-arrow-right"></use>
+                    </svg>
+                </span>
+
+                <span class="item-navegacao__texto">Sair</span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <script src="../js/configuracao.js"></script>
+    <script src="../js/autenticacao.js?v=20260801-2"></script>
+    <script src="../js/demo-api.js"></script>
+        <script src="../js/api.js"></script>
+    <script src="../js/notificacoes-comum.js?v=20260801-3"></script>
+    <script src="../js/notificacoes.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{
+    "id": "/",
+    "name": "Gestor de Jornadas",
+    "short_name": "Jornadas",
+    "description": "Controle de jornadas e administração da Empresa Demonstração.",
+    "lang": "pt-BR",
+    "dir": "ltr",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#f4f8fb",
+    "theme_color": "#0f3554",
+    "categories": [
+        "business",
+        "productivity"
+    ],
+    "icons": [
+        {
+            "src": "/imagens/pwa/icone-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/imagens/pwa/icone-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

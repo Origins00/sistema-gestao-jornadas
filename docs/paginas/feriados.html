@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#6b4423"
+    >
+
+    <title>
+        Gestor de Jornadas - Feriados
+    </title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../imagens/logo-gestor-jornadas.svg"
+    >
+
+
+    <!-- Estilos gerais do sistema -->
+
+    <link
+        rel="stylesheet"
+        href="../css/estilo.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/componentes.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsivo.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/tela-hoje.css?v=20260801-3"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/administracao.css"
+    >
+
+
+    <!-- Estilo específico desta página -->
+
+    <link
+        rel="stylesheet"
+        href="../css/feriados.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/navegacao.css?v=20260801-2"
+    >
+
+    <meta
+        name="description"
+        content="Controle de jornadas e administração da Empresa Demonstração."
+    >
+    <meta name="application-name" content="Gestor de Jornadas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Jornadas">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link
+        rel="apple-touch-icon"
+        href="../imagens/pwa/icone-192.png"
+    >
+
+    <script src="../js/pwa.js" defer></script>
+
+</head>
+
+
+<body class="pagina-aplicacao pagina-feriados">
+
+    <!-- =====================================================
+         CARREGAMENTO INICIAL
+         ===================================================== -->
+
+    <div
+        id="carregamento-pagina"
+        class="carregamento-pagina-feriados"
+        role="status"
+        aria-live="polite"
+    >
+
+        <div class="carregamento-pagina-feriados__conteudo">
+
+            <div class="spinner-feriados" aria-hidden="true"></div>
+
+            <p>
+                Carregando feriados...
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
+    <header class="cabecalho-aplicacao">
+
+        <div class="cabecalho-aplicacao__conteudo">
+
+            <div class="marca-aplicacao">
+
+                <div class="marca-aplicacao__icone marca-aplicacao__icone--logo">
+
+                    <img
+                        src="../imagens/logo-gestor-jornadas.svg"
+                        alt="Logo da Empresa Demonstração"
+                        class="marca-aplicacao__logo"
+                    >
+
+                </div>
+
+                <div>
+
+                    <span class="marca-aplicacao__nome">
+                        Gestor de Jornadas
+                    </span>
+
+                    <span class="marca-aplicacao__descricao">
+                        Controle de jornada
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="usuario-cabecalho">
+
+                <div class="usuario-cabecalho__informacoes">
+
+                    <span
+                        id="nome-usuario-cabecalho"
+                        class="usuario-cabecalho__nome"
+                    >
+                        Carregando...
+                    </span>
+
+                    <span
+                        id="tipo-usuario-cabecalho"
+                        class="usuario-cabecalho__tipo"
+                    >
+                        Administrador
+                    </span>
+
+                </div>
+
+                <div
+                    id="avatar-usuario"
+                    class="usuario-cabecalho__avatar"
+                >
+                    --
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+         ===================================================== -->
+
+    <main class="conteudo-aplicacao conteudo-feriados">
+
+        <!-- Apresentação -->
+
+        <section class="cabecalho-pagina-feriados">
+
+            <div>
+
+                <p class="apresentacao-dia__saudacao">
+                    Área administrativa
+                </p>
+
+                <h1>
+                    Feriados
+                </h1>
+
+                <p>
+                    Gerencie o calendário usado no cálculo da jornada.
+                    Em um feriado ativo, os minutos trabalhados são
+                    contabilizados como horas extras.
+                </p>
+
+            </div>
+
+
+            <div class="acoes-cabecalho-feriados">
+
+                <span
+                    id="indicador-conexao"
+                    class="indicador-conexao"
+                >
+                    Sistema conectado
+                </span>
+
+                <button
+                    type="button"
+                    id="botao-atualizar"
+                    class="botao-atualizar-feriados"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#arrow-clockwise"
+                        ></use>
+                    </svg>
+
+                    <span>
+                        Atualizar
+                    </span>
+
+                </button>
+
+                <button
+                    type="button"
+                    id="botao-novo-feriado"
+                    class="botao-principal-feriados"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#plus-lg"
+                        ></use>
+                    </svg>
+
+                    <span>
+                        Novo feriado
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             NAVEGAÇÃO ADMINISTRATIVA
+             ================================================= -->
+
+        <nav class="navegacao-area-administrativa">
+
+            <a href="administracao.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#people-fill"></use>
+                </svg>
+
+                <span>
+                    Funcionários
+                </span>
+
+            </a>
+
+            <a href="solicitacoes.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#person-plus-fill"></use>
+                </svg>
+
+                <span>
+                    Solicitações
+                </span>
+
+            </a>
+
+            <a href="alteracoes.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#clock-history"></use>
+                </svg>
+
+                <span>
+                    Alterações
+                </span>
+
+            </a>
+
+            <a href="status-hoje.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#clipboard-data-fill"></use>
+                </svg>
+
+                <span>
+                    Status de hoje
+                </span>
+
+            </a>
+
+            <a
+                href="feriados.html"
+                class="item-area-administrativa ativo"
+                aria-current="page"
+            >
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#calendar-event-fill"></use>
+                </svg>
+
+                <span>
+                    Feriados
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- =================================================
+             RESUMO
+             ================================================= -->
+
+        <section class="grade-resumo-feriados">
+
+            <article class="cartao-resumo-feriados">
+
+                <span class="cartao-resumo-feriados__icone ativo">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar-check"
+                        ></use>
+
+                    </svg>
+
+                </span>
+
+
+                <div>
+
+                    <span>
+                        Ativos
+                    </span>
+
+                    <strong id="resumo-ativos">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="cartao-resumo-feriados">
+
+                <span class="cartao-resumo-feriados__icone inativo">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar-x"
+                        ></use>
+
+                    </svg>
+
+                </span>
+
+
+                <div>
+
+                    <span>
+                        Desativados
+                    </span>
+
+                    <strong id="resumo-inativos">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="cartao-resumo-feriados">
+
+                <span class="cartao-resumo-feriados__icone total">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar3"
+                        ></use>
+
+                    </svg>
+
+                </span>
+
+
+                <div>
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="resumo-total">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+             FILTROS
+             ================================================= -->
+
+        <section class="painel-filtros-feriados cartao-aplicacao">
+
+            <div class="grupo-filtro-feriados">
+
+                <label for="campo-ano">
+                    Ano
+                </label>
+
+                <div class="campo-com-icone-feriados">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar3"
+                        ></use>
+
+                    </svg>
+
+                    <select id="campo-ano"></select>
+
+                </div>
+
+            </div>
+
+
+            <div class="grupo-filtro-feriados">
+
+                <label for="campo-situacao">
+                    Situação
+                </label>
+
+                <div class="campo-com-icone-feriados">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#funnel"
+                        ></use>
+
+                    </svg>
+
+                    <select id="campo-situacao">
+
+                        <option value="TODOS">
+                            Todos
+                        </option>
+
+                        <option value="ATIVOS">
+                            Somente ativos
+                        </option>
+
+                        <option value="INATIVOS">
+                            Somente desativados
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="grupo-filtro-feriados grupo-filtro-feriados--busca">
+
+                <label for="campo-busca">
+                    Pesquisar
+                </label>
+
+                <div class="campo-com-icone-feriados">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#search"
+                        ></use>
+
+                    </svg>
+
+                    <input
+                        type="search"
+                        id="campo-busca"
+                        placeholder="Nome ou descrição"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LISTAGEM
+             ================================================= -->
+
+        <section class="secao-listagem-feriados cartao-aplicacao">
+
+            <div class="cabecalho-listagem-feriados">
+
+                <div>
+
+                    <h2>
+                        Feriados cadastrados
+                    </h2>
+
+                    <p id="texto-quantidade-feriados">
+                        Nenhum feriado encontrado
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="lista-feriados"
+                class="lista-feriados"
+            ></div>
+
+
+            <div
+                id="estado-vazio-feriados"
+                class="estado-vazio-feriados"
+                hidden
+            >
+
+                <span class="estado-vazio-feriados__icone">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar2-x"
+                        ></use>
+
+                    </svg>
+
+                </span>
+
+
+                <h3>
+                    Nenhum feriado encontrado
+                </h3>
+
+                <p>
+                    Altere os filtros ou cadastre um novo feriado.
+                </p>
+
+
+                <button
+                    type="button"
+                    id="botao-novo-feriado-vazio"
+                    class="botao-secundario-feriados"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar-plus"
+                        ></use>
+                    </svg>
+
+                    <span>
+                        Cadastrar feriado
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         MODAL DE CADASTRO E EDIÇÃO
+         ===================================================== -->
+
+    <div
+        id="fundo-formulario-feriado"
+        class="fundo-modal-feriados"
+        hidden
+    >
+
+        <section
+            class="modal-feriados"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-formulario-feriado"
+        >
+
+            <header class="cabecalho-modal-feriados">
+
+                <div class="titulo-modal-feriados">
+
+                    <span class="titulo-modal-feriados__icone">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+
+                            <use
+                                href="../icones/bootstrap-icons.svg#calendar-plus"
+                            ></use>
+
+                        </svg>
+
+                    </span>
+
+
+                    <div>
+
+                        <h2 id="titulo-formulario-feriado">
+                            Novo feriado
+                        </h2>
+
+                        <p id="descricao-formulario-feriado">
+                            Informe os dados do feriado.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-fechar-formulario"
+                    class="botao-fechar-modal-feriados"
+                    aria-label="Fechar"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#x-lg"
+                        ></use>
+
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <form id="formulario-feriado">
+
+                <div class="corpo-modal-feriados">
+
+                    <div class="grupo-campo-feriados">
+
+                        <label for="campo-data-feriado">
+                            Data do feriado
+                        </label>
+
+                        <input
+                            type="date"
+                            id="campo-data-feriado"
+                            required
+                        >
+
+                        <small>
+                            A data não poderá ser alterada depois do cadastro.
+                        </small>
+
+                    </div>
+
+
+                    <div class="grupo-campo-feriados">
+
+                        <label for="campo-nome-feriado">
+                            Nome do feriado
+                        </label>
+
+                        <input
+                            type="text"
+                            id="campo-nome-feriado"
+                            maxlength="120"
+                            placeholder="Ex.: Evento municipal"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="grupo-campo-feriados">
+
+                        <label for="campo-descricao-feriado">
+                            Descrição
+                        </label>
+
+                        <textarea
+                            id="campo-descricao-feriado"
+                            maxlength="500"
+                            rows="4"
+                            placeholder="Descrição opcional"
+                        ></textarea>
+
+                        <span class="contador-campo-feriados">
+
+                            <span id="contador-descricao">
+                                0
+                            </span>
+
+                            / 500
+
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="grupo-motivo-alteracao"
+                        class="grupo-campo-feriados"
+                        hidden
+                    >
+
+                        <label for="campo-motivo-alteracao">
+                            Motivo da alteração
+                        </label>
+
+                        <textarea
+                            id="campo-motivo-alteracao"
+                            maxlength="500"
+                            rows="3"
+                            placeholder="Explique o motivo da alteração"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <footer class="rodape-modal-feriados">
+
+                    <button
+                        type="button"
+                        id="botao-excluir-feriado"
+                        class="botao-excluir-feriado"
+                        hidden
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+
+                            <use
+                                href="../icones/bootstrap-icons.svg#trash3"
+                            ></use>
+
+                        </svg>
+
+                        Excluir este feriado
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="botao-cancelar-formulario"
+                        class="botao-cancelar-feriados"
+                    >
+
+                        Cancelar
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="botao-salvar-feriado"
+                        class="botao-confirmar-feriados"
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+
+                            <use
+                                href="../icones/bootstrap-icons.svg#check-lg"
+                            ></use>
+
+                        </svg>
+
+                        <span id="texto-botao-salvar">
+                            Cadastrar feriado
+                        </span>
+
+                    </button>
+
+                </footer>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL DE CONFIRMAÇÃO DE EXCLUSÃO
+         ===================================================== -->
+
+    <div
+        id="fundo-exclusao-feriado"
+        class="fundo-modal-feriados"
+        hidden
+    >
+
+        <section
+            class="modal-feriados modal-feriados--pequeno"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="titulo-exclusao-feriado"
+            aria-describedby="descricao-exclusao-feriado"
+        >
+
+            <header class="cabecalho-modal-feriados">
+
+                <div class="titulo-modal-feriados">
+
+                    <span class="titulo-modal-feriados__icone perigo">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+
+                            <use
+                                href="../icones/bootstrap-icons.svg#trash3"
+                            ></use>
+
+                        </svg>
+
+                    </span>
+
+
+                    <div>
+
+                        <h2 id="titulo-exclusao-feriado">
+                            Excluir feriado?
+                        </h2>
+
+                        <p id="descricao-exclusao-feriado">
+                            Esta ação não poderá ser desfeita.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-fechar-exclusao"
+                    class="botao-fechar-modal-feriados"
+                    aria-label="Fechar"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#x-lg"
+                        ></use>
+
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <div class="corpo-modal-feriados">
+
+                <div class="resumo-feriado-selecionado resumo-feriado-exclusao">
+
+                    <span id="data-feriado-exclusao">
+                        --/--/----
+                    </span>
+
+                    <strong id="nome-feriado-exclusao">
+                        Feriado
+                    </strong>
+
+                </div>
+
+
+                <p class="aviso-exclusao-feriado">
+                    O feriado e todo o histórico dele serão apagados.
+                    As jornadas dessa data serão recalculadas.
+                </p>
+
+            </div>
+
+
+            <footer class="rodape-modal-feriados">
+
+                <button
+                    type="button"
+                    id="botao-cancelar-exclusao"
+                    class="botao-cancelar-feriados"
+                >
+
+                    Manter feriado
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="botao-confirmar-exclusao"
+                    class="botao-confirmar-exclusao"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#trash3"
+                        ></use>
+
+                    </svg>
+
+                    <span id="texto-confirmar-exclusao">
+                        Excluir definitivamente
+                    </span>
+
+                </button>
+
+            </footer>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL DE ALTERAÇÃO DE SITUAÇÃO
+         ===================================================== -->
+
+    <div
+        id="fundo-alteracao-situacao"
+        class="fundo-modal-feriados"
+        hidden
+    >
+
+        <section
+            class="modal-feriados modal-feriados--pequeno"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-alteracao-situacao"
+        >
+
+            <header class="cabecalho-modal-feriados">
+
+                <div class="titulo-modal-feriados">
+
+                    <span
+                        id="icone-alteracao-situacao"
+                        class="titulo-modal-feriados__icone alerta"
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+
+                            <use
+                                href="../icones/bootstrap-icons.svg#exclamation-triangle"
+                            ></use>
+
+                        </svg>
+
+                    </span>
+
+
+                    <div>
+
+                        <h2 id="titulo-alteracao-situacao">
+                            Desativar feriado
+                        </h2>
+
+                        <p id="descricao-alteracao-situacao">
+                            Confirme a alteração.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-fechar-alteracao"
+                    class="botao-fechar-modal-feriados"
+                    aria-label="Fechar"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#x-lg"
+                        ></use>
+
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <div class="corpo-modal-feriados">
+
+                <div class="resumo-feriado-selecionado">
+
+                    <span id="data-feriado-selecionado">
+                        --/--/----
+                    </span>
+
+                    <strong id="nome-feriado-selecionado">
+                        Feriado
+                    </strong>
+
+                </div>
+
+
+                <div class="grupo-campo-feriados">
+
+                    <label for="campo-motivo-situacao">
+                        Motivo
+                    </label>
+
+                    <textarea
+                        id="campo-motivo-situacao"
+                        maxlength="500"
+                        rows="3"
+                        placeholder="Motivo opcional"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <footer class="rodape-modal-feriados">
+
+                <button
+                    type="button"
+                    id="botao-cancelar-alteracao"
+                    class="botao-cancelar-feriados"
+                >
+
+                    Cancelar
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="botao-confirmar-alteracao"
+                    class="botao-confirmar-feriados"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#check-lg"
+                        ></use>
+                    </svg>
+
+                    <span id="texto-confirmar-alteracao">
+                        Confirmar
+                    </span>
+
+                </button>
+
+            </footer>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL DE HISTÓRICO
+         ===================================================== -->
+
+    <div
+        id="fundo-historico-feriado"
+        class="fundo-modal-feriados"
+        hidden
+    >
+
+        <section
+            class="modal-feriados modal-feriados--historico"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-historico-feriado"
+        >
+
+            <header class="cabecalho-modal-feriados">
+
+                <div class="titulo-modal-feriados">
+
+                    <span class="titulo-modal-feriados__icone">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+
+                            <use
+                                href="../icones/bootstrap-icons.svg#clock-history"
+                            ></use>
+
+                        </svg>
+
+                    </span>
+
+
+                    <div>
+
+                        <h2 id="titulo-historico-feriado">
+                            Histórico do feriado
+                        </h2>
+
+                        <p id="nome-historico-feriado">
+                            Carregando informações...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-fechar-historico"
+                    class="botao-fechar-modal-feriados"
+                    aria-label="Fechar"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+
+                        <use
+                            href="../icones/bootstrap-icons.svg#x-lg"
+                        ></use>
+
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <div class="corpo-modal-feriados">
+
+                <div
+                    id="carregamento-historico"
+                    class="carregamento-historico-feriados"
+                    role="status"
+                    aria-live="polite"
+                    hidden
+                >
+
+                    <div class="spinner-feriados" aria-hidden="true"></div>
+
+                    <p>
+                        Buscando histórico...
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="lista-historico"
+                    class="lista-historico-feriados"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         MENSAGEM FLUTUANTE
+         ===================================================== -->
+
+    <div
+        id="mensagem-flutuante"
+        class="mensagem-flutuante-feriados"
+        role="status"
+        aria-live="polite"
+        hidden
+    >
+
+        <svg
+            id="icone-mensagem-flutuante"
+            class="icone-sistema"
+            aria-hidden="true"
+        >
+
+            <use
+                href="../icones/bootstrap-icons.svg#check-circle-fill"
+            ></use>
+
+        </svg>
+
+        <span id="texto-mensagem-flutuante"></span>
+
+    </div>
+
+
+    <!-- =====================================================
+         MENU PRINCIPAL INFERIOR
+         ===================================================== -->
+
+    <nav
+        class="navegacao-principal"
+        aria-label="Navegação principal"
+    >
+
+        <div class="navegacao-principal__conteudo">
+
+            <a
+                href="inicio.html"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#house-door-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Hoje
+                </span>
+
+            </a>
+
+
+            <a
+                href="historico.html"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar3"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Histórico
+                </span>
+
+            </a>
+
+
+            <a
+                href="perfil.html"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#person-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Perfil
+                </span>
+
+            </a>
+
+
+            <a
+                href="administracao.html"
+                class="item-navegacao ativo"
+                aria-current="page"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#gear-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Administração
+                </span>
+
+            </a>
+
+
+            <button
+                type="button"
+                id="botao-sair"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#box-arrow-right"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Sair
+                </span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         SCRIPTS
+         ===================================================== -->
+
+    <script src="../js/configuracao.js"></script>
+
+    <script src="../js/autenticacao.js?v=20260801-2"></script>
+
+    <script src="../js/demo-api.js"></script>
+        <script src="../js/api.js"></script>
+
+    <script src="../js/notificacoes-comum.js?v=20260801-3"></script>
+
+    <script src="../js/feriados.js"></script>
+
+</body>
+
+</html>
