@@ -97,8 +97,10 @@ O comando solicita uma senha local e cria um administrador e um funcionário fic
 ### 4. Executar
 
 ```powershell
-scripts\iniciar-servidor.cmd
+scripts\abrir-sistema.cmd
 ```
+
+O atalho inicia o servidor, aguarda a aplicação ficar disponível e abre o navegador. Mantenha a janela do servidor aberta enquanto estiver usando o sistema.
 
 Acesse:
 
@@ -130,4 +132,3 @@ Desenvolvido por [Marcos Flávio Silva Santos](https://github.com/Origins00) com
 ## Aviso
 
 Este repositório é uma demonstração educacional. Antes de utilizar o projeto em produção, revise configurações, segurança, infraestrutura, requisitos legais e políticas de tratamento de dados aplicáveis ao seu contexto.
-
