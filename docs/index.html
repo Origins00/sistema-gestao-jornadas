@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10364f">
+    <meta name="description" content="Demonstração frontend do Gestor de Jornadas, com dados totalmente fictícios.">
+    <title>Gestor de Jornadas — Demonstração</title>
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="entrada" id="tela-entrada" aria-labelledby="titulo-entrada">
+        <div class="entrada__marca" aria-hidden="true">
+            <div class="entrada__marca-conteudo">
+                <img src="assets/logo.svg" alt="" width="88" height="88">
+                <p class="sobrelinha sobrelinha--clara">Projeto de portfólio</p>
+                <h1>Uma jornada mais simples começa aqui.</h1>
+                <p>
+                    Conheça uma experiência demonstrativa de gestão de horários,
+                    equipe, calendário e relatórios — direto no navegador.
+                </p>
+            </div>
+            <div class="entrada__recursos" aria-label="Recursos da demonstração">
+                <span>100% fictício</span>
+                <span>Sem cadastro</span>
+                <span>Sem servidor</span>
+            </div>
+        </div>
+
+        <div class="entrada__painel">
+            <main class="cartao-login">
+                <div class="cartao-login__logo">
+                    <img src="assets/logo.svg" alt="Logo do Gestor de Jornadas" width="58" height="58">
+                    <div>
+                        <strong>Gestor de Jornadas</strong>
+                        <span>Demonstração interativa</span>
+                    </div>
+                </div>
+
+                <p class="sobrelinha">Acesso de visitante</p>
+                <h2 id="titulo-entrada">Explore o sistema</h2>
+                <p class="cartao-login__texto">
+                    Entre sem informar CPF, senha ou qualquer dado pessoal.
+                    Tudo o que aparece nesta versão é apenas uma simulação local.
+                </p>
+
+                <div class="identidade-demo" aria-label="Perfil que será utilizado">
+                    <span class="avatar avatar--grande">VD</span>
+                    <div>
+                        <strong>Visitante Demonstração</strong>
+                        <span>Perfil de visualização</span>
+                    </div>
+                    <span class="etiqueta">Seguro</span>
+                </div>
+
+                <button class="botao botao--principal botao--largo" id="botao-entrar" type="button">
+                    Entrar na demonstração
+                    <span aria-hidden="true">→</span>
+                </button>
+
+                <p class="aviso-privacidade">
+                    <span aria-hidden="true">◇</span>
+                    Nenhuma informação é enviada ou armazenada em servidor.
+                </p>
+            </main>
+        </div>
+    </section>
+
+    <div class="aplicacao" id="aplicacao" hidden>
+        <aside class="barra-lateral" id="barra-lateral">
+            <a class="marca" href="#visao-geral" data-navegar="visao-geral" aria-label="Ir para a visão geral">
+                <img src="assets/logo.svg" alt="" width="43" height="43">
+                <span>
+                    <strong>Gestor</strong>
+                    <small>de Jornadas</small>
+                </span>
+            </a>
+
+            <div class="perfil-lateral">
+                <span class="avatar">VD</span>
+                <div>
+                    <strong>Visitante</strong>
+                    <span>Modo demonstração</span>
+                </div>
+            </div>
+
+            <nav class="navegacao" aria-label="Navegação principal">
+                <p>Menu</p>
+                <button class="navegacao__item ativo" type="button" data-pagina="visao-geral">
+                    <span class="icone" aria-hidden="true">⌂</span>
+                    Visão geral
+                </button>
+                <button class="navegacao__item" type="button" data-pagina="jornada">
+                    <span class="icone" aria-hidden="true">◷</span>
+                    Minha jornada
+                </button>
+                <button class="navegacao__item" type="button" data-pagina="equipe">
+                    <span class="icone" aria-hidden="true">♙</span>
+                    Equipe
+                </button>
+                <button class="navegacao__item" type="button" data-pagina="calendario">
+                    <span class="icone" aria-hidden="true">□</span>
+                    Calendário
+                </button>
+                <button class="navegacao__item" type="button" data-pagina="relatorios">
+                    <span class="icone" aria-hidden="true">▥</span>
+                    Relatórios
+                </button>
+            </nav>
+
+            <div class="barra-lateral__rodape">
+                <button class="botao-texto" id="botao-reiniciar" type="button">↻ Reiniciar demonstração</button>
+                <button class="botao-texto" id="botao-sair" type="button">⇥ Sair</button>
+            </div>
+        </aside>
+
+        <div class="conteudo">
+            <header class="cabecalho">
+                <button class="botao-menu" id="botao-menu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+                <div>
+                    <p class="sobrelinha">Empresa Demonstração</p>
+                    <strong id="saudacao">Olá, visitante</strong>
+                </div>
+                <div class="cabecalho__acoes">
+                    <span class="modo-demo"><i></i> Modo demonstração</span>
+                    <button class="botao-icone" id="botao-notificacoes" type="button" aria-label="Abrir notificações">
+                        ♢
+                        <span class="contador">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="paginas">
+                <section class="pagina ativa" id="pagina-visao-geral" data-pagina-conteudo="visao-geral">
+                    <div class="titulo-pagina">
+                        <div>
+                            <p class="sobrelinha">Resumo de hoje</p>
+                            <h1>Visão geral</h1>
+                            <p id="data-atual">Acompanhe a operação da equipe.</p>
+                        </div>
+                        <button class="botao botao--secundario" type="button" data-ir-para="jornada">Registrar jornada</button>
+                    </div>
+
+                    <div class="grade-indicadores">
+                        <article class="indicador indicador--azul">
+                            <span class="indicador__icone">◷</span>
+                            <div><small>Em jornada</small><strong>12</strong><span>de 15 pessoas</span></div>
+                        </article>
+                        <article class="indicador indicador--verde">
+                            <span class="indicador__icone">✓</span>
+                            <div><small>Presentes hoje</small><strong>14</strong><span>93% da equipe</span></div>
+                        </article>
+                        <article class="indicador indicador--laranja">
+                            <span class="indicador__icone">☼</span>
+                            <div><small>Em férias</small><strong>1</strong><span>retorno em 4 dias</span></div>
+                        </article>
+                        <article class="indicador indicador--roxo">
+                            <span class="indicador__icone">!</span>
+                            <div><small>Pendências</small><strong>2</strong><span>aguardando revisão</span></div>
+                        </article>
+                    </div>
+
+                    <div class="grade-principal">
+                        <article class="cartao">
+                            <div class="cartao__cabecalho">
+                                <div><p class="sobrelinha">Movimentação</p><h2>Status da equipe</h2></div>
+                                <button class="link-botao" type="button" data-ir-para="equipe">Ver equipe →</button>
+                            </div>
+                            <div class="lista-status">
+                                <div><span class="avatar avatar--verde">AM</span><p><strong>Ana Martins</strong><small>Entrada às 07:58</small></p><span class="status status--ativo">Trabalhando</span></div>
+                                <div><span class="avatar avatar--azul">BL</span><p><strong>Bruno Lima</strong><small>Almoço às 12:03</small></p><span class="status status--pausa">Em almoço</span></div>
+                                <div><span class="avatar avatar--roxo">CS</span><p><strong>Camila Souza</strong><small>Entrada às 08:07</small></p><span class="status status--ativo">Trabalhando</span></div>
+                                <div><span class="avatar avatar--laranja">DR</span><p><strong>Daniel Rocha</strong><small>Férias programadas</small></p><span class="status status--ferias">Em férias</span></div>
+                            </div>
+                        </article>
+
+                        <article class="cartao cartao--jornada">
+                            <div class="cartao__cabecalho">
+                                <div><p class="sobrelinha">Seu registro</p><h2>Jornada de hoje</h2></div>
+                                <span class="relogio" id="relogio">--:--</span>
+                            </div>
+                            <div class="progresso-jornada" id="progresso-resumo"></div>
+                            <button class="botao botao--principal botao--largo" type="button" data-ir-para="jornada">Abrir controle de jornada</button>
+                        </article>
+                    </div>
+
+                    <article class="cartao grafico-semana">
+                        <div class="cartao__cabecalho">
+                            <div><p class="sobrelinha">Últimos 7 dias</p><h2>Presença da equipe</h2></div>
+                            <span class="etiqueta etiqueta--neutra">Média de 92%</span>
+                        </div>
+                        <div class="barras" aria-label="Gráfico demonstrativo de presença semanal">
+                            <div><span style="--altura: 82%"></span><small>Seg</small></div>
+                            <div><span style="--altura: 94%"></span><small>Ter</small></div>
+                            <div><span style="--altura: 89%"></span><small>Qua</small></div>
+                            <div><span style="--altura: 98%"></span><small>Qui</small></div>
+                            <div><span style="--altura: 91%"></span><small>Sex</small></div>
+                            <div class="fim-semana"><span style="--altura: 30%"></span><small>Sáb</small></div>
+                            <div class="fim-semana"><span style="--altura: 18%"></span><small>Dom</small></div>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="pagina" id="pagina-jornada" data-pagina-conteudo="jornada">
+                    <div class="titulo-pagina">
+                        <div><p class="sobrelinha">Registro demonstrativo</p><h1>Minha jornada</h1><p>Experimente registrar os horários. Os dados ficam apenas neste navegador.</p></div>
+                        <span class="etiqueta etiqueta--neutra" id="data-jornada">Hoje</span>
+                    </div>
+                    <div class="grade-jornada">
+                        <article class="cartao controle-jornada">
+                            <div class="relogio-grande" id="relogio-grande">--:--:--</div>
+                            <p id="mensagem-jornada">Sua jornada ainda não foi iniciada.</p>
+                            <button class="botao botao--principal botao--registro" id="botao-registrar" type="button">Registrar entrada</button>
+                            <small class="nota-demo">Este registro é uma simulação e pode ser reiniciado a qualquer momento.</small>
+                        </article>
+                        <article class="cartao">
+                            <div class="cartao__cabecalho"><div><p class="sobrelinha">Linha do tempo</p><h2>Registros de hoje</h2></div></div>
+                            <ol class="linha-tempo" id="linha-tempo"></ol>
+                        </article>
+                    </div>
+                    <article class="aviso-demo">
+                        <span>i</span>
+                        <div><strong>Como funciona nesta demonstração?</strong><p>Os horários são gravados no armazenamento local do navegador. Nada é enviado para a internet e você pode apagar tudo em “Reiniciar demonstração”.</p></div>
+                    </article>
+                </section>
+
+                <section class="pagina" id="pagina-equipe" data-pagina-conteudo="equipe">
+                    <div class="titulo-pagina">
+                        <div><p class="sobrelinha">Pessoas</p><h1>Equipe</h1><p>Dados fictícios criados exclusivamente para apresentação.</p></div>
+                        <button class="botao botao--secundario" id="botao-adicionar-ficticio" type="button">+ Simular cadastro</button>
+                    </div>
+                    <div class="grade-indicadores grade-indicadores--compacta">
+                        <article class="mini-indicador"><small>Total</small><strong id="total-equipe">15</strong><span>pessoas cadastradas</span></article>
+                        <article class="mini-indicador"><small>Ativos</small><strong>14</strong><span>contas liberadas</span></article>
+                        <article class="mini-indicador"><small>Administradores</small><strong>2</strong><span>perfis de gestão</span></article>
+                    </div>
+                    <article class="cartao tabela-cartao">
+                        <div class="filtros"><label><span class="sr-only">Pesquisar</span><input id="busca-equipe" type="search" placeholder="Pesquisar pessoa fictícia..."></label><select id="filtro-equipe" aria-label="Filtrar situação"><option value="todos">Todas as situações</option><option value="ativo">Ativos</option><option value="ferias">Em férias</option></select></div>
+                        <div class="tabela-responsiva">
+                            <table>
+                                <thead><tr><th>Funcionário</th><th>Perfil</th><th>Jornada hoje</th><th>Situação</th></tr></thead>
+                                <tbody id="corpo-equipe"></tbody>
+                            </table>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="pagina" id="pagina-calendario" data-pagina-conteudo="calendario">
+                    <div class="titulo-pagina">
+                        <div><p class="sobrelinha">Agenda</p><h1>Calendário</h1><p>Feriados, férias e eventos importantes da equipe.</p></div>
+                        <button class="botao botao--secundario" id="botao-novo-evento" type="button">+ Simular evento</button>
+                    </div>
+                    <div class="grade-calendario">
+                        <article class="cartao calendario-mes">
+                            <div class="cartao__cabecalho"><button class="botao-icone" type="button" aria-label="Mês anterior">‹</button><h2 id="titulo-mes">Agosto de 2026</h2><button class="botao-icone" type="button" aria-label="Próximo mês">›</button></div>
+                            <div class="calendario" id="calendario"></div>
+                        </article>
+                        <article class="cartao proximos-eventos">
+                            <div class="cartao__cabecalho"><div><p class="sobrelinha">Agenda</p><h2>Próximos eventos</h2></div></div>
+                            <div id="lista-eventos"></div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="pagina" id="pagina-relatorios" data-pagina-conteudo="relatorios">
+                    <div class="titulo-pagina">
+                        <div><p class="sobrelinha">Indicadores</p><h1>Relatórios</h1><p>Visão demonstrativa dos resultados mensais.</p></div>
+                        <button class="botao botao--principal" id="botao-exportar" type="button">Baixar relatório fictício</button>
+                    </div>
+                    <div class="grade-indicadores grade-indicadores--compacta">
+                        <article class="mini-indicador"><small>Horas registradas</small><strong>1.842h</strong><span class="positivo">↑ 4,8% no mês</span></article>
+                        <article class="mini-indicador"><small>Média por pessoa</small><strong>7h 52m</strong><span>por dia útil</span></article>
+                        <article class="mini-indicador"><small>Registros completos</small><strong>96%</strong><span class="positivo">↑ 2,1% no mês</span></article>
+                    </div>
+                    <div class="grade-relatorios">
+                        <article class="cartao">
+                            <div class="cartao__cabecalho"><div><p class="sobrelinha">Comparativo</p><h2>Horas por semana</h2></div><span class="etiqueta etiqueta--neutra">Agosto</span></div>
+                            <div class="grafico-colunas" aria-label="Gráfico demonstrativo de horas por semana">
+                                <div><span style="--valor: 76%"><b>382h</b></span><small>Semana 1</small></div>
+                                <div><span style="--valor: 88%"><b>441h</b></span><small>Semana 2</small></div>
+                                <div><span style="--valor: 92%"><b>463h</b></span><small>Semana 3</small></div>
+                                <div><span style="--valor: 84%"><b>420h</b></span><small>Semana 4</small></div>
+                            </div>
+                        </article>
+                        <article class="cartao distribuicao">
+                            <div class="cartao__cabecalho"><div><p class="sobrelinha">Distribuição</p><h2>Tipos de jornada</h2></div></div>
+                            <div class="anel" aria-label="68 por cento administrativo e 32 por cento operacional"><span>68%<small>Administrativo</small></span></div>
+                            <div class="legenda"><span><i class="azul"></i>Administrativo <b>68%</b></span><span><i class="verde"></i>Operacional <b>32%</b></span></div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <aside class="painel-notificacoes" id="painel-notificacoes" aria-label="Notificações" aria-hidden="true">
+            <div class="painel-notificacoes__cabecalho"><div><p class="sobrelinha">Atualizações</p><h2>Notificações</h2></div><button class="botao-icone" id="fechar-notificacoes" type="button" aria-label="Fechar notificações">×</button></div>
+            <div class="notificacao"><span class="notificacao__icone">✓</span><div><strong>Jornada aprovada</strong><p>O ajuste fictício de Ana Martins foi aprovado.</p><small>Há 12 minutos</small></div></div>
+            <div class="notificacao"><span class="notificacao__icone notificacao__icone--azul">□</span><div><strong>Novo evento</strong><p>Reunião geral adicionada ao calendário.</p><small>Há 1 hora</small></div></div>
+            <div class="notificacao"><span class="notificacao__icone notificacao__icone--laranja">!</span><div><strong>Registro pendente</strong><p>Dois registros aguardam revisão administrativa.</p><small>Ontem</small></div></div>
+        </aside>
+        <div class="sobreposicao" id="sobreposicao" hidden></div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

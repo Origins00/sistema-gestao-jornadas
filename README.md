@@ -9,6 +9,8 @@
   ![FastAPI](https://img.shields.io/badge/FastAPI-0.139-009688?style=flat-square&logo=fastapi&logoColor=white)
   ![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?style=flat-square&logo=mysql&logoColor=white)
   ![PWA](https://img.shields.io/badge/PWA-ready-5A0FC8?style=flat-square&logo=pwa&logoColor=white)
+
+  [**Acessar demonstração online**](https://origins00.github.io/sistema-gestao-jornadas/)
 </div>
 
 ## Sobre o projeto
@@ -16,6 +18,12 @@
 O Gestor de Jornadas é uma versão demonstrativa e genérica de um sistema criado para resolver necessidades reais de organização interna. O projeto reúne frontend, API, banco de dados e recursos de PWA em um único repositório.
 
 Esta edição foi preparada exclusivamente para portfólio. Ela não contém cadastros, bancos preenchidos, credenciais, domínios ou informações operacionais de qualquer ambiente real.
+
+## Demonstração online
+
+A [demonstração interativa](https://origins00.github.io/sistema-gestao-jornadas/) funciona inteiramente no navegador, sem backend ou banco de dados. Clique em **Entrar na demonstração** para navegar pelo painel, registrar uma jornada simulada, consultar a equipe e o calendário e gerar um relatório fictício.
+
+Os dados são apenas ilustrativos e ficam no armazenamento local do próprio navegador. A opção **Reiniciar demonstração** apaga esse estado e restaura o conteúdo inicial.
 
 ## Funcionalidades
 
