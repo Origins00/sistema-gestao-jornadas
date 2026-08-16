@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <meta name="theme-color" content="#35150f">
+    <meta name="robots" content="noindex">
+
+    <title>Gestor de Jornadas - Sem conexão</title>
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link
+        rel="icon"
+        type="image/png"
+        href="/imagens/pwa/icone-192.png"
+    >
+
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f1e8;
+            color: #35150f;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background:
+                radial-gradient(circle at top, #fffaf2 0, #f7f1e8 70%);
+        }
+
+        main {
+            width: min(100%, 440px);
+            padding: 32px;
+            border: 1px solid #ddccb8;
+            border-radius: 24px;
+            text-align: center;
+            background: #ffffff;
+            box-shadow: 0 18px 45px rgb(53 21 15 / 12%);
+        }
+
+        img {
+            width: 112px;
+            height: 112px;
+            object-fit: contain;
+        }
+
+        h1 {
+            margin: 20px 0 12px;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin: 0;
+            line-height: 1.55;
+            color: #6b4423;
+        }
+
+        button {
+            margin-top: 24px;
+            padding: 12px 20px;
+            border: 0;
+            border-radius: 999px;
+            font: inherit;
+            font-weight: 700;
+            color: #ffffff;
+            background: #6b4423;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main>
+
+        <img
+            src="/imagens/logo-gestor-jornadas.svg"
+            alt="Logo da Empresa Demonstração"
+        >
+
+        <h1>Servidor indisponível</h1>
+
+        <p>
+            O Gestor de Jornadas precisa de conexão com o servidor para proteger
+            e atualizar seus dados. Verifique a internet e tente novamente.
+        </p>
+
+        <button type="button" data-tentar-novamente>
+            Tentar novamente
+        </button>
+
+    </main>
+
+    <script src="/js/offline.js"></script>
+
+</body>
+
+</html>

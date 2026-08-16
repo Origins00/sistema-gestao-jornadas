@@ -1,0 +1,597 @@
+/*
+ * Tela pública para solicitação de acesso ao Gestor de Jornadas.
+ */
+
+.pagina-cadastro {
+
+    grid-template-columns:
+        minmax(410px, 0.86fr)
+        minmax(610px, 1.14fr);
+
+}
+
+
+.painel-apresentacao-cadastro {
+
+    position: sticky;
+    top: 0;
+
+}
+
+
+.apresentacao-cadastro {
+
+    margin:
+        clamp(48px, 8vh, 90px)
+        0
+        clamp(30px, 5vh, 56px);
+
+}
+
+
+.apresentacao-cadastro h1 {
+
+    max-width: 590px;
+
+    font-size:
+        clamp(2.45rem, 4.6vw, 4.8rem);
+
+}
+
+
+.etapas-cadastro {
+
+    display: grid;
+    gap: 11px;
+
+    max-width: 550px;
+    margin-top: 30px;
+
+    list-style: none;
+
+}
+
+
+.etapas-cadastro li {
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 13px 15px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 14px;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 0.76rem;
+    line-height: 1.4;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.etapas-cadastro__icone {
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 10px;
+
+    color: var(--cor-branco);
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+}
+
+
+.etapas-cadastro__icone .icone-sistema {
+
+    width: 0.95rem;
+    height: 0.95rem;
+
+}
+
+
+.etapas-cadastro strong {
+
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: var(--cor-branco);
+
+    font-size: 0.79rem;
+
+}
+
+
+.painel-formulario-cadastro {
+
+    place-items: start center;
+
+    min-width: 0;
+    padding:
+        42px
+        clamp(28px, 4.5vw, 68px)
+        70px;
+
+    overflow-x: clip;
+    overflow-y: visible;
+
+}
+
+
+.cartao-cadastro {
+
+    width: min(100%, 680px);
+    min-width: 0;
+    max-width: 100%;
+    padding:
+        clamp(30px, 3.7vw, 44px);
+
+}
+
+
+.link-voltar-login {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 25px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-decoration: none;
+
+}
+
+
+.link-voltar-login:hover {
+
+    color: var(--cor-verde-700);
+    text-decoration: underline;
+
+}
+
+
+.link-voltar-login .icone-sistema {
+
+    width: 0.9rem;
+    height: 0.9rem;
+
+}
+
+
+.cabecalho-cadastro {
+
+    margin-bottom: 27px;
+
+}
+
+
+.cabecalho-cadastro .selo-acesso .icone-sistema {
+
+    width: 0.78rem;
+    height: 0.78rem;
+
+}
+
+
+.formulario-cadastro {
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    column-gap: 16px;
+    row-gap: 18px;
+
+}
+
+
+.campo-formulario--completo {
+
+    grid-column: 1 / -1;
+
+}
+
+
+.formulario-cadastro .campo-com-icone__icone .icone-sistema {
+
+    width: 0.95rem;
+    height: 0.95rem;
+
+}
+
+
+.formulario-cadastro input[type="date"] {
+
+    color-scheme: light;
+
+}
+
+
+.formulario-cadastro .campo-senha input {
+
+    padding-right: 94px;
+
+}
+
+
+.formulario-cadastro .botao-mostrar-senha {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+}
+
+
+.formulario-cadastro .botao-mostrar-senha .icone-sistema {
+
+    width: 0.78rem;
+    height: 0.78rem;
+
+}
+
+
+.formulario-cadastro .mensagem-formulario {
+
+    margin-top: -2px;
+
+}
+
+
+.cadastro-concluido {
+
+    padding:
+        20px
+        4px
+        5px;
+
+    text-align: center;
+
+}
+
+
+.cadastro-concluido[hidden] {
+
+    display: none;
+
+}
+
+
+.cadastro-concluido__icone {
+
+    display: grid;
+    place-items: center;
+
+    width: 76px;
+    height: 76px;
+    margin:
+        0
+        auto
+        24px;
+
+    border-radius: 24px;
+
+    color: var(--cor-sucesso);
+
+    background: var(--cor-sucesso-fundo);
+
+    box-shadow:
+        0 0 0 10px rgba(37, 112, 68, 0.055);
+
+}
+
+
+.cadastro-concluido__icone .icone-sistema {
+
+    width: 2rem;
+    height: 2rem;
+
+}
+
+
+.cadastro-concluido h2 {
+
+    font-size:
+        clamp(1.8rem, 4vw, 2.35rem);
+
+    letter-spacing: -0.04em;
+
+}
+
+
+.cadastro-concluido > p {
+
+    max-width: 470px;
+    margin:
+        13px
+        auto
+        22px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.9rem;
+    line-height: 1.65;
+
+}
+
+
+.cadastro-concluido__aviso {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin-bottom: 25px;
+    padding: 13px 15px;
+
+    border:
+        1px solid rgba(128, 84, 46, 0.12);
+
+    border-radius: 12px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    background: var(--cor-creme-100);
+
+}
+
+
+.cadastro-concluido__aviso .icone-sistema {
+
+    width: 0.95rem;
+    height: 0.95rem;
+
+}
+
+
+.cadastro-concluido .botao {
+
+    width: 100%;
+
+    text-decoration: none;
+
+}
+
+
+.assinatura-cadastro {
+
+    position: static;
+
+    margin-top: 22px;
+
+}
+
+
+.link-voltar-login:focus-visible,
+.cadastro-concluido:focus-visible {
+
+    outline:
+        3px solid rgba(61, 112, 80, 0.23);
+
+    outline-offset: 4px;
+
+}
+
+
+@media (max-width: 1100px) {
+
+    .pagina-cadastro {
+
+        grid-template-columns:
+            minmax(360px, 0.78fr)
+            minmax(540px, 1.22fr);
+
+    }
+
+
+    .painel-apresentacao-cadastro {
+
+        padding:
+            38px
+            34px;
+
+    }
+
+
+    .apresentacao-cadastro h1 {
+
+        font-size:
+            clamp(2.2rem, 4.4vw, 3.7rem);
+
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .pagina-cadastro {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .painel-apresentacao-cadastro {
+
+        position: relative;
+
+        min-height: auto;
+        padding:
+            30px
+            28px
+            80px;
+
+    }
+
+
+    .apresentacao-cadastro {
+
+        margin:
+            52px
+            0
+            24px;
+
+    }
+
+
+    .apresentacao-cadastro h1 {
+
+        max-width: 680px;
+
+        font-size:
+            clamp(2.25rem, 8vw, 4rem);
+
+    }
+
+
+    .etapas-cadastro {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        max-width: none;
+
+    }
+
+
+    .etapas-cadastro li {
+
+        align-items: flex-start;
+
+    }
+
+
+    .painel-formulario-cadastro {
+
+        min-height: auto;
+        padding:
+            0
+            24px
+            30px;
+
+    }
+
+
+    .cartao-cadastro {
+
+        margin-top: -48px;
+
+    }
+
+}
+
+
+@media (max-width: 680px) {
+
+    .etapas-cadastro {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .formulario-cadastro {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .campo-formulario--completo {
+
+        grid-column: auto;
+
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .painel-apresentacao-cadastro {
+
+        padding:
+            22px
+            19px
+            68px;
+
+    }
+
+
+    .apresentacao-cadastro {
+
+        margin:
+            43px
+            0
+            15px;
+
+    }
+
+
+    .etapas-cadastro {
+
+        margin-top: 24px;
+
+    }
+
+
+    .etapas-cadastro li:nth-child(n + 2) {
+
+        display: none;
+
+    }
+
+
+    .painel-formulario-cadastro {
+
+        padding:
+            0
+            12px
+            24px;
+
+    }
+
+
+    .cartao-cadastro {
+
+        margin-top: -35px;
+        padding:
+            28px
+            20px;
+
+    }
+
+
+    .link-voltar-login {
+
+        margin-bottom: 22px;
+
+    }
+
+}

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#6b4423">
+
+    <title>Gestor de Jornadas - Alterações de horários</title>
+
+    <link rel="icon" type="image/png" href="../imagens/logo-gestor-jornadas.svg">
+
+    <link rel="stylesheet" href="../css/estilo.css">
+
+    <link rel="stylesheet" href="../css/componentes.css">
+
+    <link rel="stylesheet" href="../css/responsivo.css">
+
+    <link rel="stylesheet" href="../css/tela-hoje.css?v=20260801-3">
+
+    <!-- Reutiliza a navegação administrativa -->
+
+    <link rel="stylesheet" href="../css/administracao.css">
+
+    <link rel="stylesheet" href="../css/alteracoes.css">
+
+    <link rel="stylesheet" href="../css/navegacao.css?v=20260801-2">
+
+    <meta
+        name="description"
+        content="Controle de jornadas e administração da Empresa Demonstração."
+    >
+    <meta name="application-name" content="Gestor de Jornadas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Jornadas">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link
+        rel="apple-touch-icon"
+        href="/imagens/pwa/icone-192.png"
+    >
+
+    <script src="/js/pwa.js" defer></script>
+
+</head>
+
+<body class="pagina-aplicacao pagina-alteracoes">
+
+    <!-- =====================================================
+             CABEÇALHO
+             ===================================================== -->
+
+    <header class="cabecalho-aplicacao">
+
+        <div class="cabecalho-aplicacao__conteudo">
+
+            <div class="marca-aplicacao">
+
+                <div class="marca-aplicacao__icone marca-aplicacao__icone--logo">
+
+                    <img src="../imagens/logo-gestor-jornadas.svg" alt="Logo da Empresa Demonstração"
+                        class="marca-aplicacao__logo">
+
+                </div>
+
+                <div>
+
+                    <span class="marca-aplicacao__nome">
+                        Gestor de Jornadas
+                    </span>
+
+                    <span class="marca-aplicacao__descricao">
+                        Empresa Demonstração
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="usuario-cabecalho">
+
+                <div class="usuario-cabecalho__informacoes">
+
+                    <span id="nome-usuario-cabecalho" class="usuario-cabecalho__nome">
+                        Carregando...
+                    </span>
+
+                    <span id="tipo-usuario-cabecalho" class="usuario-cabecalho__tipo">
+                        Administrador
+                    </span>
+
+                </div>
+
+                <div id="avatar-usuario" class="usuario-cabecalho__avatar">
+                    --
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+             CONTEÚDO
+             ===================================================== -->
+
+    <main class="conteudo-aplicacao conteudo-alteracoes">
+
+        <!-- Título da página -->
+
+        <section class="cabecalho-pagina-alteracoes">
+
+            <div>
+
+                <p class="apresentacao-dia__saudacao">
+                    Área administrativa
+                </p>
+
+                <h1>
+                    Alterações de horários
+                </h1>
+
+                <p>
+                    Confira as mudanças feitas nos registros
+                    e marque cada alteração como revisada.
+                </p>
+
+            </div>
+
+            <span id="indicador-conexao" class="indicador-conexao">
+                Sistema conectado
+            </span>
+
+        </section>
+
+
+        <!-- =================================================
+                 NAVEGAÇÃO ADMINISTRATIVA
+                 ================================================= -->
+
+        <nav class="navegacao-area-administrativa">
+
+            <a href="administracao.html" class="item-area-administrativa">
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#people-fill"
+                    ></use>
+                </svg>
+
+                Funcionários
+            </a>
+
+            <a href="solicitacoes.html" class="item-area-administrativa">
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#person-plus-fill"
+                    ></use>
+                </svg>
+
+                Solicitações
+            </a>
+
+            <a
+                href="alteracoes.html"
+                class="item-area-administrativa ativo"
+                aria-current="page"
+            >
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#clock-history"
+                    ></use>
+                </svg>
+
+                Alterações
+
+                <span id="quantidade-pendente-navegacao" class="item-area-administrativa__aviso">
+                    0
+                </span>
+
+            </a>
+
+            <a href="status-hoje.html" class="item-area-administrativa">
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#clipboard-data-fill"
+                    ></use>
+                </svg>
+
+                Status de hoje
+            </a>
+
+            <a href="feriados.html" class="item-area-administrativa">
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#calendar-event-fill"
+                    ></use>
+                </svg>
+
+                Feriados
+            </a>
+
+        </nav>
+
+
+        <!-- =================================================
+                 RESUMO GERAL
+                 ================================================= -->
+
+        <section class="grade-resumo-alteracoes">
+
+            <article class="cartao-resumo-alteracao">
+
+                <div class="cartao-resumo-alteracao__cabecalho">
+
+                    <span class="cartao-resumo-alteracao__icone">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                            focusable="false"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#clock-history"
+                            ></use>
+                        </svg>
+
+                    </span>
+
+                    <span class="cartao-resumo-alteracao__nome">
+                        Alterações registradas
+                    </span>
+
+                </div>
+
+                <strong id="quantidade-total" class="cartao-resumo-alteracao__valor">
+                    0
+                </strong>
+
+                <span class="cartao-resumo-alteracao__descricao">
+                    no histórico
+                </span>
+
+            </article>
+
+
+            <article class="cartao-resumo-alteracao pendente">
+
+                <div class="cartao-resumo-alteracao__cabecalho">
+
+                    <span class="cartao-resumo-alteracao__icone cartao-resumo-alteracao__icone--pendente">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                            focusable="false"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#exclamation-circle-fill"
+                            ></use>
+                        </svg>
+
+                    </span>
+
+                    <span class="cartao-resumo-alteracao__nome">
+                        Aguardando revisão
+                    </span>
+
+                </div>
+
+                <strong id="quantidade-pendentes" class="cartao-resumo-alteracao__valor">
+                    0
+                </strong>
+
+                <span class="cartao-resumo-alteracao__descricao">
+                    precisam de atenção
+                </span>
+
+            </article>
+
+
+            <article class="cartao-resumo-alteracao revisada">
+
+                <div class="cartao-resumo-alteracao__cabecalho">
+
+                    <span class="cartao-resumo-alteracao__icone cartao-resumo-alteracao__icone--revisada">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                            focusable="false"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#check-circle-fill"
+                            ></use>
+                        </svg>
+
+                    </span>
+
+                    <span class="cartao-resumo-alteracao__nome">
+                        Revisadas
+                    </span>
+
+                </div>
+
+                <strong id="quantidade-revisadas" class="cartao-resumo-alteracao__valor">
+                    0
+                </strong>
+
+                <span class="cartao-resumo-alteracao__descricao">
+                    já conferidas
+                </span>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+                 FILTROS E PESQUISA
+                 ================================================= -->
+
+        <section class="cartao-aplicacao cartao-filtros-alteracoes">
+
+            <header class="cabecalho-secao-alteracoes">
+
+                <div>
+
+                    <h2>
+                        Localizar alteração
+                    </h2>
+
+                    <p>
+                        Filtre pelo estado da revisão ou pesquise
+                        pelo nome e CPF do funcionário.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <div class="area-filtros-alteracoes">
+
+                <div class="campo-pesquisa-alteracoes">
+
+                    <label for="campo-pesquisa-alteracoes">
+                        Funcionário ou CPF
+                    </label>
+
+                    <div class="campo-pesquisa-alteracoes__controle">
+
+                        <span
+                            class="campo-pesquisa-alteracoes__icone"
+                            aria-hidden="true"
+                        >
+
+                            <svg
+                                class="icone-sistema"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#search"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <input type="search" id="campo-pesquisa-alteracoes" placeholder="Ex.: Marcos ou 123.456..."
+                            autocomplete="off">
+
+                        <button type="button" id="botao-limpar-pesquisa" class="botao-limpar-pesquisa-alteracoes"
+                            hidden>
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#x-lg"
+                                ></use>
+                            </svg>
+
+                            <span>
+                                Limpar
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="grupo-filtro-revisao">
+
+                    <span class="grupo-filtro-revisao__titulo">
+                        Estado da revisão
+                    </span>
+
+                    <div class="botoes-filtro-revisao">
+
+                        <button
+                            type="button"
+                            class="botao-filtro-revisao ativo"
+                            data-filtro-revisao="PENDENTES"
+                            aria-pressed="true"
+                        >
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#hourglass-split"
+                                ></use>
+                            </svg>
+
+                            Pendentes
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-filtro-revisao"
+                            data-filtro-revisao="REVISADAS"
+                            aria-pressed="false"
+                        >
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#check-circle-fill"
+                                ></use>
+                            </svg>
+
+                            Revisadas
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-filtro-revisao"
+                            data-filtro-revisao="TODAS"
+                            aria-pressed="false"
+                        >
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#list-ul"
+                                ></use>
+                            </svg>
+
+                            Todas
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+                 LISTA DE ALTERAÇÕES
+                 ================================================= -->
+
+        <section class="cartao-aplicacao secao-lista-alteracoes">
+
+            <header class="cabecalho-secao-alteracoes">
+
+                <div>
+
+                    <h2>
+                        Registros encontrados
+                    </h2>
+
+                    <p id="descricao-resultados">
+                        Carregando alterações...
+                    </p>
+
+                </div>
+
+                <button type="button" id="botao-atualizar-alteracoes" class="botao-atualizar-alteracoes">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#arrow-clockwise"
+                        ></use>
+                    </svg>
+
+                    <span>
+                        Atualizar
+                    </span>
+
+                </button>
+
+            </header>
+
+
+            <!-- Carregamento -->
+
+            <div
+                id="estado-carregamento"
+                class="estado-alteracoes"
+                role="status"
+                aria-live="polite"
+            >
+
+                <span
+                    class="carregamento-alteracoes"
+                    aria-hidden="true"
+                ></span>
+
+                <p>
+                    Consultando o histórico de alterações...
+                </p>
+
+            </div>
+
+
+            <!-- Estado vazio -->
+
+            <div id="estado-vazio" class="estado-alteracoes" hidden>
+
+                <div class="estado-alteracoes__icone">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#check-circle-fill"
+                        ></use>
+                    </svg>
+
+                </div>
+
+                <strong>
+                    Nenhuma alteração encontrada
+                </strong>
+
+                <p>
+                    Não existem registros correspondentes
+                    ao filtro e à pesquisa atuais.
+                </p>
+
+            </div>
+
+
+            <!-- Lista -->
+
+            <div id="lista-alteracoes" class="lista-alteracoes" hidden></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+             PAINEL DE DETALHES
+             ===================================================== -->
+
+    <div id="fundo-detalhes" class="fundo-detalhes-alteracao" hidden>
+
+        <section class="painel-detalhes-alteracao" role="dialog" aria-modal="true" aria-labelledby="titulo-detalhes">
+
+            <header class="cabecalho-detalhes-alteracao">
+
+                <div>
+
+                    <span class="cabecalho-detalhes-alteracao__etiqueta">
+                        Revisão administrativa
+                    </span>
+
+                    <h2 id="titulo-detalhes">
+                        Alteração de horário
+                    </h2>
+
+                </div>
+
+                <button type="button" id="botao-fechar-detalhes" class="botao-fechar-detalhes-alteracao"
+                    aria-label="Fechar detalhes">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#x-lg"
+                        ></use>
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <div id="conteudo-detalhes" class="conteudo-detalhes-alteracao"></div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+             MENSAGEM FLUTUANTE
+             ===================================================== -->
+
+    <div id="mensagem-flutuante" class="mensagem-flutuante" role="status" aria-live="polite"></div>
+
+
+    <!-- =====================================================
+             MENU INFERIOR
+             ===================================================== -->
+
+    <nav
+        class="navegacao-principal"
+        aria-label="Navegação principal"
+    >
+
+        <div class="navegacao-principal__conteudo">
+
+            <a href="inicio.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#house-door-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Hoje
+                </span>
+
+            </a>
+
+
+            <a href="historico.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar3"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Histórico
+                </span>
+
+            </a>
+
+
+            <a href="perfil.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#person-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Perfil
+                </span>
+
+            </a>
+
+
+            <a
+                href="administracao.html"
+                class="item-navegacao ativo"
+                aria-current="page"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#gear-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Administração
+                </span>
+
+            </a>
+
+
+            <button type="button" id="botao-sair" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#box-arrow-right"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Sair
+                </span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <script src="../js/configuracao.js"></script>
+    <script src="../js/autenticacao.js?v=20260801-2"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/notificacoes-comum.js?v=20260801-3"></script>
+    <script src="../js/alteracoes.js"></script>
+
+</body>
+
+</html>

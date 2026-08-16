@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#6b4423">
+
+    <title>Gestor de Jornadas - Status de hoje</title>
+
+    <link rel="icon" type="image/png" href="../imagens/logo-gestor-jornadas.svg">
+
+    <link rel="stylesheet" href="../css/estilo.css">
+
+    <link rel="stylesheet" href="../css/componentes.css">
+
+    <link rel="stylesheet" href="../css/responsivo.css">
+
+    <link rel="stylesheet" href="../css/tela-hoje.css?v=20260801-3">
+
+    <link rel="stylesheet" href="../css/administracao.css">
+
+    <link rel="stylesheet" href="../css/status-hoje.css">
+
+    <link rel="stylesheet" href="../css/navegacao.css?v=20260801-2">
+
+    <meta
+        name="description"
+        content="Controle de jornadas e administração da Empresa Demonstração."
+    >
+    <meta name="application-name" content="Gestor de Jornadas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Jornadas">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link
+        rel="apple-touch-icon"
+        href="/imagens/pwa/icone-192.png"
+    >
+
+    <script src="/js/pwa.js" defer></script>
+
+</head>
+
+<body class="pagina-aplicacao pagina-status-hoje">
+
+    <!-- =====================================================
+             CABEÇALHO
+             ===================================================== -->
+
+    <header class="cabecalho-aplicacao">
+
+        <div class="cabecalho-aplicacao__conteudo">
+
+            <div class="marca-aplicacao">
+
+                <div class="
+                            marca-aplicacao__icone
+                            marca-aplicacao__icone--logo
+                        ">
+
+                    <img src="../imagens/logo-gestor-jornadas.svg" alt="Logo da Empresa Demonstração"
+                        class="marca-aplicacao__logo">
+
+                </div>
+
+                <div>
+
+                    <span class="marca-aplicacao__nome">
+                        Gestor de Jornadas
+                    </span>
+
+                    <span class="marca-aplicacao__descricao">
+                        Controle de jornada
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="usuario-cabecalho">
+
+                <div class="usuario-cabecalho__informacoes">
+
+                    <span id="nome-usuario-cabecalho" class="usuario-cabecalho__nome">
+                        Carregando...
+                    </span>
+
+                    <span id="tipo-usuario-cabecalho" class="usuario-cabecalho__tipo">
+                        Administrador
+                    </span>
+
+                </div>
+
+                <div id="avatar-usuario" class="usuario-cabecalho__avatar">
+                    --
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+             CONTEÚDO PRINCIPAL
+             ===================================================== -->
+
+    <main class="conteudo-aplicacao conteudo-status-hoje">
+
+        <!-- Apresentação da página -->
+
+        <section class="cabecalho-pagina-status">
+
+            <div>
+
+                <p class="apresentacao-dia__saudacao">
+                    Área administrativa
+                </p>
+
+                <h1>
+                    Status de hoje
+                </h1>
+
+                <p id="data-status-hoje">
+                    Carregando data...
+                </p>
+
+            </div>
+
+            <div class="acoes-cabecalho-status">
+
+                <span id="indicador-conexao" class="indicador-conexao">
+                    Sistema conectado
+                </span>
+
+                <button type="button" id="botao-atualizar-status" class="botao-atualizar-status">
+
+                    <svg class="icone-sistema icone-sistema--botao" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#arrow-clockwise"></use>
+                    </svg>
+
+                    <span>
+                        Atualizar
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+                 NAVEGAÇÃO ADMINISTRATIVA
+                 ================================================= -->
+
+        <nav class="navegacao-area-administrativa">
+
+            <a href="administracao.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#people-fill"></use>
+                </svg>
+
+                <span>
+                    Funcionários
+                </span>
+
+            </a>
+
+            <a href="solicitacoes.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#person-plus-fill"></use>
+                </svg>
+
+                <span>
+                    Solicitações
+                </span>
+
+            </a>
+
+            <a href="alteracoes.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#clock-history"></use>
+                </svg>
+
+                <span>
+                    Alterações
+                </span>
+
+            </a>
+
+            <a
+                href="status-hoje.html"
+                class="item-area-administrativa ativo"
+                aria-current="page"
+            >
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#clipboard-data-fill"></use>
+                </svg>
+
+                <span>
+                    Status de hoje
+                </span>
+
+            </a>
+
+            <a href="feriados.html" class="item-area-administrativa">
+
+                <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                    <use href="../icones/bootstrap-icons.svg#calendar-event-fill"></use>
+                </svg>
+
+                <span>
+                    Feriados
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- =================================================
+                 RESUMO DO DIA
+                 ================================================= -->
+
+        <section class="grade-resumo-status">
+
+            <!-- Pessoas ativas -->
+
+            <article class="cartao-resumo-status total">
+
+                <span class="cartao-resumo-status__icone">
+
+                    <svg class="icone-sistema icone-sistema--resumo" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#people-fill"></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-status__nome">
+                        Pessoas ativas
+                    </span>
+
+                    <strong id="resumo-total-pessoas" class="cartao-resumo-status__valor">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- Pessoas trabalhando -->
+
+            <article class="cartao-resumo-status trabalhando">
+
+                <span class="cartao-resumo-status__icone">
+
+                    <svg class="icone-sistema icone-sistema--resumo" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#person-workspace"></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-status__nome">
+                        Trabalhando
+                    </span>
+
+                    <strong id="resumo-trabalhando" class="cartao-resumo-status__valor">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- Pessoas almoçando -->
+
+            <article class="cartao-resumo-status almocando">
+
+                <span class="cartao-resumo-status__icone">
+
+                    <svg class="icone-sistema icone-sistema--resumo" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#fork-knife"></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-status__nome">
+                        Almoçando
+                    </span>
+
+                    <strong id="resumo-almocando" class="cartao-resumo-status__valor">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- Expediente encerrado -->
+
+            <article class="cartao-resumo-status encerrado">
+
+                <span class="cartao-resumo-status__icone">
+
+                    <svg class="icone-sistema icone-sistema--resumo" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#check-circle-fill"></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-status__nome">
+                        Expediente encerrado
+                    </span>
+
+                    <strong id="resumo-encerrados" class="cartao-resumo-status__valor">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- Ponto pendente -->
+
+            <article class="cartao-resumo-status pendente">
+
+                <span class="cartao-resumo-status__icone">
+
+                    <svg class="icone-sistema icone-sistema--resumo" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#exclamation-circle-fill"></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-status__nome">
+                        Ponto pendente
+                    </span>
+
+                    <strong id="resumo-pendentes" class="cartao-resumo-status__valor">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- Situações especiais -->
+
+            <article class="cartao-resumo-status especial">
+
+                <span class="cartao-resumo-status__icone">
+
+                    <svg class="icone-sistema icone-sistema--resumo" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#calendar-plus-fill"></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-status__nome">
+                        Situações especiais
+                    </span>
+
+                    <strong id="resumo-especiais" class="cartao-resumo-status__valor">
+                        0
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+                 FILTROS
+                 ================================================= -->
+
+        <section class="cartao-aplicacao cartao-filtros-status">
+
+            <header class="cabecalho-secao-status">
+
+                <div>
+
+                    <h2>
+                        Funcionários do dia
+                    </h2>
+
+                    <p>
+                        Pesquise uma pessoa ou filtre pelo estado atual.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <div class="area-filtros-status">
+
+                <div class="campo-pesquisa-status">
+
+                    <label for="campo-pesquisa-status">
+                        Nome ou CPF
+                    </label>
+
+                    <div class="campo-pesquisa-status__controle">
+
+                        <span
+                            class="campo-pesquisa-status__icone"
+                            aria-hidden="true"
+                        >
+
+                            <svg class="icone-sistema" focusable="false">
+                                <use href="../icones/bootstrap-icons.svg#search"></use>
+                            </svg>
+
+                        </span>
+
+                        <input type="search" id="campo-pesquisa-status" placeholder="Ex.: João ou 123.456..."
+                            autocomplete="off">
+
+                        <button type="button" id="botao-limpar-pesquisa-status" class="botao-limpar-pesquisa-status"
+                            hidden>
+
+                            <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                                <use href="../icones/bootstrap-icons.svg#x-lg"></use>
+                            </svg>
+
+                            <span>
+                                Limpar
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="grupo-filtros-status">
+
+                    <span class="grupo-filtros-status__titulo">
+                        Estado atual
+                    </span>
+
+                    <div class="botoes-filtro-status">
+
+                        <button
+                            type="button"
+                            class="botao-filtro-status ativo"
+                            data-filtro-status="TODOS"
+                            aria-pressed="true"
+                        >
+
+                            <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                                <use href="../icones/bootstrap-icons.svg#people-fill"></use>
+                            </svg>
+
+                            <span>Todos</span>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-filtro-status"
+                            data-filtro-status="TRABALHANDO"
+                            aria-pressed="false"
+                        >
+
+                            <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                                <use href="../icones/bootstrap-icons.svg#person-workspace"></use>
+                            </svg>
+
+                            <span>Trabalhando</span>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-filtro-status"
+                            data-filtro-status="ALMOCANDO"
+                            aria-pressed="false"
+                        >
+
+                            <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                                <use href="../icones/bootstrap-icons.svg#fork-knife"></use>
+                            </svg>
+
+                            <span>Almoçando</span>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-filtro-status"
+                            data-filtro-status="EXPEDIENTE_ENCERRADO"
+                            aria-pressed="false"
+                        >
+
+                            <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                                <use href="../icones/bootstrap-icons.svg#check-circle-fill"></use>
+                            </svg>
+
+                            <span>Encerrados</span>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-filtro-status"
+                            data-filtro-status="PONTO_PENDENTE"
+                            aria-pressed="false"
+                        >
+
+                            <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                                <use href="../icones/bootstrap-icons.svg#exclamation-circle-fill"></use>
+                            </svg>
+
+                            <span>Pendentes</span>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="botao-filtro-status"
+                            data-filtro-status="ESPECIAIS"
+                            aria-pressed="false"
+                        >
+
+                            <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                                <use href="../icones/bootstrap-icons.svg#calendar-plus-fill"></use>
+                            </svg>
+
+                            <span>Especiais</span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+                 LISTA DE FUNCIONÁRIOS
+                 ================================================= -->
+
+        <section class="cartao-aplicacao secao-lista-status">
+
+            <header class="cabecalho-secao-status">
+
+                <div>
+
+                    <h2>
+                        Acompanhamento do dia
+                    </h2>
+
+                    <p id="descricao-resultados-status">
+                        Carregando funcionários...
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- Carregamento -->
+
+            <div
+                id="estado-carregamento-status"
+                class="estado-lista-status"
+                role="status"
+                aria-live="polite"
+            >
+
+                <span class="carregamento-status" aria-hidden="true"></span>
+
+                <p>
+                    Consultando o status das jornadas...
+                </p>
+
+            </div>
+
+
+            <!-- Estado vazio -->
+
+            <div id="estado-vazio-status" class="estado-lista-status" hidden>
+
+                <div class="estado-lista-status__icone">
+
+                    <svg class="icone-sistema icone-sistema--estado" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#search"></use>
+                    </svg>
+
+                </div>
+
+                <strong>
+                    Nenhuma pessoa encontrada
+                </strong>
+
+                <p>
+                    Não existem funcionários correspondentes
+                    à pesquisa e ao filtro selecionados.
+                </p>
+
+            </div>
+
+
+            <!-- Lista preenchida pelo JavaScript -->
+
+            <div id="lista-funcionarios-status" class="lista-funcionarios-status" hidden></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+             PAINEL DE DETALHES DO FUNCIONÁRIO
+             ===================================================== -->
+
+    <div id="fundo-detalhes-status" class="fundo-detalhes-status" hidden>
+
+        <section class="painel-detalhes-status" role="dialog" aria-modal="true"
+            aria-labelledby="titulo-detalhes-status">
+
+            <header class="cabecalho-detalhes-status">
+
+                <div>
+
+                    <span class="cabecalho-detalhes-status__etiqueta">
+                        Jornada de hoje
+                    </span>
+
+                    <h2 id="titulo-detalhes-status">
+                        Detalhes do funcionário
+                    </h2>
+
+                </div>
+
+                <button type="button" id="botao-fechar-detalhes-status" class="botao-fechar-detalhes-status"
+                    aria-label="Fechar detalhes">
+
+                    <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#x-lg"></use>
+                    </svg>
+
+                </button>
+
+            </header>
+
+            <div id="conteudo-detalhes-status" class="conteudo-detalhes-status"></div>
+
+        </section>
+
+    </div>
+
+    <!-- =====================================================
+     FORMULÁRIO DE SITUAÇÃO ESPECIAL
+     ===================================================== -->
+
+    <div id="fundo-formulario-situacao" class="fundo-modal-situacao" hidden>
+
+        <section class="modal-situacao" role="dialog" aria-modal="true" aria-labelledby="titulo-formulario-situacao">
+
+            <header class="cabecalho-modal-situacao">
+
+                <div>
+
+                    <span class="cabecalho-modal-situacao__etiqueta">
+                        Administração do dia
+                    </span>
+
+                    <h2 id="titulo-formulario-situacao">
+                        Marcar situação especial
+                    </h2>
+
+                    <p id="descricao-formulario-situacao">
+                        Informe a situação que será aplicada.
+                    </p>
+
+                </div>
+
+
+                <button type="button" id="botao-fechar-formulario-situacao" class="botao-fechar-modal-situacao"
+                    aria-label="Fechar formulário">
+
+                    <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#x-lg"></use>
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <form id="formulario-situacao" class="formulario-situacao">
+
+                <!-- Pessoa selecionada -->
+
+                <div class="pessoa-formulario-situacao">
+
+                    <div id="avatar-formulario-situacao" class="pessoa-formulario-situacao__avatar">
+                        --
+                    </div>
+
+                    <div>
+
+                        <strong id="nome-formulario-situacao">
+                            Funcionário
+                        </strong>
+
+                        <span id="data-formulario-situacao">
+                            Data
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Tipo da situação -->
+
+                <div class="grupo-campo-situacao">
+
+                    <label for="tipo-situacao">
+                        Situação especial
+                    </label>
+
+                    <select id="tipo-situacao" required>
+
+                        <option value="">
+                            Selecione uma situação
+                        </option>
+
+                        <option value="ATESTADO">
+                            Atestado
+                        </option>
+
+                        <option value="FERIAS">
+                            Férias
+                        </option>
+
+                        <option value="FOLGA">
+                            Folga
+                        </option>
+
+                        <option value="AUSENCIA">
+                            Ausência
+                        </option>
+
+                        <option value="DIA_ENCERRADO">
+                            Dia encerrado
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Motivo ou observação -->
+
+                <div class="grupo-campo-situacao">
+
+                    <label for="motivo-situacao">
+                        Motivo ou observação
+                    </label>
+
+                    <textarea id="motivo-situacao" maxlength="500" rows="4"
+                        placeholder="Ex.: Folga combinada, consulta médica ou encerramento por chuva."></textarea>
+
+                    <span class="ajuda-campo-situacao">
+                        Campo opcional, com no máximo 500 caracteres.
+                    </span>
+
+                </div>
+
+
+                <!-- Motivo da edição -->
+
+                <div id="grupo-motivo-alteracao-situacao" class="grupo-campo-situacao" hidden>
+
+                    <label for="motivo-alteracao-situacao">
+                        Observação sobre a alteração
+                    </label>
+
+                    <textarea id="motivo-alteracao-situacao" maxlength="500" rows="3"
+                        placeholder="Ex.: Situação corrigida após confirmação do administrador."></textarea>
+
+                    <span class="ajuda-campo-situacao">
+                        Essa observação será guardada no histórico.
+                    </span>
+
+                </div>
+
+
+                <!-- Ações -->
+
+                <footer class="acoes-formulario-situacao">
+
+                    <button type="button" id="botao-cancelar-formulario-situacao"
+                        class="botao-modal-situacao secundario">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" id="botao-salvar-situacao" class="botao-modal-situacao principal">
+
+                        <svg class="icone-sistema icone-sistema--botao" aria-hidden="true" focusable="false">
+                            <use href="../icones/bootstrap-icons.svg#check-lg"></use>
+                        </svg>
+
+                        <span id="texto-botao-salvar-situacao">
+                            Registrar situação
+                        </span>
+
+                    </button>
+
+                </footer>
+
+            </form>
+
+        </section>
+
+    </div>
+
+    <!-- =====================================================
+     CONFIRMAÇÃO DE REMOÇÃO DA SITUAÇÃO
+     ===================================================== -->
+
+    <div id="fundo-remocao-situacao" class="fundo-modal-situacao" hidden>
+
+        <section class="modal-situacao modal-situacao--pequeno" role="dialog" aria-modal="true"
+            aria-labelledby="titulo-remocao-situacao">
+
+            <header class="cabecalho-modal-situacao">
+
+                <div>
+
+                    <span class="cabecalho-modal-situacao__etiqueta perigo">
+                        Remover situação
+                    </span>
+
+                    <h2 id="titulo-remocao-situacao">
+                        Confirmar remoção
+                    </h2>
+
+                    <p>
+                        A situação atual será removida, mas continuará
+                        registrada no histórico administrativo.
+                    </p>
+
+                </div>
+
+
+                <button type="button" id="botao-fechar-remocao-situacao" class="botao-fechar-modal-situacao"
+                    aria-label="Fechar confirmação">
+
+                    <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#x-lg"></use>
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <div class="conteudo-remocao-situacao">
+
+                <div class="aviso-remocao-situacao">
+
+                    <div class="aviso-remocao-situacao__icone">
+
+                        <svg class="icone-sistema" aria-hidden="true" focusable="false">
+                            <use href="../icones/bootstrap-icons.svg#exclamation-triangle-fill"></use>
+                        </svg>
+
+                    </div>
+
+                    <div>
+
+                        <strong id="nome-remocao-situacao">
+                            Funcionário
+                        </strong>
+
+                        <span id="tipo-remocao-situacao">
+                            Situação especial
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="grupo-campo-situacao">
+
+                    <label for="motivo-remocao-situacao">
+                        Motivo da remoção
+                    </label>
+
+                    <textarea id="motivo-remocao-situacao" maxlength="500" rows="3"
+                        placeholder="Ex.: Situação lançada por engano."></textarea>
+
+                    <span class="ajuda-campo-situacao">
+                        Campo opcional.
+                    </span>
+
+                </div>
+
+
+                <footer class="acoes-formulario-situacao">
+
+                    <button type="button" id="botao-cancelar-remocao-situacao" class="botao-modal-situacao secundario">
+                        Cancelar
+                    </button>
+
+                    <button type="button" id="botao-confirmar-remocao-situacao" class="botao-modal-situacao perigo">
+
+                        <svg class="icone-sistema icone-sistema--botao" aria-hidden="true" focusable="false">
+                            <use href="../icones/bootstrap-icons.svg#trash3-fill"></use>
+                        </svg>
+
+                        <span>
+                            Remover situação
+                        </span>
+
+                    </button>
+
+                </footer>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- =====================================================
+     HISTÓRICO DE SITUAÇÕES ESPECIAIS
+     ===================================================== -->
+
+<div
+    id="fundo-historico-situacao"
+    class="fundo-modal-situacao"
+    hidden
+>
+
+    <section
+        class="modal-situacao modal-historico-situacao"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-historico-situacao"
+    >
+
+        <!-- Cabeçalho do histórico -->
+
+        <header class="cabecalho-modal-situacao">
+
+            <div>
+
+                <span class="cabecalho-modal-situacao__etiqueta">
+                    Auditoria administrativa
+                </span>
+
+                <h2 id="titulo-historico-situacao">
+                    Histórico de situações
+                </h2>
+
+                <p>
+                    Todas as inclusões, alterações e remoções
+                    permanecem registradas.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="botao-fechar-historico-situacao"
+                class="botao-fechar-modal-situacao"
+                aria-label="Fechar histórico"
+            >
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#x-lg"
+                    ></use>
+                </svg>
+
+            </button>
+
+        </header>
+
+
+        <!-- Conteúdo -->
+
+        <div class="conteudo-historico-situacao">
+
+            <!-- Pessoa consultada -->
+
+            <div class="pessoa-formulario-situacao">
+
+                <div
+                    id="avatar-historico-situacao"
+                    class="pessoa-formulario-situacao__avatar"
+                >
+                    --
+                </div>
+
+                <div>
+
+                    <strong id="nome-historico-situacao">
+                        Funcionário
+                    </strong>
+
+                    <span>
+                        Histórico completo de situações especiais
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Carregamento -->
+
+            <div
+                id="carregamento-historico-situacao"
+                class="estado-historico-situacao"
+            >
+
+                <span class="carregamento-status"></span>
+
+                <p>
+                    Consultando o histórico...
+                </p>
+
+            </div>
+
+
+            <!-- Histórico vazio -->
+
+            <div
+                id="vazio-historico-situacao"
+                class="estado-historico-situacao"
+                hidden
+            >
+
+                <div class="estado-historico-situacao__icone">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#clock-history"
+                        ></use>
+                    </svg>
+
+                </div>
+
+                <strong>
+                    Nenhum histórico encontrado
+                </strong>
+
+                <p>
+                    Essa pessoa ainda não teve situações
+                    especiais criadas, alteradas ou removidas.
+                </p>
+
+            </div>
+
+
+            <!-- Lista preenchida pelo JavaScript -->
+
+            <div
+                id="lista-historico-situacao"
+                class="lista-historico-situacao"
+                hidden
+            ></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+    <!-- =====================================================
+             MENSAGEM FLUTUANTE
+             ===================================================== -->
+
+    <div id="mensagem-flutuante" class="mensagem-flutuante" role="status" aria-live="polite"></div>
+
+
+    <!-- =====================================================
+             MENU PRINCIPAL INFERIOR
+             ===================================================== -->
+
+    <nav
+        class="navegacao-principal"
+        aria-label="Navegação principal"
+    >
+
+        <div class="navegacao-principal__conteudo">
+
+            <!-- Hoje -->
+
+            <a href="inicio.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#house-door-fill"></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Hoje
+                </span>
+
+            </a>
+
+
+            <!-- Histórico -->
+
+            <a href="historico.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#calendar3"></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Histórico
+                </span>
+
+            </a>
+
+
+            <!-- Perfil -->
+
+            <a href="perfil.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#person-fill"></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Perfil
+                </span>
+
+            </a>
+
+
+            <!-- Administração -->
+
+            <a
+                href="administracao.html"
+                class="item-navegacao ativo"
+                aria-current="page"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#gear-fill"></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Administração
+                </span>
+
+            </a>
+
+
+            <!-- Sair -->
+
+            <button type="button" id="botao-sair" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg class="icone-sistema icone-sistema--menu" aria-hidden="true" focusable="false">
+                        <use href="../icones/bootstrap-icons.svg#box-arrow-right"></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Sair
+                </span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+    <!-- =====================================================
+             JAVASCRIPT
+             ===================================================== -->
+
+    <script src="../js/configuracao.js"></script>
+    <script src="../js/autenticacao.js?v=20260801-2"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/notificacoes-comum.js?v=20260801-3"></script>
+    <script src="../js/status-hoje.js"></script>
+
+</body>
+
+</html>

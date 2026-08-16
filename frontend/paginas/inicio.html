@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#6b4423"
+    >
+
+    <title>
+        Gestor de Jornadas - Hoje
+    </title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../imagens/logo-gestor-jornadas.svg"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/estilo.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/componentes.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsivo.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/tela-hoje.css?v=20260801-3"
+    >
+
+    <link rel="stylesheet" href="../css/navegacao.css?v=20260801-2">
+
+    <meta
+        name="description"
+        content="Controle de jornadas e administração da Empresa Demonstração."
+    >
+    <meta name="application-name" content="Gestor de Jornadas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Jornadas">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link
+        rel="apple-touch-icon"
+        href="/imagens/pwa/icone-192.png"
+    >
+
+    <script src="/js/pwa.js" defer></script>
+
+</head>
+
+<body class="pagina-aplicacao">
+
+    <!-- =====================================================
+         CABEÇALHO DA APLICAÇÃO
+         ===================================================== -->
+
+    <header class="cabecalho-aplicacao">
+
+        <div class="cabecalho-aplicacao__conteudo">
+
+            <div class="marca-aplicacao">
+
+                <div
+                    class="
+                        marca-aplicacao__icone
+                        marca-aplicacao__icone--logo
+                    "
+                >
+
+                    <img
+                        src="../imagens/logo-gestor-jornadas.svg"
+                        alt="Logo da Empresa Demonstração"
+                        class="marca-aplicacao__logo"
+                    >
+
+                </div>
+
+                <div>
+
+                    <span class="marca-aplicacao__nome">
+                        Gestor de Jornadas
+                    </span>
+
+                    <span class="marca-aplicacao__descricao">
+                        Empresa Demonstração
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="usuario-cabecalho">
+
+                <div class="usuario-cabecalho__informacoes">
+
+                    <span
+                        id="nome-usuario-cabecalho"
+                        class="usuario-cabecalho__nome"
+                    >
+                        Carregando...
+                    </span>
+
+                    <span
+                        id="tipo-usuario-cabecalho"
+                        class="usuario-cabecalho__tipo"
+                    ></span>
+
+                </div>
+
+                <div
+                    id="avatar-usuario"
+                    class="usuario-cabecalho__avatar"
+                >
+                    --
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+         ===================================================== -->
+
+    <main class="conteudo-aplicacao">
+
+        <!-- Apresentação do dia -->
+
+        <section class="apresentacao-dia">
+
+            <div>
+
+                <p
+                    id="saudacao-usuario"
+                    class="apresentacao-dia__saudacao"
+                >
+                    Olá
+                </p>
+
+                <h1>
+                    Sua jornada de hoje
+                </h1>
+
+                <p
+                    id="data-atual"
+                    class="apresentacao-dia__data"
+                >
+                    Carregando data...
+                </p>
+
+            </div>
+
+            <span
+                id="indicador-conexao"
+                class="indicador-conexao"
+            >
+                Sistema conectado
+            </span>
+
+        </section>
+
+
+        <!-- Aviso de troca obrigatória de senha -->
+
+        <section
+            id="aviso-troca-senha"
+            class="aviso-sistema"
+            hidden
+        >
+
+            <div class="aviso-sistema__icone">
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#exclamation-triangle-fill"
+                    ></use>
+                </svg>
+
+            </div>
+
+            <div>
+
+                <strong>
+                    Você precisa criar uma nova senha
+                </strong>
+
+                <p>
+                    A senha atual é provisória. Acesse seu perfil
+                    para definir uma senha pessoal.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Grade principal da página -->
+
+        <div class="grade-pagina-hoje">
+
+            <!-- Próximo passo da jornada -->
+
+            <section
+                class="
+                    cartao-aplicacao
+                    cartao-proximo-passo
+                    cartao-proximo-passo--destaque
+                "
+            >
+
+                <div class="cartao-proximo-passo__icone">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            id="icone-proximo-passo"
+                            href="../icones/bootstrap-icons.svg#signpost-2-fill"
+                        ></use>
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <span
+                        id="etiqueta-proximo-passo"
+                        class="cartao-proximo-passo__etiqueta"
+                    >
+                        Próximo passo
+                    </span>
+
+                    <h3 id="titulo-proximo-passo">
+                        Selecione o tipo de trabalho
+                    </h3>
+
+                    <p id="descricao-proximo-passo">
+                        Escolha entre atividade administrativa ou operacional
+                        para liberar o registro da entrada.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- =================================================
+                 CARTÃO DA JORNADA
+                 ================================================= -->
+
+            <section class="cartao-aplicacao cartao-jornada">
+
+                <header class="cabecalho-cartao">
+
+                    <div>
+
+                        <h2>
+                            Registro de horários
+                        </h2>
+
+                        <p id="descricao-cartao-jornada">
+                            Escolha o tipo de trabalho antes de
+                            iniciar sua jornada.
+                        </p>
+
+                    </div>
+
+                    <span
+                        id="status-jornada"
+                        class="
+                            etiqueta-status
+                            status-nao-iniciada
+                        "
+                    >
+                        Não iniciada
+                    </span>
+
+                </header>
+
+
+                <!-- Configuração da jornada -->
+
+                <div class="configuracao-jornada">
+
+                    <div class="grupo-configuracao">
+
+                        <span
+                            id="titulo-tipo-trabalho"
+                            class="grupo-configuracao__titulo"
+                        >
+                            Tipo de trabalho
+                        </span>
+
+                        <div
+                            class="seletor-trabalho"
+                            role="group"
+                            aria-label="Tipo de trabalho"
+                        >
+
+                            <button
+                                type="button"
+                                class="botao-tipo-trabalho"
+                                data-tipo-trabalho="ADMINISTRATIVO"
+                                aria-pressed="false"
+                            >
+
+                                <span class="botao-tipo-trabalho__icone">
+
+                                    <svg
+                                        class="
+                                            icone-sistema
+                                            icone-sistema--tipo-trabalho
+                                        "
+                                        aria-hidden="true"
+                                        focusable="false"
+                                    >
+                                        <use
+                                            href="../icones/bootstrap-icons.svg#tools"
+                                        ></use>
+                                    </svg>
+
+                                </span>
+
+                                <span>
+                                    Atividade administrativa
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="botao-tipo-trabalho"
+                                data-tipo-trabalho="OPERACIONAL"
+                                aria-pressed="false"
+                            >
+
+                                <span class="botao-tipo-trabalho__icone">
+
+                                    <svg
+                                        class="
+                                            icone-sistema
+                                            icone-sistema--tipo-trabalho
+                                            icone-sistema--operacional
+                                        "
+                                        aria-hidden="true"
+                                        focusable="false"
+                                    >
+                                        <use
+                                            href="../icones/icones-operacao.svg#operacional"
+                                        ></use>
+                                    </svg>
+
+                                </span>
+
+                                <span>
+                                    Operacional
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="grupo-configuracao">
+
+                        <label
+                            for="atividade-do-dia"
+                            class="grupo-configuracao__titulo"
+                        >
+                            Atividade do dia
+                        </label>
+
+                        <input
+                            type="text"
+                            id="atividade-do-dia"
+                            class="campo-atividade"
+                            placeholder="Ex.: Atividade de campo"
+                            maxlength="255"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     HORÁRIO E AÇÃO PRINCIPAL
+                     ================================================= -->
+
+                <div class="area-acao-jornada">
+
+                    <!-- Horário sempre disponível -->
+
+                    <div class="grupo-horario-registro">
+
+                        <div class="grupo-horario-registro__cabecalho">
+
+                            <label
+                                for="horario-registro"
+                                class="grupo-horario-registro__titulo"
+                            >
+                                Digite um horário
+                            </label>
+
+                            <span
+                                id="texto-origem-horario"
+                                class="grupo-horario-registro__origem"
+                            >
+                                Horário atual selecionado.
+                            </span>
+
+                        </div>
+
+                        <div class="grupo-horario-registro__controles">
+
+                            <div class="campo-horario-registro">
+
+                                <svg
+                                    class="
+                                        icone-sistema
+                                        campo-horario-registro__icone
+                                    "
+                                    aria-hidden="true"
+                                    focusable="false"
+                                >
+                                    <use
+                                        href="../icones/bootstrap-icons.svg#clock"
+                                    ></use>
+                                </svg>
+
+                                <input
+                                    type="text"
+                                    id="horario-registro"
+                                    inputmode="numeric"
+                                    pattern="[0-9:]*"
+                                    maxlength="5"
+                                    placeholder="00:00"
+                                    autocomplete="off"
+                                    aria-label="Horário que será registrado"
+                                >
+
+                            </div>
+
+                            <button
+                                type="button"
+                                id="botao-usar-horario-atual"
+                                class="botao-usar-hora-atual"
+                            >
+
+                                <svg
+                                    class="
+                                        icone-sistema
+                                        icone-sistema--botao
+                                    "
+                                    aria-hidden="true"
+                                    focusable="false"
+                                >
+                                    <use
+                                        href="../icones/bootstrap-icons.svg#clock-history"
+                                    ></use>
+                                </svg>
+
+                                <span>
+                                    Usar hora atual
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Botão da próxima ação -->
+
+                    <button
+                        type="button"
+                        id="botao-registrar-horario"
+                        class="botao-registrar-horario"
+                        disabled
+                    >
+
+                        <span class="botao-registrar-horario__icone">
+
+                            <svg
+                                class="
+                                    icone-sistema
+                                    icone-sistema--acao
+                                "
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    id="icone-acao-jornada"
+                                    href="../icones/bootstrap-icons.svg#box-arrow-in-right"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <span class="botao-registrar-horario__texto">
+
+                            <span
+                                id="titulo-acao-jornada"
+                                class="botao-registrar-horario__titulo"
+                            >
+                                Registrar entrada
+                            </span>
+
+                            <span
+                                id="descricao-acao-jornada"
+                                class="botao-registrar-horario__descricao"
+                            >
+                                Primeiro selecione o tipo de trabalho
+                            </span>
+
+                        </span>
+
+                        <svg
+                            class="
+                                icone-sistema
+                                botao-registrar-horario__seta
+                            "
+                            aria-hidden="true"
+                            focusable="false"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#chevron-right"
+                            ></use>
+                        </svg>
+
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     LINHA DO TEMPO DA JORNADA
+                     ================================================= -->
+
+                <div class="linha-tempo-jornada">
+
+                    <!-- Entrada -->
+
+                    <div
+                        id="etapa-entrada"
+                        class="etapa-jornada"
+                    >
+
+                        <span class="etapa-jornada__marcador">
+
+                            <svg
+                                class="
+                                    icone-sistema
+                                    icone-sistema--etapa
+                                "
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#box-arrow-in-right"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <span class="etapa-jornada__nome">
+                            Entrada
+                        </span>
+
+                        <span
+                            id="horario-entrada"
+                            class="etapa-jornada__horario"
+                        >
+                            Pendente
+                        </span>
+
+                    </div>
+
+
+                    <!-- Início do almoço -->
+
+                    <div
+                        id="etapa-inicio-almoco"
+                        class="etapa-jornada"
+                    >
+
+                        <span class="etapa-jornada__marcador">
+
+                            <svg
+                                class="
+                                    icone-sistema
+                                    icone-sistema--etapa
+                                "
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#fork-knife"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <span class="etapa-jornada__nome">
+                            Almoço
+                        </span>
+
+                        <span
+                            id="horario-inicio-almoco"
+                            class="etapa-jornada__horario"
+                        >
+                            Pendente
+                        </span>
+
+                    </div>
+
+
+                    <!-- Retorno do almoço -->
+
+                    <div
+                        id="etapa-fim-almoco"
+                        class="etapa-jornada"
+                    >
+
+                        <span class="etapa-jornada__marcador">
+
+                            <svg
+                                class="
+                                    icone-sistema
+                                    icone-sistema--etapa
+                                "
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#arrow-return-left"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <span class="etapa-jornada__nome">
+                            Retorno
+                        </span>
+
+                        <span
+                            id="horario-fim-almoco"
+                            class="etapa-jornada__horario"
+                        >
+                            Pendente
+                        </span>
+
+                    </div>
+
+
+                    <!-- Saída -->
+
+                    <div
+                        id="etapa-saida"
+                        class="etapa-jornada"
+                    >
+
+                        <span class="etapa-jornada__marcador">
+
+                            <svg
+                                class="
+                                    icone-sistema
+                                    icone-sistema--etapa
+                                "
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#box-arrow-right"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <span class="etapa-jornada__nome">
+                            Saída
+                        </span>
+
+                        <span
+                            id="horario-saida"
+                            class="etapa-jornada__horario"
+                        >
+                            Pendente
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 COLUNA DE RESUMO
+                 ================================================= -->
+
+            <aside class="coluna-resumo">
+
+                <section class="cartao-aplicacao cartao-resumo">
+
+                    <div class="cartao-resumo__cabecalho">
+
+                        <span class="cartao-resumo__icone">
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#bar-chart-fill"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                Resumo de hoje
+                            </h2>
+
+                            <p class="cartao-resumo__descricao">
+                                Os valores serão calculados automaticamente.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="lista-resumo">
+
+                        <div class="item-resumo">
+
+                            <span class="item-resumo__nome">
+                                Tempo trabalhado
+                            </span>
+
+                            <strong
+                                id="resumo-tempo-trabalhado"
+                                class="item-resumo__valor"
+                            >
+                                00h00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="item-resumo">
+
+                            <span class="item-resumo__nome">
+                                Jornada esperada
+                            </span>
+
+                            <strong
+                                id="resumo-tempo-esperado"
+                                class="item-resumo__valor"
+                            >
+                                --h--
+                            </strong>
+
+                        </div>
+
+
+                        <div class="item-resumo">
+
+                            <span class="item-resumo__nome">
+                                Horas extras
+                            </span>
+
+                            <strong
+                                id="resumo-horas-extras"
+                                class="item-resumo__valor"
+                            >
+                                00h00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="item-resumo">
+
+                            <span class="item-resumo__nome">
+                                Saldo do dia
+                            </span>
+
+                            <strong
+                                id="resumo-saldo-dia"
+                                class="item-resumo__valor"
+                            >
+                                00h00
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         MENSAGEM FLUTUANTE
+         ===================================================== -->
+
+    <div
+        id="mensagem-flutuante"
+        class="mensagem-flutuante"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- =====================================================
+         MENU INFERIOR
+         ===================================================== -->
+
+    <nav
+        class="navegacao-principal"
+        aria-label="Navegação principal"
+    >
+
+        <div class="navegacao-principal__conteudo">
+
+            <!-- Hoje -->
+
+            <a
+                href="inicio.html"
+                class="item-navegacao ativo"
+                aria-current="page"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="
+                            icone-sistema
+                            icone-sistema--menu
+                        "
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#house-door-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Hoje
+                </span>
+
+            </a>
+
+
+            <!-- Histórico -->
+
+            <a
+                href="historico.html"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="
+                            icone-sistema
+                            icone-sistema--menu
+                        "
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar3"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Histórico
+                </span>
+
+            </a>
+
+
+            <!-- Perfil -->
+
+            <a
+                href="perfil.html"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="
+                            icone-sistema
+                            icone-sistema--menu
+                        "
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#person-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Perfil
+                </span>
+
+            </a>
+
+
+            <!-- Administração -->
+
+            <a
+                href="administracao.html"
+                id="botao-administracao"
+                class="item-navegacao"
+                hidden
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="
+                            icone-sistema
+                            icone-sistema--menu
+                        "
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#gear-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Administração
+                </span>
+
+            </a>
+
+
+            <!-- Sair -->
+
+            <button
+                type="button"
+                id="botao-sair"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="
+                            icone-sistema
+                            icone-sistema--menu
+                        "
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#box-arrow-right"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Sair
+                </span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         ARQUIVOS JAVASCRIPT
+         A ordem dos scripts deve ser mantida.
+         ===================================================== -->
+
+    <script src="../js/configuracao.js"></script>
+
+    <script src="../js/autenticacao.js?v=20260801-2"></script>
+
+    <script src="../js/api.js"></script>
+
+    <script src="../js/sincronizacao-offline.js"></script>
+
+    <script src="../js/notificacoes-comum.js?v=20260801-3"></script>
+
+    <script src="../js/horario-jornada.js"></script>
+
+    <script src="../js/inicio.js"></script>
+
+</body>
+
+</html>

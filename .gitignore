@@ -1,0 +1,31 @@
+# Ambiente virtual do Python
+backend/.venv/
+
+# Dados privados de configuração
+backend/.env
+backend/.env.backup
+
+# Arquivos temporários do Python
+__pycache__/
+*.pyc
+
+# Backups contem dados privados e nao devem entrar no Git
+backups/
+
+# Registros locais do servidor automatico
+logs/
+
+# Artefatos locais gerados por tarefas e validacoes
+outputs/
+output/
+tmp/
+
+# Bancos, exportações e dados gerados localmente
+*.db
+*.sqlite
+*.bak
+*.dump
+*.csv
+*.xlsx
+*.xls
+*.pdf
