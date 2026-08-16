@@ -1,0 +1,1128 @@
+.conteudo-relatorios {
+
+    display: grid;
+    gap: 22px;
+
+}
+
+
+.cabecalho-pagina-relatorios {
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+
+}
+
+
+.cabecalho-pagina-relatorios h1 {
+
+    margin-top: 5px;
+
+}
+
+
+.cabecalho-pagina-relatorios p:last-child {
+
+    max-width: 650px;
+    margin-top: 8px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.84rem;
+    line-height: 1.55;
+
+}
+
+
+.filtros-relatorio {
+
+    padding: 20px;
+
+}
+
+
+.grade-filtros-relatorio {
+
+    display: grid;
+    grid-template-columns:
+        minmax(150px, 0.75fr)
+        minmax(150px, 0.75fr)
+        minmax(230px, 1.35fr)
+        auto;
+
+    align-items: end;
+    gap: 13px;
+
+}
+
+
+.campo-relatorio {
+
+    display: grid;
+    gap: 7px;
+
+}
+
+
+.campo-relatorio label {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+}
+
+
+.campo-relatorio input,
+.campo-relatorio select {
+
+    width: 100%;
+    min-height: 44px;
+    padding: 0 12px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.17);
+
+    border-radius: 10px;
+
+    color: var(--cor-texto);
+
+    font: inherit;
+    font-size: 0.75rem;
+
+    background: var(--cor-branco);
+
+}
+
+
+.campo-relatorio input:focus,
+.campo-relatorio select:focus {
+
+    border-color: var(--cor-azul-500);
+    outline:
+        3px solid rgba(128, 84, 46, 0.12);
+
+}
+
+
+.botao-gerar-relatorio,
+.botao-exportar-excel {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 44px;
+    padding: 0 16px;
+
+    border-radius: 10px;
+
+    color: var(--cor-branco);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    background: var(--cor-azul-700);
+
+}
+
+
+.botao-gerar-relatorio .icone-sistema,
+.botao-exportar-excel .icone-sistema {
+
+    width: 16px;
+    height: 16px;
+
+}
+
+
+.botao-gerar-relatorio:disabled,
+.botao-exportar-excel:disabled {
+
+    cursor: wait;
+    opacity: 0.58;
+
+}
+
+
+.grade-resumo-relatorio {
+
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+
+}
+
+
+.cartao-resumo-relatorio {
+
+    min-width: 0;
+    padding: 17px;
+
+    border:
+        1px solid rgba(128, 84, 46, 0.11);
+
+    border-radius: 15px;
+
+    background: var(--cor-branco);
+    box-shadow:
+        0 12px 30px rgba(63, 41, 25, 0.07);
+
+}
+
+
+.cartao-resumo-relatorio span {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.65rem;
+    font-weight: 800;
+
+}
+
+
+.cartao-resumo-relatorio strong {
+
+    display: block;
+
+    overflow: hidden;
+
+    margin-top: 6px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 1.15rem;
+    text-overflow: ellipsis;
+
+}
+
+
+.painel-resultado-relatorio {
+
+    min-width: 0;
+    padding: 22px;
+
+}
+
+
+.cabecalho-resultado-relatorio {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.cabecalho-resultado-relatorio h2 {
+
+    font-size: 1rem;
+
+}
+
+
+.cabecalho-resultado-relatorio p {
+
+    margin-top: 6px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.71rem;
+
+}
+
+
+.botao-exportar-excel {
+
+    flex: 0 0 auto;
+
+    color: #2f7048;
+    background: #e4f3e9;
+
+}
+
+
+.controle-exportacao-excel {
+
+    position: relative;
+    flex: 0 0 auto;
+
+}
+
+
+.botao-exportar-excel .icone-menu-exportacao {
+
+    width: 13px;
+    height: 13px;
+
+    margin-left: 2px;
+
+    transition: transform 0.18s ease;
+
+}
+
+
+.botao-exportar-excel[aria-expanded="true"]
+.icone-menu-exportacao {
+
+    transform: rotate(180deg);
+
+}
+
+
+.menu-exportacao-excel {
+
+    position: absolute;
+    z-index: 40;
+    top: calc(100% + 8px);
+    right: 0;
+
+    display: grid;
+    gap: 6px;
+
+    width: min(330px, calc(100vw - 32px));
+    padding: 8px;
+
+    border: 1px solid rgba(87, 57, 35, 0.14);
+    border-radius: 14px;
+
+    background: var(--cor-branco);
+    box-shadow: 0 18px 42px rgba(63, 41, 25, 0.18);
+
+}
+
+
+.menu-exportacao-excel[hidden] {
+
+    display: none;
+
+}
+
+
+.opcao-exportacao-excel {
+
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    align-items: center;
+    gap: 11px;
+
+    width: 100%;
+    min-height: 58px;
+    padding: 8px 10px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    color: var(--cor-texto);
+    text-align: left;
+
+    background: transparent;
+
+}
+
+
+.opcao-exportacao-excel:hover,
+.opcao-exportacao-excel:focus-visible {
+
+    border-color: rgba(128, 84, 46, 0.14);
+    outline: none;
+    background: var(--cor-creme-50);
+
+}
+
+
+.opcao-exportacao-excel:disabled {
+
+    cursor: wait;
+    opacity: 0.55;
+
+}
+
+
+.opcao-exportacao-excel > span:last-child {
+
+    min-width: 0;
+
+}
+
+
+.opcao-exportacao-excel strong,
+.opcao-exportacao-excel small {
+
+    display: block;
+
+}
+
+
+.opcao-exportacao-excel strong {
+
+    font-size: 0.73rem;
+
+}
+
+
+.opcao-exportacao-excel small {
+
+    margin-top: 3px;
+
+    color: var(--cor-texto-secundario);
+    font-size: 0.62rem;
+    line-height: 1.35;
+
+}
+
+
+.icone-opcao-exportacao {
+
+    display: grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+}
+
+
+.icone-opcao-exportacao .icone-sistema {
+
+    width: 18px;
+    height: 18px;
+
+}
+
+
+.icone-opcao-exportacao.colorido {
+
+    color: #2f7048;
+    background: #e4f3e9;
+
+}
+
+
+.icone-opcao-exportacao.preto-branco {
+
+    color: #343434;
+    background: #eeeeee;
+
+}
+
+
+.estado-relatorio {
+
+    display: grid;
+    place-items: center;
+    gap: 12px;
+
+    min-height: 210px;
+    padding: 30px;
+
+    border-radius: 14px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.75rem;
+    text-align: center;
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.estado-relatorio[hidden],
+.lista-jornadas-relatorio[hidden],
+.item-jornada-relatorio[hidden],
+.detalhe-jornada-relatorio[hidden] {
+
+    display: none;
+
+}
+
+
+.estado-relatorio--erro {
+
+    color: var(--cor-erro);
+    background: var(--cor-erro-fundo);
+
+}
+
+
+.estado-relatorio__icone {
+
+    width: 30px;
+    height: 30px;
+
+    color: var(--cor-azul-500);
+
+}
+
+
+.lista-jornadas-relatorio {
+
+    display: grid;
+    gap: 10px;
+
+}
+
+
+.item-jornada-relatorio {
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.13);
+
+    border-radius: 14px;
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.resumo-jornada-relatorio {
+
+    display: grid;
+    grid-template-columns:
+        minmax(210px, 1.4fr)
+        repeat(3, minmax(72px, 0.55fr))
+        auto;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    padding: 14px;
+
+    border: 0;
+
+    color: var(--cor-texto);
+
+    font: inherit;
+    text-align: left;
+
+    background: transparent;
+    cursor: pointer;
+
+    transition:
+        background-color 160ms ease;
+
+}
+
+
+.resumo-jornada-relatorio:hover,
+.resumo-jornada-relatorio:focus-visible,
+.resumo-jornada-relatorio[aria-expanded="true"] {
+
+    background: var(--cor-creme-100);
+
+}
+
+
+.resumo-jornada-relatorio:focus-visible,
+.botao-ver-mais-relatorio:focus-visible {
+
+    outline:
+        3px solid rgba(107, 68, 35, 0.16);
+
+    outline-offset: -3px;
+
+}
+
+
+.resumo-jornada-relatorio__principal {
+
+    min-width: 0;
+
+}
+
+
+.data-jornada-relatorio {
+
+    display: block;
+
+    color: var(--cor-verde-700);
+
+    font-size: 0.62rem;
+    font-weight: 850;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+}
+
+
+.resumo-jornada-relatorio__principal strong,
+.resumo-jornada-relatorio__principal small {
+
+    display: block;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+
+.resumo-jornada-relatorio__principal strong {
+
+    margin-top: 5px;
+
+    font-size: 0.78rem;
+
+}
+
+
+.resumo-jornada-relatorio__principal small {
+
+    margin-top: 4px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.64rem;
+
+}
+
+
+.dado-resumo-jornada span,
+.cabecalho-detalhe-relatorio > div > span,
+.atividade-detalhe-relatorio > span,
+.dado-calculo-relatorio span {
+
+    display: block;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.59rem;
+
+}
+
+
+.dado-resumo-jornada strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 0.73rem;
+
+}
+
+
+.dado-resumo-jornada--saldo.positivo strong,
+.dado-calculo-relatorio.positivo strong {
+
+    color: var(--cor-sucesso);
+
+}
+
+
+.dado-resumo-jornada--saldo.negativo strong,
+.dado-calculo-relatorio.negativo strong {
+
+    color: var(--cor-erro);
+
+}
+
+
+.acao-jornada-relatorio {
+
+    display: grid;
+    place-items: center;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 10px;
+
+    color: var(--cor-azul-700);
+    background: var(--cor-creme-200);
+
+}
+
+
+.acao-jornada-relatorio .icone-sistema,
+.botao-ver-mais-relatorio .icone-sistema {
+
+    width: 14px;
+    height: 14px;
+
+    transition:
+        transform 180ms ease;
+
+}
+
+
+.resumo-jornada-relatorio[aria-expanded="true"]
+.acao-jornada-relatorio .icone-sistema,
+.botao-ver-mais-relatorio[aria-expanded="true"]
+.icone-sistema {
+
+    transform: rotate(180deg);
+
+}
+
+
+.detalhe-jornada-relatorio {
+
+    display: grid;
+    gap: 17px;
+
+    padding: 17px;
+
+    border-top:
+        1px solid rgba(107, 68, 35, 0.11);
+
+    background: var(--cor-branco);
+
+}
+
+
+.cabecalho-detalhe-relatorio {
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+
+}
+
+
+.cabecalho-detalhe-relatorio > div > strong,
+.atividade-detalhe-relatorio > strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 0.77rem;
+
+}
+
+
+.situacao-detalhe-relatorio {
+
+    flex: 0 0 auto;
+
+    padding: 7px 9px;
+
+    border-radius: 999px;
+
+    color: var(--cor-verde-700);
+
+    font-size: 0.61rem;
+    font-weight: 800;
+
+    background: var(--cor-verde-100);
+
+}
+
+
+.atividade-detalhe-relatorio {
+
+    padding: 12px 13px;
+
+    border-radius: 11px;
+
+    background: var(--cor-creme-100);
+
+}
+
+
+.linha-tempo-detalhe-relatorio {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+
+}
+
+
+.horario-detalhe-relatorio {
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    min-width: 0;
+    padding: 11px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.09);
+
+    border-radius: 11px;
+
+    background: var(--cor-creme-50);
+
+}
+
+
+.horario-detalhe-relatorio__icone {
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    width: 31px;
+    height: 31px;
+
+    border-radius: 10px;
+
+    color: var(--cor-verde-700);
+    background: var(--cor-verde-100);
+
+}
+
+
+.horario-detalhe-relatorio__icone .icone-sistema {
+
+    width: 14px;
+    height: 14px;
+
+}
+
+
+.horario-detalhe-relatorio__texto {
+
+    min-width: 0;
+
+}
+
+
+.horario-detalhe-relatorio__texto > span,
+.horario-detalhe-relatorio__texto strong {
+
+    display: block;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+
+.horario-detalhe-relatorio__texto > span {
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.57rem;
+
+}
+
+
+.horario-detalhe-relatorio__texto strong {
+
+    margin-top: 5px;
+
+    font-size: 0.73rem;
+
+}
+
+
+.titulo-calculo-relatorio {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.72rem;
+
+}
+
+
+.titulo-calculo-relatorio .icone-sistema {
+
+    width: 15px;
+    height: 15px;
+
+}
+
+
+.grade-calculo-relatorio {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+
+    margin-top: -8px;
+
+}
+
+
+.dado-calculo-relatorio {
+
+    min-width: 0;
+    padding: 11px;
+
+    border-radius: 11px;
+
+    background: var(--cor-creme-100);
+
+}
+
+
+.dado-calculo-relatorio strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.76rem;
+
+}
+
+
+.explicacao-calculo-relatorio {
+
+    padding: 13px 14px;
+
+    border-left:
+        3px solid var(--cor-azul-600);
+
+    border-radius: 4px 11px 11px 4px;
+
+    background: var(--cor-creme-100);
+
+}
+
+
+.explicacao-calculo-relatorio strong {
+
+    display: block;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.68rem;
+
+}
+
+
+.explicacao-calculo-relatorio p {
+
+    margin-top: 5px;
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 0.65rem;
+    line-height: 1.5;
+
+}
+
+
+.botao-ver-mais-relatorio {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 100%;
+    min-height: 44px;
+    padding: 0 14px;
+
+    border:
+        1px solid rgba(107, 68, 35, 0.14);
+
+    border-radius: 12px;
+
+    color: var(--cor-azul-700);
+
+    font-size: 0.69rem;
+    font-weight: 850;
+
+    background: var(--cor-creme-100);
+    cursor: pointer;
+
+}
+
+
+.valor-saldo-negativo {
+
+    color: var(--cor-erro);
+    font-weight: 800;
+
+}
+
+
+.valor-saldo-positivo {
+
+    color: var(--cor-sucesso);
+    font-weight: 800;
+
+}
+
+
+@media (max-width: 980px) {
+
+    .grade-filtros-relatorio {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .campo-relatorio--funcionario {
+
+        grid-column: 1 / -1;
+
+    }
+
+
+    .grade-resumo-relatorio {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+    }
+
+}
+
+
+@media (max-width: 620px) {
+
+    .cabecalho-pagina-relatorios,
+    .cabecalho-resultado-relatorio {
+
+        align-items: stretch;
+        flex-direction: column;
+
+    }
+
+
+    .grade-filtros-relatorio,
+    .grade-resumo-relatorio {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .campo-relatorio--funcionario {
+
+        grid-column: auto;
+
+    }
+
+
+    .painel-resultado-relatorio,
+    .filtros-relatorio {
+
+        padding: 16px;
+
+    }
+
+
+    .botao-exportar-excel {
+
+        width: 100%;
+
+    }
+
+
+    .controle-exportacao-excel {
+
+        width: 100%;
+
+    }
+
+
+    .menu-exportacao-excel {
+
+        right: auto;
+        left: 0;
+
+        width: 100%;
+
+    }
+
+
+    .resumo-jornada-relatorio {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr))
+            auto;
+        gap: 11px 8px;
+
+        padding: 13px;
+
+    }
+
+
+    .resumo-jornada-relatorio__principal {
+
+        grid-column: 1 / 4;
+        grid-row: 1;
+
+    }
+
+
+    .dado-resumo-jornada--trabalhado {
+
+        grid-column: 1;
+
+    }
+
+
+    .dado-resumo-jornada--extras {
+
+        grid-column: 2;
+
+    }
+
+
+    .dado-resumo-jornada--saldo {
+
+        grid-column: 3;
+
+    }
+
+
+    .acao-jornada-relatorio {
+
+        grid-column: 4;
+        grid-row: 1 / 3;
+
+    }
+
+
+    .detalhe-jornada-relatorio {
+
+        padding: 14px;
+
+    }
+
+
+    .linha-tempo-detalhe-relatorio,
+    .grade-calculo-relatorio {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .cabecalho-detalhe-relatorio {
+
+        align-items: stretch;
+        flex-direction: column;
+
+    }
+
+
+    .situacao-detalhe-relatorio {
+
+        align-self: flex-start;
+
+    }
+
+}

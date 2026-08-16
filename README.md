@@ -21,9 +21,9 @@ Esta edição foi preparada exclusivamente para portfólio. Ela não contém cad
 
 ## Demonstração online
 
-A [demonstração interativa](https://origins00.github.io/sistema-gestao-jornadas/) funciona inteiramente no navegador, sem backend ou banco de dados. Clique em **Entrar na demonstração** para navegar pelo painel, registrar uma jornada simulada, consultar a equipe e o calendário e gerar um relatório fictício.
+A [demonstração interativa](https://origins00.github.io/sistema-gestao-jornadas/) reutiliza as telas e a navegação reais do projeto. Somente a comunicação com o servidor é simulada, permitindo que tudo funcione no navegador, sem backend ou banco de dados hospedado. Na tela de login, os dados demonstrativos já aparecem preenchidos; basta clicar em **Entrar no sistema**.
 
-Os dados são apenas ilustrativos e ficam no armazenamento local do próprio navegador. A opção **Reiniciar demonstração** apaga esse estado e restaura o conteúdo inicial.
+Os dados são apenas ilustrativos e ficam no armazenamento local do próprio navegador. O botão **Demonstração · reiniciar dados** apaga esse estado e restaura o conteúdo inicial.
 
 ## Funcionalidades
 

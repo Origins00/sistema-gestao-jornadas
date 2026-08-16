@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        >
+
+        <meta
+            name="theme-color"
+            content="#35150f"
+        >
+
+        <title>Gestor de Jornadas - Solicitar acesso</title>
+
+        <link
+            rel="icon"
+            type="image/png"
+            href="imagens/logo-gestor-jornadas.svg"
+        >
+
+        <link
+            rel="stylesheet"
+            href="css/estilo.css"
+        >
+
+        <link
+            rel="stylesheet"
+            href="css/componentes.css"
+        >
+
+        <link
+            rel="stylesheet"
+            href="css/responsivo.css"
+        >
+
+        <link
+            rel="stylesheet"
+            href="css/cadastro.css"
+        >
+
+        <meta
+            name="description"
+            content="Controle de jornadas e administração da Empresa Demonstração."
+        >
+        <meta name="application-name" content="Gestor de Jornadas">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="Jornadas">
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="default"
+        >
+
+        <link rel="manifest" href="manifest.webmanifest">
+        <link
+            rel="apple-touch-icon"
+            href="imagens/pwa/icone-192.png"
+        >
+
+        <script src="js/pwa.js" defer></script>
+
+    </head>
+
+    <body class="pagina-login-body pagina-cadastro-body">
+
+        <main class="pagina-login pagina-cadastro">
+
+            <section class="painel-apresentacao painel-apresentacao-cadastro">
+
+                <img
+                    src="imagens/logo-gestor-jornadas.svg"
+                    alt=""
+                    class="marca-dagua-login"
+                    aria-hidden="true"
+                >
+
+                <header class="marca-login">
+
+                    <div class="marca-login__logo">
+
+                        <img
+                            src="imagens/logo-gestor-jornadas.svg"
+                            alt="Logo da Empresa Demonstração"
+                        >
+
+                    </div>
+
+                    <div class="marca-login__textos">
+
+                        <span class="marca-login__nome">
+                            Gestor de Jornadas
+                        </span>
+
+                        <span class="marca-login__descricao">
+                            Controle de jornada
+                        </span>
+
+                    </div>
+
+                </header>
+
+                <div class="apresentacao-conteudo apresentacao-cadastro">
+
+                    <span class="etiqueta-apresentacao">
+                        Primeiro acesso
+                    </span>
+
+                    <h1>
+                        Solicite seu acesso ao Gestor de Jornadas.
+                    </h1>
+
+                    <p>
+                        Preencha seus dados uma única vez. O administrador
+                        analisará o pedido antes de liberar sua conta.
+                    </p>
+
+                    <ol class="etapas-cadastro">
+
+                        <li>
+
+                            <span class="etapas-cadastro__icone">
+
+                                <svg
+                                    class="icone-sistema"
+                                    aria-hidden="true"
+                                >
+                                    <use href="icones/bootstrap-icons.svg#person-plus-fill"></use>
+                                </svg>
+
+                            </span>
+
+                            <span>
+                                <strong>Envie seus dados</strong>
+                                Preencha o formulário de solicitação.
+                            </span>
+
+                        </li>
+
+                        <li>
+
+                            <span class="etapas-cadastro__icone">
+
+                                <svg
+                                    class="icone-sistema"
+                                    aria-hidden="true"
+                                >
+                                    <use href="icones/bootstrap-icons.svg#hourglass-split"></use>
+                                </svg>
+
+                            </span>
+
+                            <span>
+                                <strong>Aguarde a análise</strong>
+                                O administrador conferirá o seu pedido.
+                            </span>
+
+                        </li>
+
+                        <li>
+
+                            <span class="etapas-cadastro__icone">
+
+                                <svg
+                                    class="icone-sistema"
+                                    aria-hidden="true"
+                                >
+                                    <use href="icones/bootstrap-icons.svg#check-circle-fill"></use>
+                                </svg>
+
+                            </span>
+
+                            <span>
+                                <strong>Entre após a aprovação</strong>
+                                Use seu CPF e a senha criada aqui.
+                            </span>
+
+                        </li>
+
+                    </ol>
+
+                </div>
+
+                <footer class="rodape-apresentacao">
+
+                    <span>
+                        Empresa Demonstração
+                    </span>
+
+                    <span class="rodape-apresentacao__separador">
+                        •
+                    </span>
+
+                    <span>
+                        Brasil
+                    </span>
+
+                </footer>
+
+            </section>
+
+            <section class="painel-formulario painel-formulario-cadastro">
+
+                <div
+                    class="folhas-formulario folhas-formulario--superior"
+                    aria-hidden="true"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div
+                    class="folhas-formulario folhas-formulario--inferior"
+                    aria-hidden="true"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="cartao-login cartao-cadastro">
+
+                    <a
+                        href="index.html"
+                        class="link-voltar-login"
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use href="icones/bootstrap-icons.svg#arrow-left"></use>
+                        </svg>
+
+                        Voltar para entrar
+
+                    </a>
+
+                    <header
+                        id="cabecalho-cadastro"
+                        class="cabecalho-login cabecalho-cadastro"
+                    >
+
+                        <div class="selo-acesso">
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                            >
+                                <use href="icones/bootstrap-icons.svg#shield-check"></use>
+                            </svg>
+
+                            Solicitação protegida
+
+                        </div>
+
+                        <span class="texto-destaque">
+                            Novo acesso
+                        </span>
+
+                        <h2>
+                            Solicitar acesso
+                        </h2>
+
+                        <p>
+                            Informe seus dados pessoais e crie a senha
+                            que será usada após a aprovação.
+                        </p>
+
+                    </header>
+
+                    <form
+                        id="formulario-cadastro"
+                        class="formulario formulario-cadastro"
+                        novalidate
+                    >
+
+                        <div class="campo-formulario campo-formulario--completo">
+
+                            <label for="nome-completo">
+                                Nome completo
+                            </label>
+
+                            <div class="campo-com-icone">
+
+                                <span
+                                    class="campo-com-icone__icone"
+                                    aria-hidden="true"
+                                >
+
+                                    <svg class="icone-sistema">
+                                        <use href="icones/bootstrap-icons.svg#person-fill"></use>
+                                    </svg>
+
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="nome-completo"
+                                    name="nome_completo"
+                                    placeholder="Digite seu nome completo"
+                                    autocomplete="name"
+                                    minlength="3"
+                                    maxlength="150"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <div class="campo-formulario">
+
+                            <label for="cpf-cadastro">
+                                CPF
+                            </label>
+
+                            <div class="campo-com-icone">
+
+                                <span
+                                    class="campo-com-icone__icone"
+                                    aria-hidden="true"
+                                >
+
+                                    <svg class="icone-sistema">
+                                        <use href="icones/bootstrap-icons.svg#person-vcard-fill"></use>
+                                    </svg>
+
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="cpf-cadastro"
+                                    name="cpf"
+                                    placeholder="000.000.000-00"
+                                    inputmode="numeric"
+                                    autocomplete="off"
+                                    maxlength="14"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <div class="campo-formulario">
+
+                            <label for="telefone">
+                                Telefone
+                            </label>
+
+                            <div class="campo-com-icone">
+
+                                <span
+                                    class="campo-com-icone__icone"
+                                    aria-hidden="true"
+                                >
+
+                                    <svg class="icone-sistema">
+                                        <use href="icones/bootstrap-icons.svg#telephone-fill"></use>
+                                    </svg>
+
+                                </span>
+
+                                <input
+                                    type="tel"
+                                    id="telefone"
+                                    name="telefone"
+                                    placeholder="(00) 00000-0000"
+                                    inputmode="tel"
+                                    autocomplete="tel"
+                                    maxlength="15"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <div class="campo-formulario campo-formulario--completo">
+
+                            <label for="data-nascimento">
+                                Data de nascimento
+                            </label>
+
+                            <div class="campo-com-icone">
+
+                                <span
+                                    class="campo-com-icone__icone"
+                                    aria-hidden="true"
+                                >
+
+                                    <svg class="icone-sistema">
+                                        <use href="icones/bootstrap-icons.svg#calendar-date-fill"></use>
+                                    </svg>
+
+                                </span>
+
+                                <input
+                                    type="date"
+                                    id="data-nascimento"
+                                    name="data_nascimento"
+                                    autocomplete="bday"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <div class="campo-formulario">
+
+                            <label for="senha-cadastro">
+                                Crie uma senha
+                            </label>
+
+                            <div class="campo-senha campo-com-icone">
+
+                                <span
+                                    class="campo-com-icone__icone"
+                                    aria-hidden="true"
+                                >
+
+                                    <svg class="icone-sistema">
+                                        <use href="icones/bootstrap-icons.svg#lock-fill"></use>
+                                    </svg>
+
+                                </span>
+
+                                <input
+                                    type="password"
+                                    id="senha-cadastro"
+                                    name="senha"
+                                    placeholder="Mínimo de 12 caracteres"
+                                    autocomplete="new-password"
+                                    minlength="12"
+                                    maxlength="128"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="botao-mostrar-senha"
+                                    data-alternar-senha="senha-cadastro"
+                                    aria-label="Mostrar senha"
+                                >
+
+                                    <svg
+                                        class="icone-sistema"
+                                        aria-hidden="true"
+                                    >
+                                        <use href="icones/bootstrap-icons.svg#eye-fill"></use>
+                                    </svg>
+
+                                    <span>Mostrar</span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="campo-formulario">
+
+                            <label for="confirmacao-senha">
+                                Confirme a senha
+                            </label>
+
+                            <div class="campo-senha campo-com-icone">
+
+                                <span
+                                    class="campo-com-icone__icone"
+                                    aria-hidden="true"
+                                >
+
+                                    <svg class="icone-sistema">
+                                        <use href="icones/bootstrap-icons.svg#lock-fill"></use>
+                                    </svg>
+
+                                </span>
+
+                                <input
+                                    type="password"
+                                    id="confirmacao-senha"
+                                    name="confirmacao_senha"
+                                    placeholder="Digite a senha novamente"
+                                    autocomplete="new-password"
+                                    minlength="12"
+                                    maxlength="128"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="botao-mostrar-senha"
+                                    data-alternar-senha="confirmacao-senha"
+                                    aria-label="Mostrar confirmação da senha"
+                                >
+
+                                    <svg
+                                        class="icone-sistema"
+                                        aria-hidden="true"
+                                    >
+                                        <use href="icones/bootstrap-icons.svg#eye-fill"></use>
+                                    </svg>
+
+                                    <span>Mostrar</span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="mensagem-cadastro"
+                            class="mensagem-formulario campo-formulario--completo"
+                            role="alert"
+                            aria-live="polite"
+                        ></div>
+
+                        <button
+                            type="submit"
+                            id="botao-enviar-cadastro"
+                            class="botao botao-principal campo-formulario--completo"
+                        >
+
+                            <span class="botao__texto">
+                                Enviar solicitação
+                            </span>
+
+                            <span
+                                class="botao__carregamento"
+                                aria-hidden="true"
+                            ></span>
+
+                        </button>
+
+                    </form>
+
+                    <section
+                        id="cadastro-concluido"
+                        class="cadastro-concluido"
+                        tabindex="-1"
+                        hidden
+                    >
+
+                        <span class="cadastro-concluido__icone">
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                            >
+                                <use href="icones/bootstrap-icons.svg#check-circle-fill"></use>
+                            </svg>
+
+                        </span>
+
+                        <span class="texto-destaque">
+                            Pedido recebido
+                        </span>
+
+                        <h2>
+                            Solicitação enviada!
+                        </h2>
+
+                        <p id="mensagem-cadastro-concluido">
+                            Seu pedido foi enviado para análise do administrador.
+                        </p>
+
+                        <div class="cadastro-concluido__aviso">
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                            >
+                                <use href="icones/bootstrap-icons.svg#hourglass-split"></use>
+                            </svg>
+
+                            Aguarde a aprovação antes de tentar entrar.
+
+                        </div>
+
+                        <a
+                            href="index.html"
+                            class="botao botao-principal"
+                        >
+                            Voltar para o login
+                        </a>
+
+                    </section>
+
+                </div>
+
+                <p class="assinatura-login assinatura-cadastro">
+                    Gestor de Jornadas • Gestão simples e transparente
+                </p>
+
+            </section>
+
+        </main>
+
+        <script src="js/configuracao.js"></script>
+        <script src="js/autenticacao.js"></script>
+        <script src="js/demo-api.js"></script>
+        <script src="js/api.js"></script>
+        <script src="js/cadastro.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#6b4423">
+
+    <title>Gestor de Jornadas - Solicitações</title>
+
+    <link rel="icon" type="image/png" href="../imagens/logo-gestor-jornadas.svg">
+
+    <link rel="stylesheet" href="../css/estilo.css">
+
+    <link rel="stylesheet" href="../css/componentes.css">
+
+    <link rel="stylesheet" href="../css/responsivo.css">
+
+    <link rel="stylesheet" href="../css/tela-hoje.css?v=20260801-3">
+
+    <!-- Reutiliza a navegação interna da administração -->
+
+    <link rel="stylesheet" href="../css/administracao.css">
+
+    <link rel="stylesheet" href="../css/solicitacoes.css">
+
+    <link rel="stylesheet" href="../css/navegacao.css?v=20260801-2">
+
+    <meta
+        name="description"
+        content="Controle de jornadas e administração da Empresa Demonstração."
+    >
+    <meta name="application-name" content="Gestor de Jornadas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Jornadas">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link
+        rel="apple-touch-icon"
+        href="../imagens/pwa/icone-192.png"
+    >
+
+    <script src="../js/pwa.js" defer></script>
+
+</head>
+
+<body class="pagina-aplicacao pagina-solicitacoes">
+
+    <!-- =====================================================
+             CABEÇALHO
+             ===================================================== -->
+
+    <header class="cabecalho-aplicacao">
+
+        <div class="cabecalho-aplicacao__conteudo">
+
+            <div class="marca-aplicacao">
+
+                <div class="marca-aplicacao__icone marca-aplicacao__icone--logo">
+
+                    <img src="../imagens/logo-gestor-jornadas.svg" alt="Logo da Empresa Demonstração"
+                        class="marca-aplicacao__logo">
+
+                </div>
+
+                <div>
+
+                    <span class="marca-aplicacao__nome">
+                        Gestor de Jornadas
+                    </span>
+
+                    <span class="marca-aplicacao__descricao">
+                        Empresa Demonstração
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="usuario-cabecalho">
+
+                <div class="usuario-cabecalho__informacoes">
+
+                    <span id="nome-usuario-cabecalho" class="usuario-cabecalho__nome">
+                        Carregando...
+                    </span>
+
+                    <span id="tipo-usuario-cabecalho" class="usuario-cabecalho__tipo">
+                        Administrador
+                    </span>
+
+                </div>
+
+                <div id="avatar-usuario" class="usuario-cabecalho__avatar">
+                    --
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+             CONTEÚDO PRINCIPAL
+             ===================================================== -->
+
+    <main class="conteudo-aplicacao conteudo-solicitacoes">
+
+        <!-- Título -->
+
+        <section class="cabecalho-pagina-solicitacoes">
+
+            <div>
+
+                <p class="apresentacao-dia__saudacao">
+                    Área administrativa
+                </p>
+
+                <h1>
+                    Solicitações de cadastro
+                </h1>
+
+                <p>
+                    Analise os dados enviados antes de liberar
+                    o acesso de uma nova pessoa.
+                </p>
+
+            </div>
+
+            <span id="indicador-conexao" class="indicador-conexao">
+                Sistema conectado
+            </span>
+
+        </section>
+
+
+        <!-- Navegação interna -->
+
+        <nav class="navegacao-area-administrativa">
+
+            <a href="administracao.html" class="item-area-administrativa">
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#people-fill"
+                    ></use>
+                </svg>
+
+                Funcionários
+            </a>
+
+            <a
+                href="solicitacoes.html"
+                class="item-area-administrativa ativo"
+                aria-current="page"
+            >
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#person-plus-fill"
+                    ></use>
+                </svg>
+
+                Solicitações
+
+                <span id="quantidade-navegacao" class="item-area-administrativa__aviso">
+                    0
+                </span>
+
+            </a>
+
+            <a href="alteracoes.html" class="item-area-administrativa">
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#clock-history"
+                    ></use>
+                </svg>
+
+                Alterações
+            </a>
+
+            <a href="status-hoje.html" class="item-area-administrativa">
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#clipboard-data-fill"
+                    ></use>
+                </svg>
+
+                Status de hoje
+            </a>
+
+            <a href="feriados.html" class="item-area-administrativa">
+
+                <svg
+                    class="icone-sistema"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <use
+                        href="../icones/bootstrap-icons.svg#calendar-event-fill"
+                    ></use>
+                </svg>
+
+                Feriados
+            </a>
+
+        </nav>
+
+
+        <!-- =================================================
+                 RESUMO
+                 ================================================= -->
+
+        <section class="resumo-solicitacoes">
+
+            <article class="cartao-resumo-solicitacoes">
+
+                <div class="cartao-resumo-solicitacoes__icone">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#person-plus-fill"
+                        ></use>
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <span class="cartao-resumo-solicitacoes__nome">
+                        Aguardando análise
+                    </span>
+
+                    <strong id="quantidade-pendente">
+                        0
+                    </strong>
+
+                    <p>
+                        solicitações ainda precisam de uma decisão
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="cartao-orientacao-solicitacoes">
+
+                <span
+                    class="cartao-orientacao-solicitacoes__icone"
+                    aria-hidden="true"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#clipboard-check-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <strong>
+                        Verifique os dados com atenção
+                    </strong>
+
+                    <p>
+                        Ao aprovar, uma conta ativa de funcionário
+                        será criada. Ao recusar, a solicitação será
+                        mantida no histórico do sistema.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+                 LISTA DE SOLICITAÇÕES
+                 ================================================= -->
+
+        <section class="cartao-aplicacao secao-solicitacoes">
+
+            <header class="cabecalho-secao-solicitacoes">
+
+                <div>
+
+                    <h2>
+                        Cadastros pendentes
+                    </h2>
+
+                    <p id="descricao-solicitacoes">
+                        Carregando solicitações...
+                    </p>
+
+                </div>
+
+                <button type="button" id="botao-atualizar" class="botao-atualizar-solicitacoes">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#arrow-clockwise"
+                        ></use>
+                    </svg>
+
+                    <span>
+                        Atualizar
+                    </span>
+
+                </button>
+
+            </header>
+
+
+            <!-- Carregamento -->
+
+            <div
+                id="estado-carregamento"
+                class="estado-solicitacoes"
+                role="status"
+                aria-live="polite"
+            >
+
+                <span
+                    class="carregamento-solicitacoes"
+                    aria-hidden="true"
+                ></span>
+
+                <p>
+                    Consultando solicitações pendentes...
+                </p>
+
+            </div>
+
+
+            <!-- Estado vazio -->
+
+            <div id="estado-vazio" class="estado-solicitacoes" hidden>
+
+                <div class="estado-solicitacoes__icone">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#check-circle-fill"
+                        ></use>
+                    </svg>
+
+                </div>
+
+                <strong>
+                    Nenhuma solicitação pendente
+                </strong>
+
+                <p>
+                    Todos os pedidos de cadastro já foram analisados.
+                </p>
+
+            </div>
+
+
+            <!-- Lista -->
+
+            <div id="lista-solicitacoes" class="lista-solicitacoes" hidden></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+             PAINEL DE DETALHES
+             ===================================================== -->
+
+    <div id="fundo-detalhes" class="fundo-detalhes-solicitacao" hidden>
+
+        <section class="painel-detalhes-solicitacao" role="dialog" aria-modal="true" aria-labelledby="titulo-detalhes">
+
+            <header class="cabecalho-detalhes-solicitacao">
+
+                <div>
+
+                    <span class="cabecalho-detalhes-solicitacao__etiqueta">
+                        Análise de cadastro
+                    </span>
+
+                    <h2 id="titulo-detalhes">
+                        Solicitação
+                    </h2>
+
+                </div>
+
+                <button type="button" id="botao-fechar-detalhes" class="botao-fechar-detalhes-solicitacao"
+                    aria-label="Fechar detalhes">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#x-lg"
+                        ></use>
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <div id="conteudo-detalhes" class="conteudo-detalhes-solicitacao"></div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+             MENSAGEM FLUTUANTE
+             ===================================================== -->
+
+    <div id="mensagem-flutuante" class="mensagem-flutuante" role="status" aria-live="polite"></div>
+
+
+    <!-- =====================================================
+             MENU INFERIOR
+             ===================================================== -->
+
+    <nav
+        class="navegacao-principal"
+        aria-label="Navegação principal"
+    >
+
+        <div class="navegacao-principal__conteudo">
+
+            <a href="inicio.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#house-door-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Hoje
+                </span>
+
+            </a>
+
+
+            <a href="historico.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar3"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Histórico
+                </span>
+
+            </a>
+
+
+            <a href="perfil.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#person-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Perfil
+                </span>
+
+            </a>
+
+
+            <a
+                href="administracao.html"
+                class="item-navegacao ativo"
+                aria-current="page"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#gear-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Administração
+                </span>
+
+            </a>
+
+
+            <button type="button" id="botao-sair" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#box-arrow-right"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Sair
+                </span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <script src="../js/configuracao.js"></script>
+    <script src="../js/autenticacao.js?v=20260801-2"></script>
+    <script src="../js/demo-api.js"></script>
+        <script src="../js/api.js"></script>
+    <script src="../js/notificacoes-comum.js?v=20260801-3"></script>
+    <script src="../js/solicitacoes.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#6b4423"
+    >
+
+    <title>
+        Gestor de Jornadas - Histórico
+    </title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../imagens/logo-gestor-jornadas.svg"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/estilo.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/componentes.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsivo.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/tela-hoje.css?v=20260801-3"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/historico.css"
+    >
+
+    <link rel="stylesheet" href="../css/navegacao.css?v=20260801-2">
+
+    <meta
+        name="description"
+        content="Controle de jornadas e administração da Empresa Demonstração."
+    >
+    <meta name="application-name" content="Gestor de Jornadas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Jornadas">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link
+        rel="apple-touch-icon"
+        href="../imagens/pwa/icone-192.png"
+    >
+
+    <script src="../js/pwa.js" defer></script>
+
+</head>
+
+
+<body class="pagina-aplicacao pagina-historico">
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
+    <header class="cabecalho-aplicacao">
+
+        <div class="cabecalho-aplicacao__conteudo">
+
+            <div class="marca-aplicacao">
+
+                <div
+                    class="
+                        marca-aplicacao__icone
+                        marca-aplicacao__icone--logo
+                    "
+                >
+
+                    <img
+                        src="../imagens/logo-gestor-jornadas.svg"
+                        alt="Logo da Empresa Demonstração"
+                        class="marca-aplicacao__logo"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <span class="marca-aplicacao__nome">
+                        Gestor de Jornadas
+                    </span>
+
+                    <span class="marca-aplicacao__descricao">
+                        Empresa Demonstração
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="usuario-cabecalho">
+
+                <div class="usuario-cabecalho__informacoes">
+
+                    <span
+                        id="nome-usuario-cabecalho"
+                        class="usuario-cabecalho__nome"
+                    >
+                        Carregando...
+                    </span>
+
+                    <span
+                        id="tipo-usuario-cabecalho"
+                        class="usuario-cabecalho__tipo"
+                    ></span>
+
+                </div>
+
+
+                <div
+                    id="avatar-usuario"
+                    class="usuario-cabecalho__avatar"
+                >
+                    --
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+         ===================================================== -->
+
+    <main class="conteudo-aplicacao conteudo-historico">
+
+        <!-- =================================================
+             APRESENTAÇÃO
+             ================================================= -->
+
+        <section class="cabecalho-pagina-historico">
+
+            <div>
+
+                <p class="apresentacao-dia__saudacao">
+                    Acompanhamento
+                </p>
+
+                <h1>
+                    Histórico de jornadas
+                </h1>
+
+                <p>
+                    Consulte seus dias trabalhados, horas extras,
+                    saldo acumulado, feriados e aniversários.
+                </p>
+
+            </div>
+
+
+            <span
+                id="indicador-conexao"
+                class="indicador-conexao"
+                role="status"
+                aria-live="polite"
+            >
+                Sistema conectado
+            </span>
+
+
+        </section>
+
+
+        <!-- =================================================
+             CALENDÁRIO INTERATIVO
+             ================================================= -->
+
+        <section class="cartao-aplicacao cartao-calendario-historico">
+
+            <header class="cabecalho-calendario-historico">
+
+                <div>
+
+                    <span class="etiqueta-calendario-historico">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#calendar3"
+                            ></use>
+                        </svg>
+
+                        Calendário interativo
+
+                    </span>
+
+                    <h2 id="titulo-mes-calendario">
+                        Carregando mês...
+                    </h2>
+
+                    <p>
+                        Selecione qualquer data para consultar os
+                        eventos e as informações disponíveis.
+                    </p>
+
+                </div>
+
+
+                <div class="controles-calendario-historico">
+
+                    <button
+                        type="button"
+                        id="botao-mes-anterior"
+                        class="botao-controle-calendario"
+                        aria-label="Exibir mês anterior"
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#chevron-left"
+                            ></use>
+                        </svg>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="botao-voltar-hoje"
+                        class="botao-hoje-calendario"
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#calendar-check"
+                            ></use>
+                        </svg>
+
+                        Hoje
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="botao-proximo-mes"
+                        class="botao-controle-calendario"
+                        aria-label="Exibir próximo mês"
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#chevron-right"
+                            ></use>
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <div class="area-calendario-historico">
+
+                <div class="dias-semana-calendario" aria-hidden="true">
+
+                    <span>Dom</span>
+                    <span>Seg</span>
+                    <span>Ter</span>
+                    <span>Qua</span>
+                    <span>Qui</span>
+                    <span>Sex</span>
+                    <span>Sáb</span>
+
+                </div>
+
+
+                <div
+                    id="grade-dias-calendario"
+                    class="grade-dias-calendario"
+                    aria-live="polite"
+                ></div>
+
+
+                <div
+                    id="carregamento-calendario"
+                    class="carregamento-calendario-historico"
+                    hidden
+                >
+
+                    <span class="carregamento-historico"></span>
+
+                    <p>
+                        Atualizando o calendário...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="legenda-calendario-historico">
+
+                <span class="item-legenda-calendario">
+                    <i class="marcador-legenda jornada"></i>
+                    Jornada
+                </span>
+
+                <span class="item-legenda-calendario">
+                    <i class="marcador-legenda incompleta"></i>
+                    Jornada incompleta
+                </span>
+
+                <span class="item-legenda-calendario">
+                    <i class="marcador-legenda feriado"></i>
+                    Feriado
+                </span>
+
+                <span class="item-legenda-calendario">
+                    <i class="marcador-legenda aniversario"></i>
+                    Aniversário
+                </span>
+
+                <span class="item-legenda-calendario">
+                    <i class="marcador-legenda alteracao"></i>
+                    Horário alterado
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DIA SELECIONADO
+             ================================================= -->
+
+        <section class="cartao-aplicacao cartao-dia-selecionado">
+
+            <header class="cabecalho-dia-selecionado">
+
+                <div>
+
+                    <span class="etiqueta-dia-selecionado">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#calendar2-day"
+                            ></use>
+                        </svg>
+
+                        Dia selecionado
+
+                    </span>
+
+                    <h2 id="titulo-dia-selecionado">
+                        Carregando data...
+                    </h2>
+
+                    <p id="descricao-dia-selecionado">
+                        Buscando informações da data selecionada.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-abrir-detalhes-dia"
+                    class="botao botao-secundario botao-detalhes-dia"
+                    hidden
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#eye"
+                        ></use>
+                    </svg>
+
+                    Ver detalhes
+
+                </button>
+
+            </header>
+
+
+            <div
+                id="carregamento-dia-selecionado"
+                class="estado-dia-selecionado"
+            >
+
+                <span class="carregamento-historico"></span>
+
+                <p>
+                    Consultando a data selecionada...
+                </p>
+
+            </div>
+
+
+            <div
+                id="conteudo-dia-selecionado"
+                class="conteudo-dia-selecionado"
+                hidden
+            ></div>
+
+        </section>
+
+
+        <!-- =================================================
+             FILTROS
+             ================================================= -->
+
+        <section class="cartao-aplicacao cartao-filtros">
+
+            <header class="cabecalho-secao-historico">
+
+                <div>
+
+                    <span class="icone-titulo-secao-historico">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#funnel"
+                            ></use>
+                        </svg>
+
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Período da consulta
+                        </h2>
+
+                        <p>
+                            Escolha um período rápido ou informe as datas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <div class="filtros-rapidos">
+
+                <button
+                    type="button"
+                    class="botao-periodo ativo"
+                    data-periodo="7"
+                >
+                    7 dias
+                </button>
+
+                <button
+                    type="button"
+                    class="botao-periodo"
+                    data-periodo="30"
+                >
+                    30 dias
+                </button>
+
+                <button
+                    type="button"
+                    class="botao-periodo"
+                    data-periodo="MES_ATUAL"
+                >
+                    Mês atual
+                </button>
+
+            </div>
+
+
+            <div class="campos-periodo">
+
+                <div class="campo-periodo">
+
+                    <label for="data-inicio">
+                        Data inicial
+                    </label>
+
+                    <div class="campo-data-com-icone">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#calendar-event"
+                            ></use>
+                        </svg>
+
+                        <input
+                            type="date"
+                            id="data-inicio"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="campo-periodo">
+
+                    <label for="data-fim">
+                        Data final
+                    </label>
+
+                    <div class="campo-data-com-icone">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#calendar-event"
+                            ></use>
+                        </svg>
+
+                        <input
+                            type="date"
+                            id="data-fim"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-consultar"
+                    class="botao botao-principal botao-consultar"
+                >
+
+                    <svg
+                        class="icone-sistema botao__icone"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#search"
+                        ></use>
+                    </svg>
+
+                    <span class="botao__texto">
+                        Consultar
+                    </span>
+
+                    <span
+                        class="botao__carregamento"
+                        aria-hidden="true"
+                    ></span>
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="mensagem-filtro"
+                class="mensagem-formulario"
+                role="alert"
+                aria-live="polite"
+            ></div>
+
+        </section>
+
+
+        <!-- =================================================
+             RESUMO DO PERÍODO
+             ================================================= -->
+
+        <section
+            id="resumo-periodo"
+            class="grade-resumo-historico"
+        >
+
+            <article class="cartao-resumo-historico">
+
+                <span class="cartao-resumo-historico__icone">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar-week"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-historico__nome">
+                        Jornadas
+                    </span>
+
+                    <strong
+                        id="total-jornadas"
+                        class="cartao-resumo-historico__valor"
+                    >
+                        0
+                    </strong>
+
+                    <span class="cartao-resumo-historico__descricao">
+                        dias encontrados
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cartao-resumo-historico">
+
+                <span class="cartao-resumo-historico__icone">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#clock"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-historico__nome">
+                        Trabalhado
+                    </span>
+
+                    <strong
+                        id="total-trabalhado"
+                        class="cartao-resumo-historico__valor"
+                    >
+                        00h00
+                    </strong>
+
+                    <span class="cartao-resumo-historico__descricao">
+                        no período
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cartao-resumo-historico">
+
+                <span class="cartao-resumo-historico__icone positivo">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#graph-up-arrow"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-historico__nome">
+                        Horas extras
+                    </span>
+
+                    <strong
+                        id="total-extras"
+                        class="cartao-resumo-historico__valor"
+                    >
+                        00h00
+                    </strong>
+
+                    <span class="cartao-resumo-historico__descricao">
+                        acumuladas
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="cartao-resumo-historico">
+
+                <span class="cartao-resumo-historico__icone saldo">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#plus-slash-minus"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="cartao-resumo-historico__nome">
+                        Saldo
+                    </span>
+
+                    <strong
+                        id="total-saldo"
+                        class="cartao-resumo-historico__valor"
+                    >
+                        00h00
+                    </strong>
+
+                    <span class="cartao-resumo-historico__descricao">
+                        saldo do período
+                    </span>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+             LISTA DE JORNADAS
+             ================================================= -->
+
+        <section class="cartao-aplicacao secao-lista-jornadas">
+
+            <header class="cabecalho-secao-historico">
+
+                <div>
+
+                    <span class="icone-titulo-secao-historico">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#list-check"
+                            ></use>
+                        </svg>
+
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Jornadas encontradas
+                        </h2>
+
+                        <p id="descricao-periodo-consultado">
+                            Carregando período...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <div
+                id="estado-carregamento"
+                class="estado-lista-historico"
+            >
+
+                <span class="carregamento-historico"></span>
+
+                <p>
+                    Buscando suas jornadas...
+                </p>
+
+            </div>
+
+
+            <div
+                id="estado-vazio"
+                class="estado-lista-historico"
+                hidden
+            >
+
+                <div class="estado-lista-historico__icone">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar2-x"
+                        ></use>
+                    </svg>
+
+                </div>
+
+                <strong>
+                    Nenhuma jornada encontrada
+                </strong>
+
+                <p>
+                    Não existem registros no período selecionado.
+                </p>
+
+            </div>
+
+
+            <div
+                id="lista-jornadas"
+                class="lista-jornadas"
+                hidden
+            ></div>
+
+
+            <div
+                id="area-ver-mais"
+                class="area-ver-mais-jornadas"
+                hidden
+            >
+
+                <button
+                    type="button"
+                    id="botao-ver-mais"
+                    class="botao-ver-mais-jornadas"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            id="icone-botao-ver-mais"
+                            href="../icones/bootstrap-icons.svg#chevron-down"
+                        ></use>
+                    </svg>
+
+                    <span id="texto-botao-ver-mais">
+                        Ver mais
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JANELA DE DETALHES
+         ===================================================== -->
+
+    <div
+        id="fundo-detalhes"
+        class="fundo-detalhes"
+        hidden
+    >
+
+        <section
+            id="painel-detalhes"
+            class="painel-detalhes"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-detalhes"
+        >
+
+            <header class="cabecalho-detalhes">
+
+                <div>
+
+                    <span class="cabecalho-detalhes__etiqueta">
+                        Detalhes da jornada
+                    </span>
+
+                    <h2 id="titulo-detalhes">
+                        Carregando...
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-fechar-detalhes"
+                    class="botao-fechar-detalhes"
+                    aria-label="Fechar detalhes"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#x-lg"
+                        ></use>
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <div
+                id="conteudo-detalhes"
+                class="conteudo-detalhes"
+            >
+
+                <div class="estado-lista-historico">
+
+                    <span class="carregamento-historico"></span>
+
+                    <p>
+                        Carregando detalhes...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         JANELA DE CRIAÇÃO DE JORNADA PASSADA
+         ===================================================== -->
+
+    <div
+        id="fundo-criacao-jornada"
+        class="fundo-detalhes"
+        hidden
+    >
+
+        <section
+            class="painel-criacao-jornada"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-criacao-jornada"
+        >
+
+            <header class="cabecalho-detalhes">
+
+                <div>
+
+                    <span class="cabecalho-detalhes__etiqueta">
+                        Registro retroativo
+                    </span>
+
+                    <h2 id="titulo-criacao-jornada">
+                        Criar jornada esquecida
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-fechar-criacao-jornada"
+                    class="botao-fechar-detalhes"
+                    aria-label="Fechar criação de jornada"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#x-lg"
+                        ></use>
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <form id="formulario-criacao-jornada">
+
+                <div class="conteudo-criacao-jornada">
+
+                    <div class="aviso-edicao-horario">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#info-circle"
+                            ></use>
+                        </svg>
+
+                        <p>
+                            Use esta opção somente quando uma jornada inteira
+                            não tiver sido registrada. A inclusão ficará
+                            disponível para revisão da administração.
+                        </p>
+
+                    </div>
+
+
+                    <div class="data-criacao-jornada">
+
+                        <span>Data selecionada</span>
+
+                        <strong id="data-criacao-jornada">
+                            --/--/----
+                        </strong>
+
+                    </div>
+
+
+                    <fieldset class="grupo-tipo-trabalho-historico">
+
+                        <legend>Trabalho antes do almoço</legend>
+
+                        <div class="opcoes-tipo-trabalho-historico">
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="tipo-trabalho-inicio-historico"
+                                    value="ADMINISTRATIVO"
+                                    checked
+                                >
+                                <span>Atividade administrativa</span>
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="tipo-trabalho-inicio-historico"
+                                    value="OPERACIONAL"
+                                >
+                                <span>Operacional</span>
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <div class="grade-horarios-criacao">
+
+                        <label>
+                            <span>Entrada</span>
+                            <input
+                                type="text"
+                                id="horario-entrada-historico"
+                                class="campo-horario-criacao"
+                                inputmode="numeric"
+                                pattern="[0-9:]*"
+                                maxlength="5"
+                                placeholder="--:--"
+                                autocomplete="off"
+                                required
+                            >
+                        </label>
+
+                        <label>
+                            <span>Início do almoço</span>
+                            <input
+                                type="text"
+                                id="horario-inicio-almoco-historico"
+                                class="campo-horario-criacao"
+                                inputmode="numeric"
+                                pattern="[0-9:]*"
+                                maxlength="5"
+                                placeholder="--:--"
+                                autocomplete="off"
+                                required
+                            >
+                        </label>
+
+                        <label>
+                            <span>Fim do almoço</span>
+                            <input
+                                type="text"
+                                id="horario-fim-almoco-historico"
+                                class="campo-horario-criacao"
+                                inputmode="numeric"
+                                pattern="[0-9:]*"
+                                maxlength="5"
+                                placeholder="--:--"
+                                autocomplete="off"
+                                required
+                            >
+                        </label>
+
+                        <label>
+                            <span>Saída</span>
+                            <input
+                                type="text"
+                                id="horario-saida-historico"
+                                class="campo-horario-criacao"
+                                inputmode="numeric"
+                                pattern="[0-9:]*"
+                                maxlength="5"
+                                placeholder="--:--"
+                                autocomplete="off"
+                                required
+                            >
+                        </label>
+
+                    </div>
+
+
+                    <fieldset class="grupo-tipo-trabalho-historico">
+
+                        <legend>Trabalho depois do almoço</legend>
+
+                        <div class="opcoes-tipo-trabalho-historico">
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="tipo-trabalho-tarde-historico"
+                                    value="ADMINISTRATIVO"
+                                    checked
+                                >
+                                <span>Atividade administrativa</span>
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="tipo-trabalho-tarde-historico"
+                                    value="OPERACIONAL"
+                                >
+                                <span>Operacional</span>
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <label class="campo-atividade-criacao">
+                        <span>Atividade do dia</span>
+                        <input
+                            type="text"
+                            id="atividade-criacao-jornada"
+                            maxlength="500"
+                            placeholder="Ex.: Atendimento externo"
+                            autocomplete="off"
+                        >
+                    </label>
+
+
+                    <div
+                        id="mensagem-criacao-jornada"
+                        class="mensagem-formulario"
+                        role="alert"
+                        aria-live="polite"
+                    ></div>
+
+                </div>
+
+
+                <footer class="rodape-edicao-horario">
+
+                    <button
+                        type="button"
+                        id="botao-cancelar-criacao-jornada"
+                        class="botao botao-secundario"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="botao-salvar-criacao-jornada"
+                        class="botao botao-principal"
+                    >
+
+                        <svg
+                            class="icone-sistema botao__icone"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#check-lg"
+                            ></use>
+                        </svg>
+
+                        <span class="botao__texto">
+                            Criar jornada
+                        </span>
+
+                        <span
+                            class="botao__carregamento"
+                            aria-hidden="true"
+                        ></span>
+
+                    </button>
+
+                </footer>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         JANELA DE ALTERAÇÃO DE HORÁRIO
+         ===================================================== -->
+
+    <div
+        id="fundo-edicao-horario"
+        class="fundo-detalhes"
+        hidden
+    >
+
+        <section
+            class="painel-edicao-horario"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-edicao-horario"
+        >
+
+            <header class="cabecalho-detalhes">
+
+                <div>
+
+                    <span class="cabecalho-detalhes__etiqueta">
+                        Alteração auditada
+                    </span>
+
+                    <h2 id="titulo-edicao-horario">
+                        Alterar horário
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-fechar-edicao-horario"
+                    class="botao-fechar-detalhes"
+                    aria-label="Fechar alteração"
+                >
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#x-lg"
+                        ></use>
+                    </svg>
+
+                </button>
+
+            </header>
+
+
+            <form id="formulario-edicao-horario">
+
+                <div class="conteudo-edicao-horario">
+
+                    <div class="aviso-edicao-horario">
+
+                        <svg
+                            class="icone-sistema"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#info-circle"
+                            ></use>
+                        </svg>
+
+                        <p>
+                            A alteração ficará registrada na auditoria
+                            e aparecerá para os administradores na área
+                            de Alterações.
+                        </p>
+
+                    </div>
+
+
+                    <div class="resumo-registro-edicao">
+
+                        <span id="nome-registro-edicao">
+                            Horário
+                        </span>
+
+                        <strong id="horario-atual-edicao">
+                            --:--
+                        </strong>
+
+                    </div>
+
+
+                    <div class="campo-edicao-horario">
+
+                        <label for="campo-novo-horario">
+                            Novo horário
+                        </label>
+
+                        <input
+                            type="text"
+                            id="campo-novo-horario"
+                            inputmode="numeric"
+                            pattern="[0-9:]*"
+                            maxlength="5"
+                            placeholder="00:00"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div
+                        id="mensagem-edicao-horario"
+                        class="mensagem-formulario"
+                        role="alert"
+                        aria-live="polite"
+                    ></div>
+
+                </div>
+
+
+                <footer class="rodape-edicao-horario">
+
+                    <button
+                        type="button"
+                        id="botao-cancelar-edicao-horario"
+                        class="botao botao-secundario"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="botao-salvar-edicao-horario"
+                        class="botao botao-principal"
+                    >
+
+                        <svg
+                            class="icone-sistema botao__icone"
+                            aria-hidden="true"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#check-lg"
+                            ></use>
+                        </svg>
+
+                        <span class="botao__texto">
+                            Salvar alteração
+                        </span>
+
+                        <span
+                            class="botao__carregamento"
+                            aria-hidden="true"
+                        ></span>
+
+                    </button>
+
+                </footer>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         MENSAGEM FLUTUANTE
+         ===================================================== -->
+
+    <div
+        id="mensagem-flutuante"
+        class="mensagem-flutuante"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- =====================================================
+         MENU INFERIOR
+         ===================================================== -->
+
+    <nav
+        class="navegacao-principal"
+        aria-label="Navegação principal"
+    >
+
+        <div class="navegacao-principal__conteudo">
+
+            <a
+                href="inicio.html"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#house-door-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Hoje
+                </span>
+
+            </a>
+
+
+            <a
+                href="historico.html"
+                class="item-navegacao ativo"
+                aria-current="page"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar3"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Histórico
+                </span>
+
+            </a>
+
+
+            <a
+                href="perfil.html"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#person-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Perfil
+                </span>
+
+            </a>
+
+
+            <a
+                href="administracao.html"
+                id="botao-administracao"
+                class="item-navegacao"
+                hidden
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#gear-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Administração
+                </span>
+
+            </a>
+
+
+            <button
+                type="button"
+                id="botao-sair"
+                class="item-navegacao"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#box-arrow-right"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Sair
+                </span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <script src="../js/configuracao.js"></script>
+    <script src="../js/autenticacao.js?v=20260801-2"></script>
+    <script src="../js/demo-api.js"></script>
+        <script src="../js/api.js"></script>
+    <script src="../js/notificacoes-comum.js?v=20260801-3"></script>
+    <script src="../js/horario-jornada.js"></script>
+    <script src="../js/historico.js"></script>
+
+</body>
+
+</html>

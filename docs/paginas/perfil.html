@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#6b4423">
+
+    <title>Gestor de Jornadas - Perfil</title>
+
+    <link rel="icon" type="image/png" href="../imagens/logo-gestor-jornadas.svg">
+
+    <link rel="stylesheet" href="../css/estilo.css">
+
+    <link rel="stylesheet" href="../css/componentes.css">
+
+    <link rel="stylesheet" href="../css/responsivo.css">
+
+    <!-- Reutiliza cabeçalho e menu inferior -->
+
+    <link rel="stylesheet" href="../css/tela-hoje.css?v=20260801-3">
+
+    <link rel="stylesheet" href="../css/perfil.css">
+
+    <link rel="stylesheet" href="../css/navegacao.css?v=20260801-2">
+
+    <meta
+        name="description"
+        content="Controle de jornadas e administração da Empresa Demonstração."
+    >
+    <meta name="application-name" content="Gestor de Jornadas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Jornadas">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <link
+        rel="apple-touch-icon"
+        href="../imagens/pwa/icone-192.png"
+    >
+
+    <script src="../js/pwa.js" defer></script>
+
+</head>
+
+<body class="pagina-aplicacao pagina-perfil">
+
+    <!-- =====================================================
+             CABEÇALHO
+             ===================================================== -->
+
+    <header class="cabecalho-aplicacao">
+
+        <div class="cabecalho-aplicacao__conteudo">
+
+            <div class="marca-aplicacao">
+
+                <div class="marca-aplicacao__icone marca-aplicacao__icone--logo">
+
+                    <img src="../imagens/logo-gestor-jornadas.svg" alt="Logo da Empresa Demonstração"
+                        class="marca-aplicacao__logo">
+
+                </div>
+
+                <div>
+
+                    <span class="marca-aplicacao__nome">
+                        Gestor de Jornadas
+                    </span>
+
+                    <span class="marca-aplicacao__descricao">
+                        Empresa Demonstração
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="usuario-cabecalho">
+
+                <div class="usuario-cabecalho__informacoes">
+
+                    <span id="nome-usuario-cabecalho" class="usuario-cabecalho__nome">
+                        Carregando...
+                    </span>
+
+                    <span id="tipo-usuario-cabecalho" class="usuario-cabecalho__tipo"></span>
+
+                </div>
+
+                <div id="avatar-usuario-cabecalho" class="usuario-cabecalho__avatar">
+                    --
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+             CONTEÚDO PRINCIPAL
+             ===================================================== -->
+
+    <main class="conteudo-aplicacao conteudo-perfil">
+
+        <!-- Título da página -->
+
+        <section class="cabecalho-pagina-perfil">
+
+            <div>
+
+                <p class="apresentacao-dia__saudacao">
+                    Minha conta
+                </p>
+
+                <h1>
+                    Perfil
+                </h1>
+
+                <p>
+                    Consulte seus dados e mantenha sua conta segura.
+                </p>
+
+            </div>
+
+            <span id="indicador-conexao" class="indicador-conexao">
+                Sistema conectado
+            </span>
+
+        </section>
+
+
+        <!-- Estado de carregamento inicial -->
+
+        <section
+            id="estado-carregamento-perfil"
+            class="cartao-aplicacao estado-carregamento-perfil"
+            role="status"
+            aria-live="polite"
+        >
+
+            <span
+                class="carregamento-perfil"
+                aria-hidden="true"
+            ></span>
+
+            <p>
+                Carregando seus dados...
+            </p>
+
+        </section>
+
+
+        <!-- Conteúdo do perfil -->
+
+        <div id="conteudo-perfil" class="grade-perfil" hidden>
+
+            <!-- =============================================
+                     DADOS DA CONTA
+                     ============================================= -->
+
+            <section class="cartao-aplicacao cartao-identidade-perfil">
+
+                <div class="identidade-perfil">
+
+                    <div id="avatar-perfil" class="avatar-perfil">
+                        --
+                    </div>
+
+                    <div class="identidade-perfil__textos">
+
+                        <span class="identidade-perfil__etiqueta">
+                            Usuário do sistema
+                        </span>
+
+                        <h2 id="nome-completo-perfil">
+                            Carregando...
+                        </h2>
+
+                        <div class="identidade-perfil__etiquetas">
+
+                            <span id="tipo-conta-perfil" class="etiqueta-perfil">
+                                Conta
+                            </span>
+
+                            <span id="situacao-conta-perfil" class="etiqueta-perfil etiqueta-perfil--ativa">
+                                Ativa
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="divisor-perfil"></div>
+
+
+                <header class="cabecalho-secao-perfil">
+
+                    <div>
+
+                        <h3>
+                            Dados pessoais
+                        </h3>
+
+                        <p>
+                            Informações cadastradas na sua conta.
+                        </p>
+
+                    </div>
+
+                </header>
+
+
+                <div class="grade-dados-perfil">
+
+                    <!-- CPF -->
+
+                    <div class="dado-perfil">
+
+                        <span class="dado-perfil__icone">
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#person-vcard-fill"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <div class="dado-perfil__conteudo">
+
+                            <span class="dado-perfil__nome">
+                                CPF
+                            </span>
+
+                            <strong id="cpf-perfil">
+                                ---
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Telefone -->
+
+                    <div class="dado-perfil">
+
+                        <span class="dado-perfil__icone">
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#telephone-fill"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <div class="dado-perfil__conteudo">
+
+                            <span class="dado-perfil__nome">
+                                Telefone
+                            </span>
+
+                            <strong id="telefone-perfil">
+                                Não informado
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Data de nascimento -->
+
+                    <div class="dado-perfil">
+
+                        <span class="dado-perfil__icone">
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#cake2-fill"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <div class="dado-perfil__conteudo">
+
+                            <span class="dado-perfil__nome">
+                                Data de nascimento
+                            </span>
+
+                            <strong id="nascimento-perfil">
+                                Não informada
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Cadastro -->
+
+                    <div class="dado-perfil">
+
+                        <span class="dado-perfil__icone">
+
+                            <svg
+                                class="icone-sistema"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <use
+                                    href="../icones/bootstrap-icons.svg#calendar-check-fill"
+                                ></use>
+                            </svg>
+
+                        </span>
+
+                        <div class="dado-perfil__conteudo">
+
+                            <span class="dado-perfil__nome">
+                                Conta criada em
+                            </span>
+
+                            <strong id="cadastro-perfil">
+                                ---
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="aviso-dados-perfil">
+
+                    <svg
+                        class="icone-sistema"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#info-circle-fill"
+                        ></use>
+                    </svg>
+
+                    <p>
+                        O CPF não pode ser alterado pelo funcionário.
+                        Correções devem ser solicitadas ao administrador.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                     SEGURANÇA DA CONTA
+                     ============================================= -->
+
+            <section class="cartao-aplicacao cartao-seguranca-perfil">
+
+                <header class="cabecalho-secao-perfil">
+
+                    <div>
+
+                        <h2>
+                            Segurança
+                        </h2>
+
+                        <p>
+                            Altere sua senha quando necessário.
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="icone-seguranca"
+                        aria-hidden="true"
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            focusable="false"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#shield-lock-fill"
+                            ></use>
+                        </svg>
+
+                    </div>
+
+                </header>
+
+
+                <!-- Aviso de senha provisória -->
+
+                <div
+                    id="aviso-senha-provisoria"
+                    class="aviso-senha-provisoria"
+                    hidden
+                >
+
+                    <span
+                        class="aviso-senha-provisoria__icone"
+                        aria-hidden="true"
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            focusable="false"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#exclamation-triangle-fill"
+                            ></use>
+                        </svg>
+
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Sua senha atual é provisória
+                        </strong>
+
+                        <p>
+                            As outras áreas estão bloqueadas. Crie uma
+                            senha pessoal para liberar o sistema.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Formulário de troca de senha -->
+
+                <form id="formulario-troca-senha" class="formulario-troca-senha" novalidate>
+
+                    <!-- Senha atual -->
+
+                    <div class="campo-perfil">
+
+                        <label for="senha-atual">
+                            Senha atual
+                        </label>
+
+                        <div class="campo-senha-perfil">
+
+                            <input type="password" id="senha-atual" name="senha_atual"
+                                placeholder="Digite sua senha atual" autocomplete="current-password" minlength="6"
+                                maxlength="100" required>
+
+                            <button
+                                type="button"
+                                class="botao-visualizar-senha"
+                                data-alternar-senha="senha-atual"
+                                aria-label="Mostrar senha atual"
+                                aria-pressed="false"
+                            >
+
+                                <svg
+                                    class="icone-sistema"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                >
+                                    <use
+                                        data-icone-senha
+                                        href="../icones/bootstrap-icons.svg#eye-fill"
+                                    ></use>
+                                </svg>
+
+                                <span data-texto-visualizar-senha>
+                                    Mostrar
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Nova senha -->
+
+                    <div class="campo-perfil">
+
+                        <label for="nova-senha">
+                            Nova senha
+                        </label>
+
+                        <div class="campo-senha-perfil">
+
+                            <input type="password" id="nova-senha" name="nova_senha" placeholder="Crie uma nova senha"
+                                autocomplete="new-password" minlength="12" maxlength="128" required>
+
+                            <button
+                                type="button"
+                                class="botao-visualizar-senha"
+                                data-alternar-senha="nova-senha"
+                                aria-label="Mostrar nova senha"
+                                aria-pressed="false"
+                            >
+
+                                <svg
+                                    class="icone-sistema"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                >
+                                    <use
+                                        data-icone-senha
+                                        href="../icones/bootstrap-icons.svg#eye-fill"
+                                    ></use>
+                                </svg>
+
+                                <span data-texto-visualizar-senha>
+                                    Mostrar
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <span class="texto-ajuda-perfil">
+                            A nova senha deve possuir pelo menos
+                            12 caracteres.
+                        </span>
+
+                    </div>
+
+
+                    <!-- Confirmação -->
+
+                    <div class="campo-perfil">
+
+                        <label for="confirmacao-nova-senha">
+                            Confirmar nova senha
+                        </label>
+
+                        <div class="campo-senha-perfil">
+
+                            <input type="password" id="confirmacao-nova-senha" name="confirmacao_nova_senha"
+                                placeholder="Repita a nova senha" autocomplete="new-password" minlength="12"
+                                maxlength="128" required>
+
+                            <button
+                                type="button"
+                                class="botao-visualizar-senha"
+                                data-alternar-senha="confirmacao-nova-senha"
+                                aria-label="Mostrar confirmação da senha"
+                                aria-pressed="false"
+                            >
+
+                                <svg
+                                    class="icone-sistema"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                >
+                                    <use
+                                        data-icone-senha
+                                        href="../icones/bootstrap-icons.svg#eye-fill"
+                                    ></use>
+                                </svg>
+
+                                <span data-texto-visualizar-senha>
+                                    Mostrar
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Mensagem do formulário -->
+
+                    <div id="mensagem-troca-senha" class="mensagem-formulario" role="alert" aria-live="polite"></div>
+
+
+                    <!-- Botão de salvar -->
+
+                    <button type="submit" id="botao-alterar-senha" class="botao botao-principal botao-alterar-senha">
+
+                        <svg
+                            class="icone-sistema icone-sistema--botao"
+                            aria-hidden="true"
+                            focusable="false"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#key-fill"
+                            ></use>
+                        </svg>
+
+                        <span class="botao__texto">
+                            Alterar senha
+                        </span>
+
+                        <span class="botao__carregamento" aria-hidden="true"></span>
+
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- =============================================
+                     SESSÃO
+                     ============================================= -->
+
+            <section class="cartao-aplicacao cartao-dispositivos-perfil">
+
+                <header class="cabecalho-dispositivos-perfil">
+
+                    <div>
+
+                        <span class="cartao-sessao-perfil__etiqueta">
+                            Segurança da conta
+                        </span>
+
+                        <h2>
+                            Aparelhos conectados
+                        </h2>
+
+                        <p>
+                            Confira os acessos ativos e encerre qualquer
+                            sessão que você não reconheça.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="botao-encerrar-outras-sessoes"
+                        class="botao-encerrar-outras-sessoes"
+                        hidden
+                    >
+
+                        Encerrar outros acessos
+
+                    </button>
+
+                </header>
+
+                <div
+                    id="lista-sessoes-ativas"
+                    class="lista-sessoes-ativas"
+                    aria-live="polite"
+                >
+
+                    <p class="estado-sessoes-perfil">
+                        Consultando aparelhos conectados...
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section class="cartao-aplicacao cartao-sessao-perfil">
+
+                <div class="cartao-sessao-perfil__conteudo">
+
+                    <span
+                        class="cartao-sessao-perfil__icone"
+                        aria-hidden="true"
+                    >
+
+                        <svg
+                            class="icone-sistema"
+                            focusable="false"
+                        >
+                            <use
+                                href="../icones/bootstrap-icons.svg#box-arrow-right"
+                            ></use>
+                        </svg>
+
+                    </span>
+
+                    <div>
+
+                        <span class="cartao-sessao-perfil__etiqueta">
+                            Sessão atual
+                        </span>
+
+                        <h2>
+                            Sair da conta
+                        </h2>
+
+                        <p>
+                            Use esta opção ao compartilhar o aparelho
+                            ou quando não for mais utilizar o sistema.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <button type="button" class="botao-sair-perfil" data-acao-sair>
+
+                    <svg
+                        class="icone-sistema icone-sistema--botao"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#box-arrow-right"
+                        ></use>
+                    </svg>
+
+                    <span>
+                        Sair da conta
+                    </span>
+
+                </button>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+             MENSAGEM FLUTUANTE
+             ===================================================== -->
+
+    <div id="mensagem-flutuante" class="mensagem-flutuante" role="status" aria-live="polite"></div>
+
+
+    <!-- =====================================================
+             MENU INFERIOR
+             ===================================================== -->
+
+    <nav
+        class="navegacao-principal"
+        aria-label="Navegação principal"
+    >
+
+        <div class="navegacao-principal__conteudo">
+
+            <!-- Hoje -->
+
+            <a href="inicio.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#house-door-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Hoje
+                </span>
+
+            </a>
+
+
+            <!-- Histórico -->
+
+            <a href="historico.html" class="item-navegacao">
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#calendar3"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Histórico
+                </span>
+
+            </a>
+
+
+            <!-- Perfil -->
+
+            <a
+                href="perfil.html"
+                class="item-navegacao ativo"
+                aria-current="page"
+            >
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#person-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Perfil
+                </span>
+
+            </a>
+
+
+            <!-- Administração -->
+
+            <a href="administracao.html" id="botao-administracao" class="item-navegacao" hidden>
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#gear-fill"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Administração
+                </span>
+
+            </a>
+
+
+            <!-- Sair -->
+
+            <button type="button" class="item-navegacao" data-acao-sair>
+
+                <span class="item-navegacao__icone">
+
+                    <svg
+                        class="icone-sistema icone-sistema--menu"
+                        aria-hidden="true"
+                        focusable="false"
+                    >
+                        <use
+                            href="../icones/bootstrap-icons.svg#box-arrow-right"
+                        ></use>
+                    </svg>
+
+                </span>
+
+                <span class="item-navegacao__texto">
+                    Sair
+                </span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+             JAVASCRIPT
+             ===================================================== -->
+
+    <script src="../js/configuracao.js"></script>
+
+    <script src="../js/autenticacao.js?v=20260801-2"></script>
+
+    <script src="../js/demo-api.js"></script>
+        <script src="../js/api.js"></script>
+
+    <script src="../js/notificacoes-comum.js?v=20260801-3"></script>
+
+    <script src="../js/perfil.js"></script>
+
+</body>
+
+</html>
